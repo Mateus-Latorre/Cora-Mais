@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV\\",
   "Documents": [
     {
@@ -7,6 +8,10 @@
       "RelativeMoniker": "D:0:0:{F94E9811-6E39-EAA7-9312-450914100139}|AQV\\AQV.csproj|solutionrelative:aqv\\models\\aqv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
+=======
+  "WorkspaceRootPath": "C:\\Users\\50055487858\\Desktop\\Cora-Mais\\AQV\\",
+  "Documents": [],
+>>>>>>> e947c473d66aedbfda305f17d12b472fe32bdd65
   "DocumentGroupContainers": [
     {
       "Orientation": 0,

@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "0PQUz8b7r58=",
   "success": true,
   "projectFilePath": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV\\AQV\\AQV.csproj",
@@ -62,5 +63,11 @@
     "C:\\Users\\43180121823\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.21\\system.security.cryptography.pkcs.9.0.21.nupkg.sha512",
     "C:\\Users\\43180121823\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.11\\system.security.cryptography.protecteddata.9.0.11.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "lG67MoU9klU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\50055487858\\Desktop\\Cora-Mais\\AQV\\AQV\\AQV.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> e947c473d66aedbfda305f17d12b472fe32bdd65
   "logs": []
 }
