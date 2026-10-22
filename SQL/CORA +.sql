@@ -89,3 +89,30 @@ ADD Prioridade VARCHAR(20) NOT NULL;
 ALTER TABLE Ocorrencia
 ADD CONSTRAINT CK_Ocorrencia_Prioridade
 CHECK (Prioridade IN ('Urgente', 'Importante', 'Rotina'));
+
+CREATE TABLE Encaminhamento (
+    IdEncaminhamento UNIQUEIDENTIFIER PRIMARY KEY DEFAULT (NEWID()),
+    IdOcorrencia UNIQUEIDENTIFIER NOT NULL
+        CONSTRAINT FK_Encaminhamento_Ocorrencia REFERENCES Ocorrencia(IdOcorrencia),
+    -- um dos dois é preenchido: responsável do aluno OU coordenador
+    IdResponsavel UNIQUEIDENTIFIER NULL
+        CONSTRAINT FK_Encaminhamento_Responsavel REFERENCES Responsavel(IdResponsavel),
+    IdUsuarioCoordenador UNIQUEIDENTIFIER NULL
+        CONSTRAINT FK_Encaminhamento_Coordenador REFERENCES Usuario(IdUsuario),
+    IdUsuarioAQV UNIQUEIDENTIFIER NOT NULL
+        CONSTRAINT FK_Encaminhamento_AQV REFERENCES Usuario(IdUsuario),
+    DataEnvio DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+    DataDevolutiva DATETIME NULL,
+    Observacao VARCHAR(300) NULL,
+
+    CONSTRAINT CK_Encaminhamento_Destino
+        CHECK ((IdResponsavel IS NOT NULL AND IdUsuarioCoordenador IS NULL)
+            OR (IdResponsavel IS NULL AND IdUsuarioCoordenador IS NOT NULL))
+);
+
+
+ALTER TABLE Ocorrencia
+ADD IdResponsavelAtual UNIQUEIDENTIFIER NULL
+    CONSTRAINT FK_Ocorrencia_ResponsavelAtual REFERENCES Responsavel(IdResponsavel),
+    IdCoordenadorAtual UNIQUEIDENTIFIER NULL
+    CONSTRAINT FK_Ocorrencia_CoordenadorAtual REFERENCES Usuario(IdUsuario);
