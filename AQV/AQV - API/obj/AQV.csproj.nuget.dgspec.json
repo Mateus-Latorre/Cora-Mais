@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\50055487858\\source\\repos\\AQV\\AQV\\AQV.csproj": {}
+    "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV\\AQV\\AQV.csproj": {}
   },
   "projects": {
-    "C:\\Users\\50055487858\\source\\repos\\AQV\\AQV\\AQV.csproj": {
+    "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV\\AQV\\AQV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\50055487858\\source\\repos\\AQV\\AQV\\AQV.csproj",
+        "projectUniqueName": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV\\AQV\\AQV.csproj",
         "projectName": "AQV",
-        "projectPath": "C:\\Users\\50055487858\\source\\repos\\AQV\\AQV\\AQV.csproj",
-        "packagesPath": "C:\\Users\\50055487858\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\50055487858\\source\\repos\\AQV\\AQV\\obj\\",
+        "projectPath": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV\\AQV\\AQV.csproj",
+        "packagesPath": "C:\\Users\\43180121823\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV\\AQV\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\50055487858\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\43180121823\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -51,6 +51,38 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[10.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[10.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.13, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.3.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.23.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
