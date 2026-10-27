@@ -3779,11 +3779,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\43180121823\\source\\repos\\AQV-API\\AQV-API\\AQV-API.csproj",
+      "projectUniqueName": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\AQV-API.csproj",
       "projectName": "AQV-API",
-      "projectPath": "C:\\Users\\43180121823\\source\\repos\\AQV-API\\AQV-API\\AQV-API.csproj",
+      "projectPath": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\AQV-API.csproj",
       "packagesPath": "C:\\Users\\43180121823\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\43180121823\\source\\repos\\AQV-API\\AQV-API\\obj\\",
+      "outputPath": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

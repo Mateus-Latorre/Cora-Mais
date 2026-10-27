@@ -25,6 +25,8 @@ public partial class Ocorrencia
 
     public Guid? IdCoordenadorAtual { get; set; }
 
+    public string? Anexo { get; set; }
+
     public virtual ICollection<Encaminhamento> Encaminhamentos { get; set; } = new List<Encaminhamento>();
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();

@@ -5,7 +5,10 @@ namespace AQV_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+    public class TurmaController : ControllerBase
     {
+        public TurmaController()
+        {
+        }
     }
 }

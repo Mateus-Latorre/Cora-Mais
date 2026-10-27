@@ -87,6 +87,9 @@ ALTER TABLE Ocorrencia
 ADD Prioridade VARCHAR(20) NOT NULL;
 
 ALTER TABLE Ocorrencia
+ADD Anexo VARCHAR(200) NULL;
+
+ALTER TABLE Ocorrencia
 ADD CONSTRAINT CK_Ocorrencia_Prioridade
 CHECK (Prioridade IN ('Urgente', 'Importante', 'Rotina'));
 

@@ -23,7 +23,7 @@ public partial class Usuario
 
     public virtual TipoUsuario? IdTipoUsuarioNavigation { get; set; }
 
-    public virtual ICollection<Ocorrencia> OcorrenciaIdCoordenadorAtualNavigations { get; set; } = new List<Ocorrencia>();
+    public virtual ICollection<Ocorrencia> OcorrenciumIdCoordenadorAtualNavigations { get; set; } = new List<Ocorrencia>();
 
-    public virtual ICollection<Ocorrencia> OcorrenciaIdUsuarioNavigations { get; set; } = new List<Ocorrencia>();
+    public virtual ICollection<Ocorrencia> OcorrenciumIdUsuarioNavigations { get; set; } = new List<Ocorrencia>();
 }

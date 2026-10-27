@@ -135,6 +135,9 @@ public partial class AqvContext : DbContext
             entity.HasKey(e => e.IdOcorrencia).HasName("PK__Ocorrenc__831D9239C88761DC");
 
             entity.Property(e => e.IdOcorrencia).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.Anexo)
+                .HasMaxLength(200)
+                .IsUnicode(false);
             entity.Property(e => e.DataAbertura)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
@@ -155,7 +158,7 @@ public partial class AqvContext : DbContext
                 .HasForeignKey(d => d.IdAluno)
                 .HasConstraintName("FK__Ocorrenci__IdAlu__7A672E12");
 
-            entity.HasOne(d => d.IdCoordenadorAtualNavigation).WithMany(p => p.OcorrenciaIdCoordenadorAtualNavigations)
+            entity.HasOne(d => d.IdCoordenadorAtualNavigation).WithMany(p => p.OcorrenciumIdCoordenadorAtualNavigations)
                 .HasForeignKey(d => d.IdCoordenadorAtual)
                 .HasConstraintName("FK_Ocorrencia_CoordenadorAtual");
 
@@ -167,7 +170,7 @@ public partial class AqvContext : DbContext
                 .HasForeignKey(d => d.IdResponsavelAtual)
                 .HasConstraintName("FK_Ocorrencia_ResponsavelAtual");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.OcorrenciaIdUsuarioNavigations)
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.OcorrenciumIdUsuarioNavigations)
                 .HasForeignKey(d => d.IdUsuario)
                 .HasConstraintName("FK__Ocorrenci__IdUsu__7C4F7684");
         });

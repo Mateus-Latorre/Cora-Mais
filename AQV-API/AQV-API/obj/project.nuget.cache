@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VL/Q7WQY0/0=",
+  "dgSpecHash": "LNtdXboYdZk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\43180121823\\source\\repos\\AQV-API\\AQV-API\\AQV-API.csproj",
+  "projectFilePath": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\AQV-API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\43180121823\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\43180121823\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
