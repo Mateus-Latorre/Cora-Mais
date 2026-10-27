@@ -1,17 +1,18 @@
-:root {
-  --listagem_background: #E7F1F9;
-  --listagem_text_color: #000000;
-  --cadastro_background: #001044;
-  --cadastro_text_color: #ffffff
-}
-
-[data-theme="dark"] {
-  --listagem_background: #001044;
-  --listagem_text_color: #ffffff;
-  --cadastro_background: #0B1724;
-  --cadastro_text_color: #000000
-}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Dancing+Script:wght@400..700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap');
 
 * {
   transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --azul-claro: #ADD5FF;
+  --azul: #002962;
+  --azul-escuro: #00043A;
+  --cinza: #909090;
+  --laranja: #FFAC78;
+  --branco: #FFFFFF;
 }

@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    background: #01072D;
+    background: linear-gradient(160deg, #112D58, #07163E, #01072d 100%);
+    width: 100vw;
+    height: 100vh;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
