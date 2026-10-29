@@ -1,9 +1,14 @@
 {
   "openapi": "3.0.4",
   "info": {
+<<<<<<< HEAD
     "title": "API AQV-OS",
     "description": "API para gestão de tratativas e ocorrências de alunos",
     "version": "v1"
+=======
+    "title": "AQV-API",
+    "version": "1.0"
+>>>>>>> 6380e37a3033877ec2880eead281a858a0487f47
   },
   "paths": {
     "/api/Aluno": {
@@ -1267,11 +1272,33 @@
     "schemas": {
       "AlunoCadastroDTO": {
         "required": [
+<<<<<<< HEAD
           "cpf",
           "email",
           "idTurma",
           "nome",
           "numero"
+=======
+          "titulo"
+        ],
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioCadastroDTO": {
+        "required": [
+          "email",
+          "idTipoUsuario",
+          "nome",
+          "numero",
+          "senha"
+>>>>>>> 6380e37a3033877ec2880eead281a858a0487f47
         ],
         "type": "object",
         "properties": {
@@ -1285,11 +1312,14 @@
             "minLength": 0,
             "type": "string",
             "format": "email"
+<<<<<<< HEAD
           },
           "cpf": {
             "maxLength": 11,
             "minLength": 11,
             "type": "string"
+=======
+>>>>>>> 6380e37a3033877ec2880eead281a858a0487f47
           },
           "numero": {
             "maxLength": 11,
@@ -1521,6 +1551,7 @@
           }
         },
         "additionalProperties": false
+<<<<<<< HEAD
       },
       "UsuarioLoginDTO": {
         "required": [
@@ -1548,6 +1579,8 @@
         "description": "Insira o token JWT:",
         "scheme": "Bearer",
         "bearerFormat": "JWT"
+=======
+>>>>>>> 6380e37a3033877ec2880eead281a858a0487f47
       }
     }
   },

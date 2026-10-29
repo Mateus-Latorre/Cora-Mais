@@ -20,6 +20,7 @@ namespace AQV_API.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Cadastrar([FromBody] TipoUsuarioCadastroDTO dto)
         {
             try
