@@ -1,0 +1,308 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url("/Loginf.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* LAYOUT PRINCIPAL */
+
+.cadastro-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* TEXTO DA ESQUERDA */
+
+.cadastro-presentation {
+    flex: 1;
+    text-align: left;
+    color: white;
+}
+
+.app-tag {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 25px;
+
+    font-size: 12px;
+    color: #dce8ff;
+
+    border: 1px solid #ADD5FF;
+    border-radius: 20px;
+}
+
+.cadastro-presentation h1 {
+    font-size: 45px;
+    line-height: 1.2;
+    font-weight: 700;
+    margin: 10px 0 15px;
+    width: 500px;
+}
+
+.cadastro-presentation h1 span {
+    color: #f3a06f;
+}
+
+.cadastro-presentation p {
+    font-size: 20px;
+    color: #c2cfe6;
+}
+
+/* CARTÃO DO FORMULÁRIO */
+
+.cadastro-container {
+    flex: 0 0 400px;
+    width: 400px;
+    max-width: 100%;
+    margin: 0;
+    padding: 50px 35px;
+
+    border: 1px solid rgba(173, 213, 255, 0.6);
+    border-radius: 25px;
+
+    background-color: rgba(87, 86, 136, 0.25);
+    box-shadow: none;
+    backdrop-filter: blur(50px);
+}
+
+/* TÍTULO E DESCRIÇÃO */
+
+.cadastro-container .form-title {
+    color: white;
+    text-align: left;
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.cadastro-container > p:not(.signup-text) {
+    color: white;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* FORMULÁRIO */
+
+.cadastro-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* CAMPOS COM ÍCONES */
+
+.cadastro-form .input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.cadastro-form .input-container input {
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 0 38px 0 12px;
+
+    font-size: 12px;
+    color: white;
+
+    border: 1px solid #657a9b;
+    border-radius: 8px;
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.06);
+    transition: border-color 0.2s ease;
+}
+
+.cadastro-form .input-container input::placeholder {
+    color: #c4cede;
+}
+
+.cadastro-form .input-container input:focus {
+    border-color: #e5a17e;
+}
+
+/* POSIÇÃO DOS ÍCONES */
+
+.cadastro-form .input-container .icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* TIPO DA CONTA */
+
+.cadastro-form .input-wrapper {
+    margin-bottom: 10px;
+}
+
+.cadastro-form .input-wrapper select {
+    width: 100%;
+    height: 45px;
+    padding: 0 40px 0 12px;
+
+    font-size: 12px;
+    color: white;
+
+    border: 1px solid #526b94;
+    border-radius: 8px;
+    outline: none;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-color: rgba(255, 255, 255, 0.06);
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+.cadastro-form .input-wrapper select option {
+    color: white;
+    background-color: #002962;
+}
+
+/* TERMOS DE USO */
+
+.terms-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-top: 9px;
+    margin-bottom: 15px;
+
+    font-size: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.terms-label input {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    accent-color: #d99778;
+}
+
+/* BOTÃO CADASTRO */
+
+.cadastro-container .cadastro-button {
+    width: 100%;
+    padding: 13px;
+
+    color: #071333;
+    background: #d99778;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.cadastro-container .cadastro-button:hover {
+    background: #efad8c;
+}
+
+/* LINK PARA LOGIN */
+
+.cadastro-container .signup-text {
+    margin-top: 1.2rem;
+    margin-bottom: 0;
+
+    text-align: center;
+    font-size: 0.9rem;
+    color: #dce5f5;
+}
+
+.cadastro-container .signup-text a {
+    color: #f3a06f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cadastro-container .signup-text a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 760px) {
+    .cadastro-layout {
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 35px;
+        padding: 35px 24px;
+    }
+
+    .cadastro-presentation h1 {
+        width: 100%;
+        font-size: 28px;
+    }
+
+    .cadastro-presentation p {
+        font-size: 16px;
+    }
+
+    .cadastro-container {
+        flex: auto;
+        width: 100%;
+        padding: 30px 24px;
+    }
+}
+
+@media (max-width: 400px) {
+    .cadastro-layout {
+        padding: 25px 16px;
+    }
+
+    .cadastro-container {
+        padding: 25px 18px;
+    }
+
+    .cadastro-presentation h1 {
+        font-size: 25px;
+    }
+}
