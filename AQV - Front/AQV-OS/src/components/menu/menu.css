@@ -23,6 +23,7 @@
 
 .Texto-menu {
     font-size: 20px;
+    color: var(--branco);
     margin-left: 10px;
     text-align: center;
 }
