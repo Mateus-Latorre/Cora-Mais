@@ -22,13 +22,13 @@ namespace AQV_API.Repositories
             {
                 x.IdOstatus = "ABERTA";
             }
-            _context.Ocorrencia.Add(x);
+            _context.Ocorrencias.Add(x);
             _context.SaveChanges();
         }
 
         public List<Ocorrencia> Listar()
         {
-            return _context.Ocorrencia
+            return _context.Ocorrencias
                 .Include(o => o.IdAlunoNavigation)!.ThenInclude(a => a!.IdTurmaNavigation)
                 .Include(o => o.IdOstatusNavigation)
                 .Include(o => o.IdUsuarioNavigation)
@@ -38,7 +38,7 @@ namespace AQV_API.Repositories
 
         public Ocorrencia BuscarPorId(Guid id)
         {
-            return _context.Ocorrencia
+            return _context.Ocorrencias
                 .Include(o => o.IdAlunoNavigation)!.ThenInclude(a => a!.IdTurmaNavigation)
                 .Include(o => o.IdOstatusNavigation)
                 .Include(o => o.IdUsuarioNavigation)
@@ -47,7 +47,7 @@ namespace AQV_API.Repositories
 
         public List<Ocorrencia> ListarPorAluno(Guid idAluno)
         {
-            return _context.Ocorrencia
+            return _context.Ocorrencias
                 .Include(o => o.IdOstatusNavigation)
                 .Include(o => o.IdUsuarioNavigation)
                 .Where(o => o.IdAluno == idAluno)
@@ -57,7 +57,7 @@ namespace AQV_API.Repositories
 
         public List<Ocorrencia> ListarPorStatus(string idOstatus)
         {
-            return _context.Ocorrencia
+            return _context.Ocorrencias
                 .Include(o => o.IdAlunoNavigation)!.ThenInclude(a => a!.IdTurmaNavigation)
                 .Include(o => o.IdOstatusNavigation)
                 .Include(o => o.IdUsuarioNavigation)
@@ -68,7 +68,7 @@ namespace AQV_API.Repositories
 
         public List<Ocorrencia> ListarPorPrioridade(string prioridade)
         {
-            return _context.Ocorrencia
+            return _context.Ocorrencias
                 .Include(o => o.IdAlunoNavigation)!.ThenInclude(a => a!.IdTurmaNavigation)
                 .Include(o => o.IdOstatusNavigation)
                 .Include(o => o.IdUsuarioNavigation)
@@ -79,7 +79,7 @@ namespace AQV_API.Repositories
 
         public List<Ocorrencia> ListarPorUsuario(Guid idUsuario)
         {
-            return _context.Ocorrencia
+            return _context.Ocorrencias
                 .Include(o => o.IdAlunoNavigation)!.ThenInclude(a => a!.IdTurmaNavigation)
                 .Include(o => o.IdOstatusNavigation)
                 .Where(o => o.IdUsuario == idUsuario)
@@ -90,7 +90,7 @@ namespace AQV_API.Repositories
         /// <summary>Ocorrências que estão agora com o responsável informado.</summary>
         public List<Ocorrencia> ListarPorResponsavelAtual(Guid idResponsavel)
         {
-            return _context.Ocorrencia
+            return _context.Ocorrencias
                 .Include(o => o.IdAlunoNavigation)!.ThenInclude(a => a!.IdTurmaNavigation)
                 .Include(o => o.IdOstatusNavigation)
                 .Include(o => o.IdUsuarioNavigation)
@@ -105,7 +105,7 @@ namespace AQV_API.Repositories
         /// <summary>Ocorrências que estão agora com o coordenador informado.</summary>
         public List<Ocorrencia> ListarPorCoordenadorAtual(Guid idUsuario)
         {
-            return _context.Ocorrencia
+            return _context.Ocorrencias
                 .Include(o => o.IdAlunoNavigation)!.ThenInclude(a => a!.IdTurmaNavigation)
                 .Include(o => o.IdOstatusNavigation)
                 .Include(o => o.IdUsuarioNavigation)
@@ -119,17 +119,17 @@ namespace AQV_API.Repositories
 
         public int ContarPorStatus(string idOstatus)
         {
-            return _context.Ocorrencia.Count(o => o.IdOstatus == idOstatus);
+            return _context.Ocorrencias.Count(o => o.IdOstatus == idOstatus);
         }
 
         public int ContarPorPrioridade(string prioridade)
         {
-            return _context.Ocorrencia.Count(o => o.Prioridade == prioridade);
+            return _context.Ocorrencias.Count(o => o.Prioridade == prioridade);
         }
 
         public void Atualizar(Guid id, Ocorrencia x)
         {
-            var ocorrenciaEncontrada = _context.Ocorrencia.Find(id);
+            var ocorrenciaEncontrada = _context.Ocorrencias.Find(id);
             if (ocorrenciaEncontrada != null)
             {
                 ocorrenciaEncontrada.Titulo = x.Titulo;
@@ -150,7 +150,7 @@ namespace AQV_API.Repositories
                     ocorrenciaEncontrada.Anexo = x.Anexo;
                 }
 
-                _context.Ocorrencia.Update(ocorrenciaEncontrada);
+                _context.Ocorrencias.Update(ocorrenciaEncontrada);
                 _context.SaveChanges();
             }
         }
@@ -158,11 +158,11 @@ namespace AQV_API.Repositories
         /// <summary>Altera apenas o status. Regra de negócio: somente a AQV pode chamar isto.</summary>
         public void AtualizarStatus(Guid id, string idOstatus)
         {
-            var ocorrenciaEncontrada = _context.Ocorrencia.Find(id);
+            var ocorrenciaEncontrada = _context.Ocorrencias.Find(id);
             if (ocorrenciaEncontrada != null)
             {
                 ocorrenciaEncontrada.IdOstatus = idOstatus;
-                _context.Ocorrencia.Update(ocorrenciaEncontrada);
+                _context.Ocorrencias.Update(ocorrenciaEncontrada);
                 _context.SaveChanges();
             }
         }
@@ -173,23 +173,23 @@ namespace AQV_API.Repositories
         /// </summary>
         public void DefinirDestinoAtual(Guid id, Guid? idResponsavel, Guid? idCoordenador, string idOstatus)
         {
-            var ocorrenciaEncontrada = _context.Ocorrencia.Find(id);
+            var ocorrenciaEncontrada = _context.Ocorrencias.Find(id);
             if (ocorrenciaEncontrada != null)
             {
                 // Quem esta com a ocorrencia e controlado pela tabela Encaminhamento
                 // (registros com DataDevolutiva nula). Aqui apenas o status muda.
                 ocorrenciaEncontrada.IdOstatus = idOstatus;
-                _context.Ocorrencia.Update(ocorrenciaEncontrada);
+                _context.Ocorrencias.Update(ocorrenciaEncontrada);
                 _context.SaveChanges();
             }
         }
 
         public void Deletar(Guid id)
         {
-            var ocorrenciaEncontrada = _context.Ocorrencia.Find(id);
+            var ocorrenciaEncontrada = _context.Ocorrencias.Find(id);
             if (ocorrenciaEncontrada != null)
             {
-                _context.Ocorrencia.Remove(ocorrenciaEncontrada);
+                _context.Ocorrencias.Remove(ocorrenciaEncontrada);
                 _context.SaveChanges();
             }
         }

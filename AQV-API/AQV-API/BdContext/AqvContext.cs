@@ -18,11 +18,11 @@ public partial class AqvContext : DbContext
 
     public virtual DbSet<Aluno> Alunos { get; set; }
 
-    public virtual DbSet<Encaminhamento> Encaminhamentos { get; set; }
-
     public virtual DbSet<Feedback> Feedbacks { get; set; }
 
-    public virtual DbSet<Ocorrencia> Ocorrencia { get; set; }
+    public virtual DbSet<Encaminhamento> Encaminhamentos { get; set; }
+
+    public virtual DbSet<Ocorrencia> Ocorrencias { get; set; }
 
     public virtual DbSet<Ostatus> Ostatuses { get; set; }
 
@@ -42,15 +42,15 @@ public partial class AqvContext : DbContext
     {
         modelBuilder.Entity<Aluno>(entity =>
         {
-            entity.HasKey(e => e.IdAluno).HasName("PK__Aluno__8092FCB30D2B8172");
+            entity.HasKey(e => e.IdAluno).HasName("PK__Aluno__8092FCB3835249B9");
 
             entity.ToTable("Aluno");
 
-            entity.HasIndex(e => e.Numero, "UQ__Aluno__7E532BC65BB0C136").IsUnique();
+            entity.HasIndex(e => e.Numero, "UQ__Aluno__7E532BC640F6DA2C").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__Aluno__A9D105346605D046").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Aluno__A9D10534AB4C01D7").IsUnique();
 
-            entity.HasIndex(e => e.Cpf, "UQ__Aluno__C1F89731D171C072").IsUnique();
+            entity.HasIndex(e => e.Cpf, "UQ__Aluno__C1F897311D77C7C8").IsUnique();
 
             entity.Property(e => e.IdAluno).HasDefaultValueSql("(newid())");
             entity.Property(e => e.Cpf)
@@ -90,7 +90,6 @@ public partial class AqvContext : DbContext
 
             entity.HasOne(d => d.IdOcorrenciaNavigation).WithMany(p => p.Encaminhamentos)
                 .HasForeignKey(d => d.IdOcorrencia)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Encaminhamento_Ocorrencia");
 
             entity.HasOne(d => d.IdResponsavelNavigation).WithMany(p => p.Encaminhamentos)
@@ -109,7 +108,7 @@ public partial class AqvContext : DbContext
 
         modelBuilder.Entity<Feedback>(entity =>
         {
-            entity.HasKey(e => e.IdFeedback).HasName("PK__Feedback__408FF10321CD9D29");
+            entity.HasKey(e => e.IdFeedback).HasName("PK__Feedback__408FF103A4A22688");
 
             entity.ToTable("Feedback");
 
@@ -127,17 +126,16 @@ public partial class AqvContext : DbContext
 
             entity.HasOne(d => d.IdOcorrenciaNavigation).WithMany(p => p.Feedbacks)
                 .HasForeignKey(d => d.IdOcorrencia)
-                .HasConstraintName("FK__Feedback__IdOcor__02084FDA");
+                .HasConstraintName("FK__Feedback__IdOcor__7C4F7684");
         });
 
         modelBuilder.Entity<Ocorrencia>(entity =>
         {
-            entity.HasKey(e => e.IdOcorrencia).HasName("PK__Ocorrenc__831D9239C88761DC");
+            entity.HasKey(e => e.IdOcorrencia).HasName("PK__Ocorrenc__831D923991173D65");
+
+            entity.ToTable("Ocorrencia");
 
             entity.Property(e => e.IdOcorrencia).HasDefaultValueSql("(newid())");
-            entity.Property(e => e.Anexo)
-                .HasMaxLength(200)
-                .IsUnicode(false);
             entity.Property(e => e.DataAbertura)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
@@ -156,28 +154,20 @@ public partial class AqvContext : DbContext
 
             entity.HasOne(d => d.IdAlunoNavigation).WithMany(p => p.Ocorrencia)
                 .HasForeignKey(d => d.IdAluno)
-                .HasConstraintName("FK__Ocorrenci__IdAlu__7A672E12");
-
-            entity.HasOne(d => d.IdCoordenadorAtualNavigation).WithMany(p => p.OcorrenciumIdCoordenadorAtualNavigations)
-                .HasForeignKey(d => d.IdCoordenadorAtual)
-                .HasConstraintName("FK_Ocorrencia_CoordenadorAtual");
+                .HasConstraintName("FK__Ocorrenci__IdAlu__74AE54BC");
 
             entity.HasOne(d => d.IdOstatusNavigation).WithMany(p => p.Ocorrencia)
                 .HasForeignKey(d => d.IdOstatus)
-                .HasConstraintName("FK__Ocorrenci__IdOst__7B5B524B");
+                .HasConstraintName("FK__Ocorrenci__IdOst__75A278F5");
 
-            entity.HasOne(d => d.IdResponsavelAtualNavigation).WithMany(p => p.Ocorrencia)
-                .HasForeignKey(d => d.IdResponsavelAtual)
-                .HasConstraintName("FK_Ocorrencia_ResponsavelAtual");
-
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.OcorrenciumIdUsuarioNavigations)
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Ocorrencia)
                 .HasForeignKey(d => d.IdUsuario)
-                .HasConstraintName("FK__Ocorrenci__IdUsu__7C4F7684");
+                .HasConstraintName("FK__Ocorrenci__IdUsu__76969D2E");
         });
 
         modelBuilder.Entity<Ostatus>(entity =>
         {
-            entity.HasKey(e => e.IdOstatus).HasName("PK__Ostatus__E76FF4A8824BD310");
+            entity.HasKey(e => e.IdOstatus).HasName("PK__Ostatus__E76FF4A8763A2458");
 
             entity.ToTable("Ostatus");
 
@@ -191,13 +181,13 @@ public partial class AqvContext : DbContext
 
         modelBuilder.Entity<Responsavel>(entity =>
         {
-            entity.HasKey(e => e.IdResponsavel).HasName("PK__Responsa__CDF1DCADCAC30A87");
+            entity.HasKey(e => e.IdResponsavel).HasName("PK__Responsa__CDF1DCAD8E5F5FEB");
 
             entity.ToTable("Responsavel");
 
-            entity.HasIndex(e => e.Numero, "UQ__Responsa__7E532BC6A628A7DE").IsUnique();
+            entity.HasIndex(e => e.Numero, "UQ__Responsa__7E532BC69F7E985C").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__Responsa__A9D105344EBB2EDD").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Responsa__A9D10534DA8E759E").IsUnique();
 
             entity.Property(e => e.IdResponsavel).HasDefaultValueSql("(newid())");
             entity.Property(e => e.Email)
@@ -217,7 +207,7 @@ public partial class AqvContext : DbContext
 
         modelBuilder.Entity<TipoUsuario>(entity =>
         {
-            entity.HasKey(e => e.IdTipoUsuario).HasName("PK__TipoUsua__CA04062BBCAF6288");
+            entity.HasKey(e => e.IdTipoUsuario).HasName("PK__TipoUsua__CA04062B619A6846");
 
             entity.ToTable("TipoUsuario");
 
@@ -229,7 +219,7 @@ public partial class AqvContext : DbContext
 
         modelBuilder.Entity<Turma>(entity =>
         {
-            entity.HasKey(e => e.IdTurma).HasName("PK__Turma__C1ECFFC943F81592");
+            entity.HasKey(e => e.IdTurma).HasName("PK__Turma__C1ECFFC97FAD934E");
 
             entity.ToTable("Turma");
 
@@ -241,13 +231,13 @@ public partial class AqvContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__5B65BF97889CB7B5");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__5B65BF9738D8A2A0");
 
             entity.ToTable("Usuario");
 
-            entity.HasIndex(e => e.Numero, "UQ__Usuario__7E532BC6089B7676").IsUnique();
+            entity.HasIndex(e => e.Numero, "UQ__Usuario__7E532BC6D919333E").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__Usuario__A9D105346B8F51E3").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Usuario__A9D105341EC743F5").IsUnique();
 
             entity.Property(e => e.IdUsuario).HasDefaultValueSql("(newid())");
             entity.Property(e => e.Email)

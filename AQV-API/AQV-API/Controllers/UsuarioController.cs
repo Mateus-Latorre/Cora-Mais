@@ -34,7 +34,7 @@ namespace AQV_API.Controllers
                     IdUsuario = Guid.NewGuid(),
                     Nome = dto.Nome,
                     Email = dto.Email,
-                    Senha = dto.Senha,
+                    Senha = BCrypt.Net.BCrypt.HashPassword(dto.Senha),
                     Numero = dto.Numero,
                     IdTipoUsuario = dto.IdTipoUsuario
                 };
