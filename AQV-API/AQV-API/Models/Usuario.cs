@@ -17,13 +17,11 @@ public partial class Usuario
 
     public Guid? IdTipoUsuario { get; set; }
 
+    public virtual TipoUsuario? IdTipoUsuarioNavigation { get; set; }
+
+    public virtual ICollection<Ocorrencia> Ocorrencia { get; set; } = new List<Ocorrencia>();
+
     public virtual ICollection<Encaminhamento> EncaminhamentoIdUsuarioAqvNavigations { get; set; } = new List<Encaminhamento>();
 
     public virtual ICollection<Encaminhamento> EncaminhamentoIdUsuarioCoordenadorNavigations { get; set; } = new List<Encaminhamento>();
-
-    public virtual TipoUsuario? IdTipoUsuarioNavigation { get; set; }
-
-    public virtual ICollection<Ocorrencia> OcorrenciaIdCoordenadorAtualNavigations { get; set; } = new List<Ocorrencia>();
-
-    public virtual ICollection<Ocorrencia> OcorrenciaIdUsuarioNavigations { get; set; } = new List<Ocorrencia>();
 }
