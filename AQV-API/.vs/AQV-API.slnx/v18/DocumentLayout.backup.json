@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\tipousuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\tipousuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\responsavelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\responsavelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\ocorrenciacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\ocorrenciacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\encaminhamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\encaminhamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\models\\tipousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\models\\ocorrencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\models\\ocorrencia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\encaminhamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\encaminhamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\bdcontext\\aqvcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -99,22 +115,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\interfaces\\itipousuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\interfaces\\itipousuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\ocorrenciacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\ocorrenciacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\responsavelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\responsavelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\controllers\\turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|solutionrelative:aqv-api\\controllers\\turmacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{629A4EB3-1708-7BE7-E819-F95B4B14A677}|AQV-API\\AQV-API.csproj|c:\\users\\43180121823\\desktop\\cora-mais\\aqv-api\\aqv-api\\repositories\\responsavelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -194,36 +194,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Program.cs",
-              "RelativeDocumentMoniker": "AQV-API\\Program.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Program.cs",
-              "RelativeToolTip": "AQV-API\\Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAcwBQAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "OcorrenciaController.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\OcorrenciaController.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Controllers\\OcorrenciaController.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\OcorrenciaController.cs",
+              "RelativeToolTip": "AQV-API\\Controllers\\OcorrenciaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-27T17:25:14.064Z",
+              "WhenOpened": "2026-10-22T19:20:04.755Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UsuarioLoginDTO.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\DTO\\UsuarioLoginDTO.cs",
-              "RelativeDocumentMoniker": "AQV-API\\DTO\\UsuarioLoginDTO.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\DTO\\UsuarioLoginDTO.cs",
-              "RelativeToolTip": "AQV-API\\DTO\\UsuarioLoginDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA5AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "FeedbackController.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\FeedbackController.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Controllers\\FeedbackController.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\FeedbackController.cs",
+              "RelativeToolTip": "AQV-API\\Controllers\\FeedbackController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T19:29:45.357Z"
+              "WhenOpened": "2026-10-22T19:20:04.896Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "ResponsavelController.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\ResponsavelController.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Controllers\\ResponsavelController.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\ResponsavelController.cs",
+              "RelativeToolTip": "AQV-API\\Controllers\\ResponsavelController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T19:20:04.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TipoUsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\TipoUsuarioController.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Controllers\\TipoUsuarioController.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\TipoUsuarioController.cs",
+              "RelativeToolTip": "AQV-API\\Controllers\\TipoUsuarioController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwBEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T19:20:04.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TurmaController.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\TurmaController.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Controllers\\TurmaController.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\TurmaController.cs",
+              "RelativeToolTip": "AQV-API\\Controllers\\TurmaController.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAwwAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T19:20:04.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EncaminhamentoController.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\EncaminhamentoController.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Controllers\\EncaminhamentoController.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\EncaminhamentoController.cs",
+              "RelativeToolTip": "AQV-API\\Controllers\\EncaminhamentoController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAnwEAAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T19:24:38.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "IUsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Interfaces\\IUsuarioRepository.cs",
               "RelativeDocumentMoniker": "AQV-API\\Interfaces\\IUsuarioRepository.cs",
@@ -235,45 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AqvContext.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\BdContext\\AqvContext.cs",
-              "RelativeDocumentMoniker": "AQV-API\\BdContext\\AqvContext.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\BdContext\\AqvContext.cs",
-              "RelativeToolTip": "AQV-API\\BdContext\\AqvContext.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAYwBwAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T18:48:15.711Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TipoUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Models\\TipoUsuario.cs",
-              "RelativeDocumentMoniker": "AQV-API\\Models\\TipoUsuario.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Models\\TipoUsuario.cs",
-              "RelativeToolTip": "AQV-API\\Models\\TipoUsuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-27T12:52:32.827Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TipoUsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\TipoUsuarioController.cs",
-              "RelativeDocumentMoniker": "AQV-API\\Controllers\\TipoUsuarioController.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\TipoUsuarioController.cs",
-              "RelativeToolTip": "AQV-API\\Controllers\\TipoUsuarioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T19:20:04.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "AQV-API\\Controllers\\UsuarioController.cs",
@@ -285,7 +300,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
+              "Title": "TipoUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Models\\TipoUsuario.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Models\\TipoUsuario.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Models\\TipoUsuario.cs",
+              "RelativeToolTip": "AQV-API\\Models\\TipoUsuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T12:52:32.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AqvContext.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\BdContext\\AqvContext.cs",
+              "RelativeDocumentMoniker": "AQV-API\\BdContext\\AqvContext.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\BdContext\\AqvContext.cs",
+              "RelativeToolTip": "AQV-API\\BdContext\\AqvContext.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAYwBwAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T18:48:15.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Program.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Program.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Program.cs",
+              "RelativeToolTip": "AQV-API\\Program.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAcwBQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T17:25:14.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UsuarioLoginDTO.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\DTO\\UsuarioLoginDTO.cs",
+              "RelativeDocumentMoniker": "AQV-API\\DTO\\UsuarioLoginDTO.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\DTO\\UsuarioLoginDTO.cs",
+              "RelativeToolTip": "AQV-API\\DTO\\UsuarioLoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T19:29:45.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Ocorrencia.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Models\\Ocorrencia.cs",
               "RelativeDocumentMoniker": "AQV-API\\Models\\Ocorrencia.cs",
@@ -297,7 +360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\appsettings.json",
               "RelativeDocumentMoniker": "AQV-API\\appsettings.json",
@@ -305,12 +368,11 @@
               "RelativeToolTip": "AQV-API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-10-27T19:29:08.389Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-27T19:29:08.389Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "AQV-API\\Repositories\\UsuarioRepository.cs",
@@ -322,19 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "EncaminhamentoController.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\EncaminhamentoController.cs",
-              "RelativeDocumentMoniker": "AQV-API\\Controllers\\EncaminhamentoController.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\EncaminhamentoController.cs",
-              "RelativeToolTip": "AQV-API\\Controllers\\EncaminhamentoController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAnwEAAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T19:24:38.407Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "OstatusRepository.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\OstatusRepository.cs",
               "RelativeDocumentMoniker": "AQV-API\\Repositories\\OstatusRepository.cs",
@@ -346,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "FeedbackRepository.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\FeedbackRepository.cs",
               "RelativeDocumentMoniker": "AQV-API\\Repositories\\FeedbackRepository.cs",
@@ -358,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "Repositories.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Downloads\\AQV\\AQV\\Repositories\\Repositories.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Downloads\\AQV\\AQV\\Repositories\\Repositories.cs",
@@ -370,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "EncaminhamentoRepository.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\EncaminhamentoRepository.cs",
               "RelativeDocumentMoniker": "AQV-API\\Repositories\\EncaminhamentoRepository.cs",
@@ -382,7 +432,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "ResponsavelCadastroDTO.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\DTO\\ResponsavelCadastroDTO.cs",
               "RelativeDocumentMoniker": "AQV-API\\DTO\\ResponsavelCadastroDTO.cs",
@@ -394,7 +444,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "OstatusCadastroDTO.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\DTO\\OstatusCadastroDTO.cs",
               "RelativeDocumentMoniker": "AQV-API\\DTO\\OstatusCadastroDTO.cs",
@@ -406,7 +456,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "Controllers.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Downloads\\AQV\\AQV\\Controllers\\Controllers.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Downloads\\AQV\\AQV\\Controllers\\Controllers.cs",
@@ -418,7 +468,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "AlunoController.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\AlunoController.cs",
               "RelativeDocumentMoniker": "AQV-API\\Controllers\\AlunoController.cs",
@@ -430,7 +480,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "AQV-API\\Models\\Usuario.cs",
@@ -442,7 +492,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "AlunoRepository.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\AlunoRepository.cs",
               "RelativeDocumentMoniker": "AQV-API\\Repositories\\AlunoRepository.cs",
@@ -454,7 +504,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "OcorrenciaRepoitory.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\OcorrenciaRepoitory.cs",
               "RelativeDocumentMoniker": "AQV-API\\Repositories\\OcorrenciaRepoitory.cs",
@@ -466,7 +516,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "IOcorrenciaRepository.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Interfaces\\IOcorrenciaRepository.cs",
               "RelativeDocumentMoniker": "AQV-API\\Interfaces\\IOcorrenciaRepository.cs",
@@ -478,7 +528,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "TipoUsuarioCadastroDTO.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\DTO\\TipoUsuarioCadastroDTO.cs",
               "RelativeDocumentMoniker": "AQV-API\\DTO\\TipoUsuarioCadastroDTO.cs",
@@ -490,7 +540,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "ITipoUsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Interfaces\\ITipoUsuarioRepository.cs",
               "RelativeDocumentMoniker": "AQV-API\\Interfaces\\ITipoUsuarioRepository.cs",
@@ -499,54 +549,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-22T18:59:05.087Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "FeedbackController.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\FeedbackController.cs",
-              "RelativeDocumentMoniker": "AQV-API\\Controllers\\FeedbackController.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\FeedbackController.cs",
-              "RelativeToolTip": "AQV-API\\Controllers\\FeedbackController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T19:20:04.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "OcorrenciaController.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\OcorrenciaController.cs",
-              "RelativeDocumentMoniker": "AQV-API\\Controllers\\OcorrenciaController.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\OcorrenciaController.cs",
-              "RelativeToolTip": "AQV-API\\Controllers\\OcorrenciaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T19:20:04.755Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "ResponsavelController.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\ResponsavelController.cs",
-              "RelativeDocumentMoniker": "AQV-API\\Controllers\\ResponsavelController.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\ResponsavelController.cs",
-              "RelativeToolTip": "AQV-API\\Controllers\\ResponsavelController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T19:20:04.518Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "TurmaController.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\TurmaController.cs",
-              "RelativeDocumentMoniker": "AQV-API\\Controllers\\TurmaController.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\TurmaController.cs",
-              "RelativeToolTip": "AQV-API\\Controllers\\TurmaController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAwwAoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T19:20:04.826Z"
             },
             {
               "$type": "Document",
