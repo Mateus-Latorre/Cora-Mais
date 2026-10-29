@@ -1,5 +1,94 @@
 [
   {
+    "ContainingType": "AQV_API.Controllers.AlunoController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Aluno",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.AlunoCadastroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.AlunoController",
+    "Method": "Listar",
+    "RelativePath": "api/Aluno",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.AlunoController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Aluno/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.AlunoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Aluno/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.AlunoCadastroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.AlunoController",
+    "Method": "Deletar",
+    "RelativePath": "api/Aluno/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.DashboardController",
+    "Method": "Resumo",
+    "RelativePath": "api/Dashboard/resumo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AQV_API.Controllers.EncaminhamentoController",
     "Method": "BuscarPorId",
     "RelativePath": "api/Encaminhamento/{id}",
@@ -62,6 +151,402 @@
     "Parameters": [
       {
         "Name": "idOcorrencia",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.FeedbackController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Feedback",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.FeedbackCadastroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.FeedbackController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Feedback/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.FeedbackController",
+    "Method": "Deletar",
+    "RelativePath": "api/Feedback/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.FeedbackController",
+    "Method": "Finalizar",
+    "RelativePath": "api/Feedback/{id}/finalizar",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.FeedbackController",
+    "Method": "MarcarComoLido",
+    "RelativePath": "api/Feedback/{id}/lido",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.FeedbackController",
+    "Method": "ListarPorOcorrencia",
+    "RelativePath": "api/Feedback/Ocorrencia/{idOcorrencia}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idOcorrencia",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.UsuarioLoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Ocorrencia",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.OcorrenciaCadastroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "Listar",
+    "RelativePath": "api/Ocorrencia",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Ocorrencia/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Ocorrencia/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.OcorrenciaAtualizadaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "Deletar",
+    "RelativePath": "api/Ocorrencia/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "Encaminhar",
+    "RelativePath": "api/Ocorrencia/{id}/encaminhar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.EncaminhamentoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "AtualizarStatus",
+    "RelativePath": "api/Ocorrencia/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "idOstatus",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "ListarPorAluno",
+    "RelativePath": "api/Ocorrencia/Aluno/{idAluno}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAluno",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "ListarComigo",
+    "RelativePath": "api/Ocorrencia/Comigo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "ListarMinhas",
+    "RelativePath": "api/Ocorrencia/Minhas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "ListarPorPrioridade",
+    "RelativePath": "api/Ocorrencia/Prioridade/{prioridade}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "prioridade",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.OcorrenciaController",
+    "Method": "ListarPorStatus",
+    "RelativePath": "api/Ocorrencia/Status/{idOstatus}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idOstatus",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.ResponsavelController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Responsavel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.ResponsavelCadastroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.ResponsavelController",
+    "Method": "Listar",
+    "RelativePath": "api/Responsavel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.ResponsavelController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Responsavel/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.ResponsavelController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Responsavel/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.ResponsavelCadastroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.ResponsavelController",
+    "Method": "Deletar",
+    "RelativePath": "api/Responsavel/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.ResponsavelController",
+    "Method": "ListarPorAluno",
+    "RelativePath": "api/Responsavel/Aluno/{idAluno}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAluno",
         "Type": "System.Guid",
         "IsRequired": true
       }
@@ -135,6 +620,85 @@
     "ContainingType": "AQV_API.Controllers.TipoUsuarioController",
     "Method": "Deletar",
     "RelativePath": "api/TipoUsuario/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.TurmaController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Turma",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.TurmaCadastroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.TurmaController",
+    "Method": "Listar",
+    "RelativePath": "api/Turma",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.TurmaController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Turma/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.TurmaController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Turma/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "AQV_API.DTO.TurmaCadastroDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AQV_API.Controllers.TurmaController",
+    "Method": "Deletar",
+    "RelativePath": "api/Turma/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
