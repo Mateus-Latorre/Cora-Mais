@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
+import Menu from "../../components/menu/menu";
 
 const Perfil = () => {
     return (
         <>
-            <header >
-                <h1>Perfil</h1>
-            </header >
+            <Menu />
 
 
             <footer></footer>

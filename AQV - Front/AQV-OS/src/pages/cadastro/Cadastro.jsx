@@ -3,7 +3,14 @@ import "./Cadastro.css";
 
 function Cadastro() {
     return (
+<<<<<<< HEAD
         <div className="cadastro-layout">
+=======
+        <>
+            <header>
+                <h1>Cadastrar usuario</h1>
+            </header>
+>>>>>>> f38964e74f0161fbeea5479116c3cb41875c2b65
 
             <div className="cadastro-presentation">
                 <span className="app-tag">Seu app</span>

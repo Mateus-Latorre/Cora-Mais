@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import Menu from "../../components/menu/menu";
 
 const Notificacoes = () => {
     return (
         <>
-            <header >
-                <h1>Notificar uma nova ocorrencia</h1>
-            </header >
+            <Menu >
+            </Menu >
 
 
             <footer></footer>

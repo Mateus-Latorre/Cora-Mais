@@ -9,10 +9,17 @@
 }
 
 :root {
-  --azul-claro: #ADD5FF;
-  --azul: #002962;
-  --azul-escuro: #00043A;
-  --cinza: #909090;
-  --laranja: #FFAC78;
-  --branco: #FFFFFF;
+  --azul-claro: rgb(183, 217, 254);
+  --azul-claro-transparente: rgb(183, 217, 254, 0.5);
+
+  --azul: rgb(0, 41, 98);
+  --azul-transparente: rgb(0, 41, 98, 0.5);
+
+  --cinza: rgb(144, 144, 144);
+
+  --azul-escuro: rgb(0, 4, 58);
+  --azul-escuro-transparente: rgb(0, 4, 58, 0.5);
+
+  --laranja: rgb(255, 172, 120);
+  --branco: rgb(248, 250, 252);
 }
