@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 const Cadastro = () => {
     return (
         <>
-            <header >
+            <header>
                 <h1>Cadastrar usuario</h1>
-            </header >
+            </header>
 
 
             <footer></footer>

@@ -170,7 +170,20 @@ C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\obj\Debug\net10.0\refint\
 C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\obj\Debug\net10.0\AQV-API.pdb
 C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\obj\Debug\net10.0\AQV-API.genruntimeconfig.cache
 C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\obj\Debug\net10.0\ref\AQV-API.dll
+<<<<<<< HEAD
 C:\Users\43180121823\Desktop\Cora-Mais\AQV-API\AQV-API\obj\Debug\net10.0\AQV-API.csproj.AssemblyReference.cache
 C:\Users\43180121823\Desktop\Cora-Mais\AQV-API\AQV-API\obj\Debug\net10.0\AQV-API.dll
 C:\Users\43180121823\Desktop\Cora-Mais\AQV-API\AQV-API\obj\Debug\net10.0\refint\AQV-API.dll
 C:\Users\43180121823\Desktop\Cora-Mais\AQV-API\AQV-API\obj\Debug\net10.0\AQV-API.pdb
+=======
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\bin\Debug\net10.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\bin\Debug\net10.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\bin\Debug\net10.0\Microsoft.Extensions.Logging.dll
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\bin\Debug\net10.0\Microsoft.Extensions.Options.dll
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\bin\Debug\net10.0\Microsoft.Extensions.Primitives.dll
+C:\Users\50055487858\Desktop\Cora-Mais\AQV-API\AQV-API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+>>>>>>> f38964e74f0161fbeea5479116c3cb41875c2b65

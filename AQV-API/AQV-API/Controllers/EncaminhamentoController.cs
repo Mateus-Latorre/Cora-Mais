@@ -43,11 +43,11 @@ namespace AQV_API.Controllers
         }
 
         /// <summary>
-        /// Devolutiva: o responsável ou o coordenador devolve a ocorrência para a AQV,
-        /// que então dá o feedback ao professor.
+        /// Devolutiva: o coordenador devolve a ocorrência para a AQV, ou a própria AQV
+        /// registra a devolutiva após o contato com o responsável do aluno.
         /// </summary>
         [HttpPatch("{id}/devolver")]
-        [Authorize(Roles = "Responsavel,Coordenador")]
+        [Authorize(Roles = "AQV,Coordenador")]
         public IActionResult Devolver(Guid id, [FromBody] string? observacao)
         {
             try

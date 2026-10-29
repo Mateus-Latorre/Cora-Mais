@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace AQV_API.DTO
 {
@@ -22,7 +22,13 @@ namespace AQV_API.DTO
 
         /// <summary>URL da imagem anexada à ocorrência (opcional).</summary>
         [StringLength(255, ErrorMessage = "A URL do anexo deve ter no máximo 255 caracteres.")]
-        [Url(ErrorMessage = "O Anexo deve ser uma URL válida.")]
-        public string? Anexo { get; set; }
+        [Url(ErrorMessage = "O Anexo deve ser uma URL válida (ex.: https://...).")]
+        public string? Anexo
+        {
+            get => _anexo;
+            set => _anexo = string.IsNullOrWhiteSpace(value) ? null : value;
+        }
+
+        private string? _anexo;
     }
 }

@@ -1341,10 +1341,7 @@
             "type": "string"
           },
           "anexo": {
-            "maxLength": 255,
-            "minLength": 0,
             "type": "string",
-            "format": "uri",
             "nullable": true
           },
           "idOcorrencia": {

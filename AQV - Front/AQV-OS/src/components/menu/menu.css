@@ -1,0 +1,74 @@
+.menu {
+    background-image: url("../../../public/FundoM-Img.svg");
+    background-repeat: no-repeat;
+    background-position: -100px bottom;
+
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+
+}
+
+.icon-logoI {
+    width: 50px;
+    height: 50px;
+}
+
+.icon-logoT {
+    height: 60px;
+}
+
+.Texto-menu {
+    font-size: 20px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.Texto-sair {
+    color: var(--azul-escuro);
+    font-size: 20px;
+    margin-left: 10px;
+    text-align: center;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.LinhaLaranja {
+    width: 210px;
+    height: 1px;
+    background-color: var(--laranja);
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.rota {
+    display: flex;
+    width: 100%;
+
+}
+
+.rotas {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 200px;
+    gap: 15px;
+
+    margin-bottom: auto;
+
+}
+
+.icon-menu {
+    width: 30px;
+    height: 30px;
+}

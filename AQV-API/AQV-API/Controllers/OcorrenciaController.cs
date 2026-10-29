@@ -49,7 +49,14 @@ namespace AQV_API.Controllers
                 _ocorrenciaRepository.Cadastrar(ocorrencia);
                 return StatusCode(201, ocorrencia);
             }
-            catch (Exception ex) { return BadRequest(ex.Message); }
+            catch (Exception ex)
+            {
+                // Devolve a causa real (FK invalida, coluna inexistente, etc.)
+                var causa = ex.InnerException?.InnerException?.Message
+                         ?? ex.InnerException?.Message
+                         ?? ex.Message;
+                return BadRequest(new { erro = ex.Message, detalhe = causa });
+            }
         }
 
         /// <summary>Lista todas as ocorrências (visão da AQV e da coordenação).</summary>
@@ -118,11 +125,6 @@ namespace AQV_API.Controllers
                 if (perfil == "Coordenador")
                 {
                     return Ok(_ocorrenciaRepository.ListarPorCoordenadorAtual(id));
-                }
-
-                if (perfil == "Responsavel")
-                {
-                    return Ok(_ocorrenciaRepository.ListarPorResponsavelAtual(id));
                 }
 
                 return Ok(_ocorrenciaRepository.Listar());
