@@ -133,6 +133,10 @@ public partial class AqvContext : DbContext
         {
             entity.HasKey(e => e.IdOcorrencia).HasName("PK__Ocorrenc__831D923991173D65");
 
+            entity.Property(e => e.Anexo)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+
             entity.ToTable("Ocorrencia");
 
             entity.Property(e => e.IdOcorrencia).HasDefaultValueSql("(newid())");
