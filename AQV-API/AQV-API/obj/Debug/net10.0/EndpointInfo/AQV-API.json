@@ -1,17 +1,9 @@
 {
-  "openapi": "3.1.1",
+  "openapi": "3.0.4",
   "info": {
-    "title": "AQV-API | v1",
-    "version": "1.0.0"
+    "title": "AQV-API",
+    "version": "1.0"
   },
-  "servers": [
-    {
-      "url": "https://localhost:7294"
-    },
-    {
-      "url": "http://localhost:5004"
-    }
-  ],
   "paths": {
     "/api/Encaminhamento/Ocorrencia/{idOcorrencia}": {
       "get": {
@@ -100,38 +92,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "oneOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
+                "type": "string"
               }
             },
             "text/json": {
               "schema": {
-                "oneOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
+                "type": "string"
               }
             },
             "application/*+json": {
               "schema": {
-                "oneOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
+                "type": "string"
               }
             }
           }
@@ -165,8 +136,7 @@
                 "$ref": "#/components/schemas/TipoUsuarioCadastroDTO"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -239,8 +209,7 @@
                 "$ref": "#/components/schemas/TipoUsuarioCadastroDTO"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -292,8 +261,7 @@
                 "$ref": "#/components/schemas/UsuarioCadastroDTO"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -366,8 +334,7 @@
                 "$ref": "#/components/schemas/UsuarioCadastroDTO"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -423,15 +390,16 @@
             "minLength": 0,
             "type": "string"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "UsuarioCadastroDTO": {
         "required": [
-          "nome",
           "email",
-          "senha",
+          "idTipoUsuario",
+          "nome",
           "numero",
-          "idTipoUsuario"
+          "senha"
         ],
         "type": "object",
         "properties": {
@@ -443,7 +411,8 @@
           "email": {
             "maxLength": 256,
             "minLength": 0,
-            "type": "string"
+            "type": "string",
+            "format": "email"
           },
           "senha": {
             "maxLength": 60,
@@ -459,7 +428,8 @@
             "type": "string",
             "format": "uuid"
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
   },
