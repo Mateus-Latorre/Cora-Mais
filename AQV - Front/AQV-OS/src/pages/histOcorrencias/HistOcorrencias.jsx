@@ -11,7 +11,7 @@ const HistOcorrencias = () => {
 
 
                 {/* BOTÃO */}
-                <div className="div">
+                <div className="div-Botao">
                     <h1>Ocorrências</h1>
 
                     <button className="button-criar">+ Nova ocorrência</button>
