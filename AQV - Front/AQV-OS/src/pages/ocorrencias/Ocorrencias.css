@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
+
+/* ===== Tela de detalhes da ocorrência (visão AQV) — classes próprias (oco-) ===== */
+
+.oco-body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--branco);
+    background-image: url("fundo.jpg");
+}
+
+.oco-div {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 32px 48px 48px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.oco-breadcrumb {
+    font-size: 14px;
+    color: var(--branco);
+    opacity: 0.8;
+}
+
+.oco-h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--branco);
+    margin: 0;
+}
+
+.oco-card {
+    background-color: rgb(0, 4, 58, 0.55);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 10px;
+    padding: 22px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.oco-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.oco-icone {
+    font-size: 16px;
+    color: var(--branco);
+    font-weight: 500;
+}
+
+.oco-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.oco-badge {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 30px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+}
+
+.oco-verde {
+    background-color: #3ECF6E;
+    color: #fff;
+}
+
+.oco-azul {
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+}
+
+.oco-titulo-valor {
+    font-size: 28px;
+    color: var(--branco);
+    font-weight: 700;
+}
+
+.oco-row2 {
+    display: flex;
+    gap: 20px;
+}
+
+.oco-box-metade {
+    flex: 1;
+    background-color: rgb(0, 4, 58, 0.55);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.oco-box-metade label {
+    font-size: 14px;
+    color: var(--branco);
+    opacity: 0.8;
+}
+
+.oco-valor {
+    background-color: rgb(0, 4, 58, 0.0);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 15px;
+    color: var(--branco);
+}
+
+.oco-descricao {
+    background-color: rgb(0, 4, 58, 0.0);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--branco);
+    word-break: break-all;
+    min-height: 70px;
+}
+
+.oco-input {
+    background-color: rgb(0, 4, 58, 0.0);
+    font-family: "Roboto";
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 6px;
+    width: 100%;
+    color: var(--branco);
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+.oco-input::placeholder {
+    font-size: 12px;
+    color: var(--azul-claro);
+}
+
+.oco-label {
+    font-size: 14px;
+    color: var(--branco);
+}
+
+.oco-encaminhar-row {
+    display: flex;
+    gap: 12px;
+}
+
+.oco-encaminhar-row .oco-input {
+    flex: 1;
+}
+
+.oco-btn-enviar {
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    border: none;
+    border-radius: 6px;
+    padding: 12px 56px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.oco-icone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.oco-icone-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
