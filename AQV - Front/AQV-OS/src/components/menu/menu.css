@@ -55,6 +55,7 @@
 .rota {
     display: flex;
     width: 100%;
+    color: var(--branco);
     align-items: center;
 
 }

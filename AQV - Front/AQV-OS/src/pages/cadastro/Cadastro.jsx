@@ -1,7 +1,9 @@
-
+import { useState } from "react";
 import "./Cadastro.css";
 
 function Cadastro() {
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false);
     return (
         <div className="cadastro-layout">
             <header>
@@ -21,13 +23,11 @@ function Cadastro() {
             </div>
 
             <div className="cadastro-container">
-
                 <h2 className="form-title">Cadastre-se</h2>
 
                 <p>Preencha os dados para criar sua conta</p>
 
                 <form className="cadastro-form">
-
                     {/* NOME COMPLETO */}
                     <div className="input-container">
                         <input
@@ -36,12 +36,7 @@ function Cadastro() {
                             placeholder="Nome Completo"
                             required
                         />
-
-                        <img
-                            src="/pessoa.svg"
-                            alt=""
-                            className="icon"
-                        />
+                        <img src="/pessoa.svg" alt="" className="icon icon-right icon-static" />
                     </div>
 
                     {/* E-MAIL */}
@@ -52,27 +47,22 @@ function Cadastro() {
                             placeholder="E-mail"
                             required
                         />
-
-                        <img
-                            src="/email.svg"
-                            alt=""
-                            className="icon"
-                        />
+                        <img src="/email.svg" alt="" className="icon icon-right icon-static" />
                     </div>
 
                     {/* SENHA */}
                     <div className="input-container">
                         <input
                             id="password"
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             placeholder="Senha"
                             required
                         />
-
                         <img
-                            src="/olho.svg"
-                            alt=""
-                            className="icon"
+                            src={showPassword ? "/olhofechado.svg" : "/olho.svg"}
+                            alt={showPassword ? "Ocultar senha" : "Mostrar senha"}
+                            className="icon icon-right"
+                            onClick={() => setShowPassword(!showPassword)}
                         />
                     </div>
 
@@ -80,52 +70,39 @@ function Cadastro() {
                     <div className="input-container">
                         <input
                             id="confirmarSenha"
-                            type="password"
+                            type={showConfirm ? "text" : "password"}
                             placeholder="Confirme sua senha"
                             required
                         />
-
                         <img
-                            src="/olho.svg"
-                            alt=""
-                            className="icon"
+                            src={showPassword ? "/olhofechado.svg" : "/olho.svg"}
+                            alt={showConfirm ? "Ocultar senha" : "Mostrar senha"}
+                            className="icon icon-right"
+                            onClick={() => setShowConfirm(!showConfirm)}
                         />
                     </div>
 
                     {/* TIPO DA CONTA */}
-                    <div className="input-wrapper">
-                        <select
-                            id="tipoConta"
-                            required
-                            defaultValue=""
-                        >
+                    <div className="input-container">
+                        <select id="tipoConta" required defaultValue="">
                             <option value="" disabled>
                                 Tipo da Conta
                             </option>
-
                             <option value="AQV">AQV</option>
                             <option value="Coordenador">Coordenador</option>
                             <option value="Professor">Professor</option>
                         </select>
                     </div>
 
-                    {/* TERMOS DE USO */}
-                    <label className="terms-label">
-                        <input type="checkbox" required />
-                        <span>Li e aceito os termos de uso</span>
-                    </label>
-
                     {/* BOTÃO */}
                     <button type="submit" className="cadastro-button">
                         Cadastre-se
                     </button>
-
                 </form>
 
                 <p className="signup-text">
                     Já tem conta? <a href="/login">Entrar</a>
                 </p>
-
             </div>
         </div>
     );

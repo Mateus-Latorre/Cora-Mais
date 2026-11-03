@@ -1,3 +1,5 @@
-.vs/
 node_modules/
 *.lnk
+[Bb]in/
+[Oo]bj/
+.vs/

@@ -101,7 +101,7 @@ const HistOcorrencias = () => {
 
 
                 <div className="tabela-conteudo">
-                    
+
                     <div className="informacoes-ocorrencia ">
                         <div className="descri">
                             <strong>Desrespeitou o professor</strong>
@@ -121,7 +121,7 @@ const HistOcorrencias = () => {
                             <p>Mayara Gussonato · DEV-Torloni</p>
                         </div>
                         <div className="prof">Prof. Eduardo Costa</div>
-                        <div  className="data">13/10</div>
+                        <div className="data">13/10</div>
                         <div className="status andamento">
                             <span></span>
                             <strong>Em andamento</strong>
