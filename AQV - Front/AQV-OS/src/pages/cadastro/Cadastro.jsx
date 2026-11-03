@@ -4,10 +4,6 @@ import "./Cadastro.css";
 function Cadastro() {
     return (
         <div className="cadastro-layout">
-            <header>
-                <h1>Cadastrar usuario</h1>
-            </header>
-
             <div className="cadastro-presentation">
                 <span className="app-tag">Seu app</span>
 
