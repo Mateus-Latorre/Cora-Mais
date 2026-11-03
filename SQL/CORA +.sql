@@ -1,6 +1,12 @@
 CREATE DATABASE CORA;
 USE CORA;
-
+USE master;
+GO
+CREATE DATABASE CORA
+ON (FILENAME = 'C:\Users\50055487858\CORA.mdf'),
+   (FILENAME = 'C:\Users\50055487858\CORA_log.ldf')
+FOR ATTACH;
+GO
 CREATE TABLE TipoUsuario(
 IdTipoUsuario UNIQUEIDENTIFIER PRIMARY KEY DEFAULT ((NEWID())),
 Titulo VARCHAR(100) NOT NULL,
@@ -93,6 +99,8 @@ ALTER TABLE Ocorrencia
 ADD CONSTRAINT CK_Ocorrencia_Prioridade
 CHECK (Prioridade IN ('Urgente', 'Importante', 'Rotina'));
 
+ ALTER TABLE Ocorrencia ADD Anexo VARCHAR(255) NULL;
+
 CREATE TABLE Encaminhamento (
     IdEncaminhamento UNIQUEIDENTIFIER PRIMARY KEY DEFAULT (NEWID()),
     IdOcorrencia UNIQUEIDENTIFIER NOT NULL
@@ -119,3 +127,18 @@ ADD IdResponsavelAtual UNIQUEIDENTIFIER NULL
     CONSTRAINT FK_Ocorrencia_ResponsavelAtual REFERENCES Responsavel(IdResponsavel),
     IdCoordenadorAtual UNIQUEIDENTIFIER NULL
     CONSTRAINT FK_Ocorrencia_CoordenadorAtual REFERENCES Usuario(IdUsuario);
+
+
+    insert into TipoUsuario(Titulo)
+    values('AQV')
+
+    insert into Usuario(Nome, Email, Senha, Numero, IdTipoUsuario)
+    values('Mateus','mateus@gmail.com','123','11912345678','4FDEE162-F5C4-4C4F-8615-49E550246F37')
+
+    USE CORA;
+
+INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ABERTA', 'Aberta');
+INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ANDAMENTO', 'Em andamento');
+INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ENCAMINHADA', 'Encaminhada');
+INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('AGUARDANDO_FEEDBACK', 'Aguardando feedback');
+INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('FINALIZADA', 'Finalizada');
