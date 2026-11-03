@@ -19,7 +19,7 @@ const NovaOcorrencia = () => {
                 </div>
                 <form action="" >
                     <div className="box">
-                        <div className="caixa">
+                        <div className="caixa-icons">
                             <img src="identificacao.svg" alt="" />
 
                             <h3>Identificação da Ocorrência</h3>
@@ -40,7 +40,7 @@ const NovaOcorrencia = () => {
 
 
                     <div className="box">
-                        <div className="caixa">
+                        <div className="caixa-icons">
                             <img src="estudante.svg" alt="" />
 
                             <h3>Estudante</h3>
@@ -65,7 +65,7 @@ const NovaOcorrencia = () => {
 
 
                     <div className="boxD">
-                        <div className="caixa">
+                        <div className="caixa-icons">
                             <img src="descriçao.svg" alt="" />
 
                             <h3>Descrição da Ocorrência</h3>
@@ -74,7 +74,7 @@ const NovaOcorrencia = () => {
                     </div>
 
                     <div className="boxD">
-                        <div className="caixa">
+                        <div className="caixa-icons">
                             <img src="aviao-papel.svg" alt="" />
 
                             <h3>Ações</h3>

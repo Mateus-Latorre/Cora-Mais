@@ -13,6 +13,8 @@
     /* background-color: var(--azul); */
     color: var(--branco);
     background-image: url("fundo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
@@ -24,12 +26,12 @@
     /* opacity: 50%; */
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     border: 2px solid var(--azul-claro-transparente);
-    height: 100px;
-    width: 95%;
-    margin-left: 30px;
-    margin-right: 30px;
+    height: 105px;
+    /* width: 95%; */
+    /* margin-left: 30px;
+    margin-right: 30px; */
     padding: 15px;
 
 }
@@ -40,14 +42,14 @@
     border-radius: 10px;
     height: 150px;
     flex-direction: column;
-    width: 95%;
-    margin-bottom: 15px;
+    /* width: 95%; */
+    /* margin-bottom: 15px; */
     display: flex;
     background-color: rgb(0, 4, 58, 0.5);
     /* opacity: 50%; */
     border: 2px solid var(--azul-claro-transparente);
-    margin-left: 30px;
-    margin-right: 30px;
+    /* margin-left: 30px;
+    margin-right: 30px; */
     padding: 15px;
 
 }
@@ -61,6 +63,7 @@ input {
     width: 100%;
     color: var(--branco);
     padding-left: 13px;
+    height: 25px;
 }
 
 input::placeholder {
@@ -71,10 +74,11 @@ input::placeholder {
 .inputs {
     display: flex;
     gap: 36px;
+    width: 100%;
 }
 
 .input {
-    width: 35%;
+    width: 50%;
 }
 
 .input-container {
@@ -82,7 +86,6 @@ input::placeholder {
     /* Define a referência para o ícone */
     display: inline-block;
     width: 100%;
-    max-width: 400px;
 }
 
 .input-container input {
@@ -107,21 +110,11 @@ input::placeholder {
 }
 
 
-.caixa {
+.caixa-icons {
     display: flex;
     width: 100%;
     margin-bottom: 10px;
 
-}
-
-.areaText {
-    border: 2px solid var(--azul-claro-transparente);
-    background-color: rgb(0, 4, 58, 0.0);
-    border-radius: 3px;
-    height: 120px;
-    /* width: 80%; */
-    color: var(--branco);
-    padding: 13px;
 }
 
 .areaText::placeholder {
@@ -136,15 +129,20 @@ input::placeholder {
     /* width: 80%; */
     color: var(--branco);
     padding: 13px;
+    resize: none;
+    width: 100%;
+
 }
 
 form {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    padding: 20px 30px;
+    gap: 15px;
+
 }
 
-.caixa h3 {
+.caixa-icons h3 {
     margin-left: 8px;
 }
 
@@ -197,4 +195,5 @@ form {
 
 h5 {
     font-weight: 500;
+    margin-bottom: 2px;
 }
