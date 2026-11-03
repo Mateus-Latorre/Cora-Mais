@@ -4,17 +4,16 @@ import "./Login.css";
 function Login() {
     return (
         <div className="login-layout">
-
             <div className="login-presentation">
                 <span className="app-tag">Seu app</span>
 
                 <h1>
                     Mais <span>praticidade</span>
                     <br />
-                    no dia a dia.
+                    no dia a dia
                 </h1>
 
-                <p>Entre para continuar de onde parou.</p>
+                <p>Entre para continuar de onde parou</p>
             </div>
 
             <div className="login-container">
@@ -26,41 +25,31 @@ function Login() {
                 <form className="login-form">
 
                     <div className="input-wrapper">
-                        <label htmlFor="email">E-mail</label>
+
 
                         <input
                             id="email"
                             type="email"
-                            placeholder="Digite seu e-mail"
+                            placeholder="E-mail"
                             required
                         />
                     </div>
 
                     <div className="input-wrapper">
-                        <label htmlFor="password">Senha</label>
 
                         <input
                             id="password"
                             type="password"
-                            placeholder="Digite sua senha"
+                            placeholder="Senha"
                             required
                         />
                     </div>
-
-                    <a href="#recuperar" className="forgot-password">
-                        Esqueci minha senha
-                    </a>
 
                     <button type="submit" className="login-button">
                         Entrar
                     </button>
 
                 </form>
-
-                <p className="signup-text">
-                    Não tem uma conta?{" "}
-                    <a href="#cadastro">Cadastre-se</a>
-                </p>
 
             </div>
         </div>

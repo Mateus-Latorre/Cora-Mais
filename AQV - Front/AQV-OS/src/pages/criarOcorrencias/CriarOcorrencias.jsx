@@ -1,44 +1,22 @@
 import { useEffect, useState } from "react";
 import "./CriarOcorrencias.css"
+import Menu from "../../components/menu/menu";
 
 
 const NovaOcorrencia = () => {
     return (
         <div className="body">
-            <header className="menu">
-                <div className="logo">
-                    <img src="/Logo-Img.svg" alt="a imagem da logo" />
-                    <img src="/Logo-Texto.svg" alt="a imagem da logo" />
+
+            { /* *******           Menu           ********** */}
+
+            <Menu></Menu>
+
+            {/* **************        Tela          ***************** */}
+            <div className="div">
+                <div className="titulo">
+                    <p>Nova Ocorrência</p>
+                    <h1>Registrar uma nova Ocorrência</h1>
                 </div>
-
-                <div className="LinhaLaranja" />
-
-                <div className="rotas">
-                    <div>
-                        <img src="/Img-Casa.svg" alt="imagem pra tela de login" className="icon-menu" />
-                        <h2 className="Texto-menu">Inicio</h2>
-                    </div>
-                    <div>
-                        <img src="/Img-Notificacao.svg" alt="imagem pra tela de Notificações" className="icon-menu" />
-                        <h2 className="Texto-menu">Notificações</h2>
-                    </div>
-
-                    <div>
-                        <img src="/Img-Perfil-Laran.svg" alt="imagem pra tela de Perfil" className="icon-menu" />
-                        <h2 className="Texto-menu">Perfil</h2>
-                    </div>
-
-                </div>
-                <div>
-                    <img src="/Img-Sair.svg" alt="imagem pra tela de login" className="icon-menu" />
-                    <h2 className="Texto-menu">Perfil</h2>
-
-                </div>
-            </header>
-            <div >
-                <h3>Nova Ocorrência</h3>
-                <h1>Registrar uma nova Ocorrência</h1>
-
                 <form action="" >
                     <div className="box">
                         <div className="caixa">
@@ -55,7 +33,6 @@ const NovaOcorrencia = () => {
 
                             <div>
                                 <h5>Status da Ocorrência</h5>
-
                                 <input type="text" placeholder="Aberta" />
                             </div>
                         </div>
@@ -71,8 +48,11 @@ const NovaOcorrencia = () => {
                         <div className="inputs">
                             <div>
                                 <h5>Selecione o estudante *</h5>
+                                <div class="input-container">
+                                    <i class="fa-solid fa-user icon"><img src="lupa.svg" alt="" /></i>
+                                    <input type="text" placeholder="Buscar por CPF ou nome" />
+                                </div>
 
-                                <input type="text" placeholder="Buscar por CPF ou nome" />
                             </div>
 
                             <div>
