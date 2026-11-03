@@ -250,12 +250,21 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+<<<<<<< HEAD
+              "Title": "Ocorrencia.cs",
+              "DocumentMoniker": "C:\\Users\\50055487858\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Models\\Ocorrencia.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Models\\Ocorrencia.cs",
+              "ToolTip": "C:\\Users\\50055487858\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Models\\Ocorrencia.cs",
+              "RelativeToolTip": "AQV-API\\Models\\Ocorrencia.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAswB0AAAAAAAAAAAAAAA==",
+=======
               "Title": "AqvContext.cs",
               "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\BdContext\\AqvContext.cs",
               "RelativeDocumentMoniker": "AQV-API\\BdContext\\AqvContext.cs",
               "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\BdContext\\AqvContext.cs",
               "RelativeToolTip": "AQV-API\\BdContext\\AqvContext.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAYwBwAAABAAAAAAAAAAA==",
+>>>>>>> 4869694b970831031a05259f7fef7b6a6e3178b9
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-29T17:21:28.047Z",
               "EditorCaption": ""

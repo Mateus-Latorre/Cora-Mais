@@ -3,7 +3,6 @@ import "./Cadastro.css";
 
 function Cadastro() {
     return (
-
         <div className="cadastro-layout">
             <header>
                 <h1>Cadastrar usuario</h1>
