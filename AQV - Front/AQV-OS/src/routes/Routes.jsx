@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Login from "../pages/login/Login"
-import CadartroUsuario from "../pages/cadastro/Cadastro"
-import CadartroOcorrencia from "../pages/criarOcorrencias/CriarOcorrencias"
-import Notificacoes from "../pages/notificacoes/Notificacoes"
-import Perfil from "../pages/perfil/Perfil"
-import Ocorrencias from "../pages/ocorrencias/Ocorrencias"
-import HistOcorrencias from "../pages/histOcorrencias/HistOcorrencias"
+import Login from "../pages/login/Login.jsx"
+import CadartroUsuario from "../pages/cadastro/Cadastro.jsx"
+import CadartroOcorrencia from "../pages/criarOcorrencias/CriarOcorrencias.jsx"
+import Notificacoes from "../pages/notificacoes/Notificacoes.jsx"
+import Perfil from "../pages/perfil/Perfil.jsx"
+import Ocorrencias from "../pages/ocorrencias/Ocorrencias.jsx"
+import HistOcorrencias from "../pages/histOcorrencias/HistOcorrencias.jsx"
 // import PrivateRoutes from "../routes/PrivateRoutes"
 
 const Rotas = () => {
