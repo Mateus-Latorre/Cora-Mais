@@ -25,6 +25,7 @@
     font-size: 20px;
     margin-left: 10px;
     text-align: center;
+    color: var(--branco);
 }
 
 .Texto-sair {
@@ -53,6 +54,7 @@
 .rota {
     display: flex;
     width: 100%;
+    color: var(--branco);
 
 }
 
