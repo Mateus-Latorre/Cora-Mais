@@ -19,19 +19,19 @@ const NovaOcorrencia = () => {
                 </div>
                 <form action="" >
                     <div className="box">
-                        <div className="caixa">
+                        <div className="caixa-icons">
                             <img src="identificacao.svg" alt="" />
 
                             <h3>Identificação da Ocorrência</h3>
                         </div>
                         <div className="inputs">
-                            <div>
+                            <div className="input">
                                 <h5>Titulo da Ocorrência</h5>
 
                                 <input type="text" placeholder="Ex: Atraso freuqentenas entregas das atividades" />
                             </div>
 
-                            <div>
+                            <div className="input">
                                 <h5>Status da Ocorrência</h5>
                                 <input type="text" placeholder="Aberta" />
                             </div>
@@ -40,13 +40,13 @@ const NovaOcorrencia = () => {
 
 
                     <div className="box">
-                        <div className="caixa">
+                        <div className="caixa-icons">
                             <img src="estudante.svg" alt="" />
 
                             <h3>Estudante</h3>
                         </div>
                         <div className="inputs">
-                            <div>
+                            <div className="input">
                                 <h5>Selecione o estudante *</h5>
                                 <div class="input-container">
                                     <i class="fa-solid fa-user icon"><img src="lupa.svg" alt="" /></i>
@@ -55,7 +55,7 @@ const NovaOcorrencia = () => {
 
                             </div>
 
-                            <div>
+                            <div className="input">
                                 <h5>Turma</h5>
 
                                 <input type="" placeholder="Selecione a Turma" />
@@ -65,7 +65,7 @@ const NovaOcorrencia = () => {
 
 
                     <div className="boxD">
-                        <div className="caixa">
+                        <div className="caixa-icons">
                             <img src="descriçao.svg" alt="" />
 
                             <h3>Descrição da Ocorrência</h3>
@@ -74,7 +74,7 @@ const NovaOcorrencia = () => {
                     </div>
 
                     <div className="boxD">
-                        <div className="caixa">
+                        <div className="caixa-icons">
                             <img src="aviao-papel.svg" alt="" />
 
                             <h3>Ações</h3>

@@ -23,8 +23,10 @@
 
 .Texto-menu {
     font-size: 20px;
+    color: var(--branco);
     margin-left: 10px;
     text-align: center;
+    height: 15px;
 }
 
 .Texto-sair {
@@ -53,6 +55,8 @@
 .rota {
     display: flex;
     width: 100%;
+    color: var(--branco);
+    align-items: center;
 
 }
 

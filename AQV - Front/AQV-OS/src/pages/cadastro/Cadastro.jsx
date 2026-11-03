@@ -2,8 +2,16 @@ import { useState } from "react";
 import "./Cadastro.css";
 
 function Cadastro() {
+<<<<<<< HEAD
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirm, setShowConfirm] = useState(false);
+=======
+    return (
+        <div className="cadastro-layout">
+            <header>
+                <h1>Cadastrar usuario</h1>
+            </header>
+>>>>>>> 9cc3679e308290a4ee93967a53e5668050d153b7
 
     return (
         <div className="cadastro-layout">
