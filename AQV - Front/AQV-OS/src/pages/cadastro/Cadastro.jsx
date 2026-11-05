@@ -1,15 +1,12 @@
 import { useState } from "react";
 import "./Cadastro.css";
+import { Link } from "react-router-dom";
 
 function Cadastro() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirm, setShowConfirm] = useState(false);
     return (
         <div className="cadastro-layout">
-            <header>
-                <h1>Cadastrar usuario</h1>
-            </header>
-
             <div className="cadastro-presentation">
                 <span className="app-tag">Seu app</span>
 
@@ -95,9 +92,9 @@ function Cadastro() {
                     </div>
 
                     {/* BOTÃO */}
-                    <button type="submit" className="cadastro-button">
+                    <Link to="/Feed" className="cadastro-button">
                         Cadastre-se
-                    </button>
+                    </Link>
                 </form>
 
                 <p className="signup-text">
