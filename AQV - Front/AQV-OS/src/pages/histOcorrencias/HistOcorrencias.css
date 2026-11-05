@@ -6,6 +6,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 45px;
+    text-decoration: none;
 
 }
 
@@ -23,7 +24,15 @@
     width: 100%;
     padding: 30px;
     color: #FFFFFF;
+    height: 100vh;
+    overflow: scroll;
 }
+
+.container-ocorrencias::-webkit-scrollbar {
+    display: none;
+}
+
+
 
 .button-criar {
     display: flex;
@@ -36,6 +45,7 @@
     font-weight: 600;
     cursor: pointer;
     box-shadow: 3px 6px 5px rgb(255, 172, 120, 0.3);
+    text-decoration: none;
 }
 
 
@@ -110,6 +120,10 @@
 
 .abertas {
     background-color: #FFAC78;
+}
+
+.EmAndamento {
+    background-color: var(--azul-claro);
 }
 
 .andamento span {
@@ -302,6 +316,7 @@ input[type="date"] {
 .informacoes-ocorrencia {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-decoration: none;
     align-items: center;
     /* min-height: 64px; */
     /* padding: 8px 14px; */
@@ -379,4 +394,5 @@ input[type="date"] {
     padding-left: 30%;
     gap: 10px;
     white-space: nowrap;
+    align-items: center;
 }
