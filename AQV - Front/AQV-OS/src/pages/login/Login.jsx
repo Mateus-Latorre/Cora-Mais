@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -48,9 +49,9 @@ function Login() {
                         />
                     </div>
 
-                    <button type="submit" className="login-button">
+                    <Link type="submit" className="login-button" to="/Feed">
                         Entrar
-                    </button>
+                    </Link>
                 </form>
             </div>
         </div>
