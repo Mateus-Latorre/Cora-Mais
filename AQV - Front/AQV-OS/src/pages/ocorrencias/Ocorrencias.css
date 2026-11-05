@@ -46,15 +46,25 @@
     flex-direction: column;
     gap: 14px;
 }
-
-.oco-card-head {
+.oco-card-top {
+    background-color: rgb(0, 4, 58, 0.55);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 10px;
+    padding-left: 22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 180px;
+}
+
+.oco-card-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .oco-icone {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--branco);
     font-weight: 500;
 }
@@ -63,6 +73,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    width: 120px;
 }
 
 .oco-badge {
@@ -72,6 +83,7 @@
     font-weight: 600;
     font-size: 15px;
     text-align: center;
+    margin-right: 15px;
 }
 
 .oco-verde {
@@ -88,6 +100,7 @@
     font-size: 28px;
     color: var(--branco);
     font-weight: 700;
+    margin-top: 20px;
 }
 
 .oco-row2 {
@@ -138,7 +151,6 @@
     font-family: "Roboto";
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 6px;
-    width: 100%;
     color: var(--branco);
     padding: 12px 16px;
     font-size: 14px;
@@ -168,12 +180,15 @@
     color: var(--azul-escuro);
     border: none;
     border-radius: 6px;
-    padding: 12px 56px;
+    height: 27.2px;
+    width: 140px;
     font-weight: 600;
     font-size: 15px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .oco-icone {
     display: flex;
     align-items: center;
