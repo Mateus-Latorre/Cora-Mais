@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from "../pages/login/Login.jsx"
 import CadartroUsuario from "../pages/cadastro/Cadastro.jsx"
-import CadartroOcorrencia from "../pages/criarOcorrencias/CriarOcorrencias.jsx"
+import CadastroOcorrencia from "../pages/criarOcorrencias/CriarOcorrencias.jsx"
 import Notificacoes from "../pages/notificacoes/Notificacoes.jsx"
 import Perfil from "../pages/perfil/Perfil.jsx"
 import Ocorrencias from "../pages/ocorrencias/Ocorrencias.jsx"
@@ -16,7 +16,7 @@ const Rotas = () => {
 
                 <Route path="/Cadastro" element={<CadartroUsuario />} />
 
-                <Route path="/CadartroOcorrencia" element={<CadartroOcorrencia />} />
+                <Route path="/CadastroOcorrencia" element={<CadastroOcorrencia />} />
 
                 <Route path="/Notificacoes" element={<Notificacoes />} />
 

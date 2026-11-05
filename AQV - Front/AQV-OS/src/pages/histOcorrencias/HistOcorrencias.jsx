@@ -57,8 +57,8 @@ const HistOcorrencias = () => {
                 {/* PESQUISA E FILTROS */}
                 <div className="filtros-ocorrencias">
 
-                    <div class="input-container">
-                        <i class="fa-solid fa-user icon"><img src="lupa.svg" alt="" /></i>
+                    <div className="input-container">
+                        <i className="fa-solid fa-user icon"><img src="lupa.svg" alt="" /></i>
                         <input type="text" placeholder="Buscar por CPF ou nome" />
                     </div>
 
