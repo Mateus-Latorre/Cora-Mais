@@ -80,6 +80,7 @@
     border-color: #ADD5FF;
     background-color: #00043A;
     border-radius: 15px;
+    display: flex;
 }
 .caixa2 {
     display: flex;
