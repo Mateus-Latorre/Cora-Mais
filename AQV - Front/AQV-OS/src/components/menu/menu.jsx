@@ -12,7 +12,7 @@ const Menu = () => {
             <div className="LinhaLaranja" />
 
             <div className="rotas">
-                <Link className="rota" to="/Feed">
+                <Link className="rota" to="/DashBoard">
                     <img src="/Img-Casa.svg" alt="imagem pra tela de login" className="icon-menu" />
                     <h2 className="Texto-menu">Inicio</h2>
                 </Link>

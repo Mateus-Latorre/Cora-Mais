@@ -34,7 +34,7 @@ namespace AQV_API.Controllers
                     IdUsuario = Guid.NewGuid(),
                     Nome = dto.Nome,
                     Email = dto.Email,
-                    Senha = BCrypt.Net.BCrypt.HashPassword(dto.Senha),
+                    Senha = dto.Senha,
                     Numero = dto.Numero,
                     IdTipoUsuario = dto.IdTipoUsuario
                 };
@@ -89,6 +89,25 @@ namespace AQV_API.Controllers
                 };
                 _usuarioRepository.Atualizar(id, usuario);
                 return StatusCode(204);
+            }
+            catch (Exception ex) { return BadRequest(ex.Message); }
+        }
+
+        /// <summary>
+        /// Troca a senha do próprio usuário (tela de Perfil).
+        /// O id vem da URL e a senha atual precisa conferir.
+        /// </summary>
+        [HttpPatch("{id}/senha")]
+        public IActionResult TrocarSenha(Guid id, [FromBody] TrocarSenhaDTO dto)
+        {
+            try
+            {
+                _usuarioRepository.TrocarSenha(id, dto.SenhaAtual, dto.NovaSenha);
+                return NoContent();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }

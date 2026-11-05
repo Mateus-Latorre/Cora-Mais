@@ -26,7 +26,7 @@ const Rotas = () => {
 
                 <Route path="/Ocorrencias" element={<Ocorrencias />} />
 
-                <Route path="/Feed" element={<HistOcorrencias />} />
+                <Route path="/DashBoard" element={<HistOcorrencias />} />
 
                 {/* <Route path="/livro" element={
                     <PrivateRoutes>
