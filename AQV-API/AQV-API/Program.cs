@@ -1,5 +1,3 @@
-using System.Text;
-using System.Text.Json.Serialization;
 using AQV.WebAPI.BdContext;
 using AQV_API.Interfaces;
 using AQV_API.Repositories;
@@ -7,6 +5,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,7 +62,7 @@ builder.Services.AddCors(options =>
 // ---------------------------------------------------------------------------
 var jwtKey = builder.Configuration["Jwt:Key"]
     ?? throw new InvalidOperationException("A chave Jwt:Key não foi configurada.");
-
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -77,8 +78,8 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
         ClockSkew = TimeSpan.FromMinutes(5),
-        RoleClaimType = System.Security.Claims.ClaimTypes.Role,
-        NameClaimType = System.Security.Claims.ClaimTypes.Name
+        RoleClaimType = "role",
+        NameClaimType = "nome"
     };
 });
 
