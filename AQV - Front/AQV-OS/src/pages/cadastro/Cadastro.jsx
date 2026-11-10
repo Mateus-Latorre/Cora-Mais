@@ -6,9 +6,7 @@ function Cadastro() {
     const [showConfirm, setShowConfirm] = useState(false);
     return (
         <div className="cadastro-layout">
-            <header>
-                <h1>Cadastrar usuario</h1>
-            </header>
+
 
             <div className="cadastro-presentation">
                 <span className="app-tag">Seu app</span>
