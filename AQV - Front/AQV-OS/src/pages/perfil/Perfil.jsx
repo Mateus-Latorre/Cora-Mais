@@ -1,25 +1,26 @@
 import "./Perfil.css";
 import Menu from "../../components/menu/menu";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UsuarioContext } from "../../context/UsuarioContext/UsuarioContext";
+import { Alerta } from "../../components/alerta/alerta";
+import api from "../../services/Services";
 
 const Perfil = () => {
-  const {usuario} = useContext(UsuarioContext);
-    console.log("Payload do Usuário:", JSON.stringify(usuario, null, 2));
+  const { usuario } = useContext(UsuarioContext);
   let img = null;
   if (usuario.role === "Professor") {
     img = "../../public/professor.png";
-  }else if (usuario.role === "AQV") {
+  } else if (usuario.role === "AQV") {
     img = "../../public/aqv.png";
-  }else if (usuario.role === "Coordenador") {
+  } else if (usuario.role === "Coordenador") {
     img = "../../public/coordenador.png";
   }
   let imgStyle = null;
   if (usuario.role === "Professor") {
     imgStyle = "imgProf";
-  }else if (usuario.role === "AQV") {
+  } else if (usuario.role === "AQV") {
     imgStyle = "imgAQV";
-  }else if (usuario.role === "Coordenador") {
+  } else if (usuario.role === "Coordenador") {
     imgStyle = "imgCoordenador";
   }
   const [senhaAtual, setSenhaAtual] = useState("");
@@ -27,64 +28,78 @@ const Perfil = () => {
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [salvando, setSalvando] = useState(false);
   const trocarSenha = async () => {
-  if (!senhaAtual || !novaSenha || !confirmarSenha) {
-    Alerta({
-      title: "Atenção",
-      text: "Preencha todos os campos.",
-      icon: "warning",
-      confirmButtonText: "Ok",
-    });
-    return;
-  }
+    if (!senhaAtual || !novaSenha || !confirmarSenha) {
+      Alerta({
+        title: "Atenção",
+        text: "Preencha todos os campos.",
+        icon: "warning",
+        confirmButtonText: "Ok",
+      });
+      return;
+    }
 
-  if (novaSenha.length < 6) {
-    Alerta({
-      title: "Atenção",
-      text: "A nova senha precisa ter pelo menos 6 caracteres.",
-      icon: "warning",
-      confirmButtonText: "Ok",
-    });
-    return;
-  }
+    if (novaSenha.length < 6) {
+      Alerta({
+        title: "Atenção",
+        text: "A nova senha precisa ter pelo menos 6 caracteres.",
+        icon: "warning",
+        confirmButtonText: "Ok",
+      });
+      return;
+    }
 
-  if (novaSenha !== confirmarSenha) {
-    Alerta({
-      title: "Atenção",
-      text: "As senhas novas não coincidem.",
-      icon: "warning",
-      confirmButtonText: "Ok",
-    });
-    return;
-  }
+    if (novaSenha !== confirmarSenha) {
+      Alerta({
+        title: "Atenção",
+        text: "As senhas novas não coincidem.",
+        icon: "warning",
+        confirmButtonText: "Ok",
+      });
+      return;
+    }
 
-  setSalvando(true);
-  try {
-    await api.patch(`/Usuario/${usuario.id}/senha`, {
-      senhaAtual,
-      novaSenha,
-    });
+    setSalvando(true);
+    console.log("novaSenha:", JSON.stringify(novaSenha));
+    console.log("confirmarSenha:", JSON.stringify(confirmarSenha));
+    console.log("são iguais?", novaSenha === confirmarSenha);
+    const dadosSenha = {
+      SenhaAtual: senhaAtual,
+      NovaSenha: novaSenha,
+      ConfirmarNovaSenha: confirmarSenha,
+    };
+    try {
+      await api.patch(`/Usuario/${usuario.id}/senha`, dadosSenha);
 
-    Alerta({
-      title: "Sucesso",
-      text: "Senha alterada com sucesso!",
-      icon: "success",
-      confirmButtonText: "Ok",
-    });
+      Alerta({
+        title: "Sucesso",
+        text: "Senha alterada com sucesso!",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
 
-    setSenhaAtual("");
-    setNovaSenha("");
-    setConfirmarSenha("");
-  } catch (error) {
-    Alerta({
-      title: "Erro",
-      text: error.response?.data || "Não foi possível alterar a senha.",
-      icon: "error",
-      confirmButtonText: "Ok",
-    });
-  } finally {
-    setSalvando(false);
-  }
-};
+      setSenhaAtual("");
+      setNovaSenha("");
+      setConfirmarSenha("");
+    } catch (error) {
+      const mensagemErro = error.response?.data?.errors
+        ? Object.values(error.response.data.errors).flat().join(" ")
+        : (error.response?.data?.title ??
+          error.response?.data?.message ??
+          (typeof error.response?.data === "string"
+            ? error.response.data
+            : null) ??
+          "Não foi possível alterar a senha.");
+
+      Alerta({
+        title: "Erro",
+        text: mensagemErro,
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    } finally {
+      setSalvando(false);
+    }
+  };
   return (
     <div className="body">
       {/* *******           Menu           ********** */}
@@ -96,7 +111,11 @@ const Perfil = () => {
         </div>
 
         <div className="caixa">
-          <img src={usuario ? img : <p>carregando</p>} alt="" className={imgStyle} />
+          <img
+            src={usuario ? img : <p>carregando</p>}
+            alt=""
+            className={imgStyle}
+          />
           <div className="Desc">
             <img src="../../public/editar.png" alt="" className="imgEdit" />
             <div className="Info">
@@ -133,25 +152,43 @@ const Perfil = () => {
           <div className="campo">
             <div className="campo_senhas_atual">
               <h4 className="campo_txt">Digite sua senha atual</h4>
-              <input className="campo_input" type="password" />
+              <input
+                className="campo_input"
+                type="password"
+                value={senhaAtual}
+                onChange={(e) => setSenhaAtual(e.target.value)}
+              />
             </div>
             <div className="campo_senhas">
               <h4 className="campo_txt">Digite sua nova senha</h4>
-              <input className="campo_input" type="password" />
+              <input
+                className="campo_input"
+                type="password"
+                value={novaSenha}
+                onChange={(e) => setNovaSenha(e.target.value)}
+              />
             </div>
             <div className="campo_senhas">
               <h4 className="campo_txt">Confirme sua nova senha</h4>
-              <input className="campo_input" type="password" />
+              <input
+                className="campo_input"
+                type="password"
+                value={confirmarSenha}
+                onChange={(e) => setConfirmarSenha(e.target.value)}
+              />
             </div>
           </div>
           <div className="btn">
-            <button className="btn_salvar">
-              <img
-                src="../../public/salvar.png"
-                alt=""
-                className="salvar_img"
-              />
-              <p className="salvar_txt">Salvar</p>
+            <button
+              className="btn_salvar"
+              onClick={trocarSenha}
+              disabled={salvando}
+              type="button"
+            >
+              <img src="/salvar.png" alt="" className="salvar_img" />
+              <p className="salvar_txt">
+                {salvando ? "Salvando..." : "Salvar"}
+              </p>
             </button>
           </div>
         </div>
