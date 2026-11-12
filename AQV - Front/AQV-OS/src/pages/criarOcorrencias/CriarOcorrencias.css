@@ -6,6 +6,7 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
+    padding: 20px 36px;
 }
 
 .body {
@@ -143,7 +144,7 @@ input::placeholder {
 form {
     display: flex;
     flex-direction: column;
-    padding: 20px 30px;
+    padding: 20px 0px;
     gap: 15px;
     width: 100%;
 
@@ -185,9 +186,9 @@ form {
 }
 
 .titulo {
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 20px;
+    /* padding-left: 30px; */
+    /* padding-right: 30px; */
+    /* padding-top: 20px; */
     width: 100%;
 }
 

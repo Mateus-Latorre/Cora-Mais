@@ -10,16 +10,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 150px;
+    margin-left: 110px;
+    margin-right: 40px;
 }
 .Info{
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .Info_tipo{
-    display: flex;
+   display: flex;
     flex-direction: row;
+    /* margin-bottom: 10px; */
 
 }
 .Info_txt{
@@ -51,49 +53,55 @@
 .container{
     display: flex;
     flex-direction: column;
-    margin-left: 50px;
+    width: 100vw;
+    height: 100vh;
+    /* margin-left: 50px; */
+    padding-left: 50px;
+    padding-right: 50px;
     align-items: last baseline;
 }
-.titulo{
-    margin-bottom: 2px;
-}
 .titulo_l {
-    font-size: 55px !important;
+    font-size: 32px !important;
 }
 .titulo2{
     margin-top: 27px;
     margin-bottom: 2px;
 }
 .titulo_2 {
-    font-size: 34px !important;
+    font-size: 55px !important;
 }
 .imgProf{
-    width: 300px;
-    height: 300px;
+    /* width: 150; */
+    height: 150px;
     margin-left: 20px;
 }
 .caixa {
     align-items: center;
-    width: 795px;
-    height: 323px;
+    width: 80%;
+    height: 300px;
     border: solid;
-    border-color: #ADD5FF;
-    background-color: #00043A;
+    border: 2px solid var(--azul-claro-transparente);
+    background-color: rgb(0, 4, 58, 0.5);
     border-radius: 15px;
     display: flex;
+    margin-top: 20px;
 }
 .caixa2 {
-    display: flex;
+    background-color: rgb(0, 4, 58, 0.5);
+    font-family: "Roboto";
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 15px;
     align-items: center;
-    width: 980px;
-    height: 230px;
-    border: solid;
-    border-color: #ebeff4;
-    background-color: #00043A;
-    border-radius: 15px;    
+    width: 80%;
+    color: var(--branco);
+    /* padding-left: 13px; */
+    height: 300px;   
+    display: flex;
 }
 .campo{
+    margin-top: 10px;
     margin-left: 30px;
+    margin-right: 30px;
 }
 .campo_senhas {
     margin-top: 20px;
@@ -105,12 +113,11 @@
 .campo_input {
     width: 590px;
     height: 35px;
-    border-radius: 10px;
-    background-color: #002962;
-    border-color: #ADD5FF;
+    background-color: rgb(0, 4, 58, 0.5);
+    border: 2px solid var(--azul-claro-transparente);
 }
 .btn_salvar {
-     width: 250px;
+    width: 250px;
     height: 35px;
     border-radius: 10px;
     background-color: #ADD5FF;
@@ -118,6 +125,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 15px;
     gap: 12px;
 }
 .salvar_txt {
@@ -130,9 +138,7 @@
     height: 30px;
 }
 .btn{
-    display: flex;
-    flex-direction: column;
-    height: 216.6px;
-    justify-content: flex-end;
-    margin-left: 15px;
+      width: 250px;
+    height: 35px;
+    flex-shrink: 0;
 }

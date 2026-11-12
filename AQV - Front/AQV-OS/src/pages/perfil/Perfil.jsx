@@ -7,13 +7,17 @@ const Perfil = () => {
       {/* *******           Menu           ********** */}
       <Menu />
       {/* **************        Tela          ***************** */}
+
+
+
+
       <div className="container">
         <div className="titulo">
           <h1 className="titulo_l">Perfil</h1>
         </div>
 
         <div className="caixa">
-          <img src="../../public/professor.png" alt="" className="imgProf" />
+          <img src="../../public/professor.svg.svg" alt="" className="imgProf" />
           <div className="Desc">
             <div className="Info">
               <img src="../../public/pessoa.svg" alt="" className="imgDesc" />
@@ -24,7 +28,7 @@ const Perfil = () => {
             </div>
             <div className="Info">
               <img
-                src="../../public/Email.png"
+                src="../../public/Email.svg.svg"
                 alt=""
                 className="imgDescEmail"
               />
@@ -35,7 +39,7 @@ const Perfil = () => {
             </div>
             <div className="Info">
               <img
-                src="../../public/calendario.png"
+                src="../../public/iphone.svg.svg"
                 alt=""
                 className="imgDesc"
               />
@@ -45,7 +49,7 @@ const Perfil = () => {
               </div>
             </div>
             <div className="Info_tipo">
-              <img src="../../public/pessoas.png" alt="" className="imgDesc" />
+              <img src="../../public/pessoas.svg.svg" alt="" className="imgDesc" />
               <div className="Info_txt">
                 <p className="T_desc">Tipo de usuário</p>
                 <p className="txt_desc">Professora</p>
@@ -74,7 +78,7 @@ const Perfil = () => {
           <div className="btn">
             <button className="btn_salvar">
               <img
-                src="../../public/salvar.png"
+                src="../../public/salvar.svg.svg"
                 alt=""
                 className="salvar_img"
               />
