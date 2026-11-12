@@ -47,12 +47,8 @@ function Login() {
       });
       console.error("Erro ao fazer login:", error);
     }
-<<<<<<< HEAD
 }
 
-=======
-  };
->>>>>>> 5c4416f2e9294b0a0a01b3146409138c27fb40e9
   return (
     <div className="login-layout">
       <div className="login-presentation">
@@ -76,7 +72,6 @@ function Login() {
 
           {/* E-MAIL */}
           <div className="input-wrapper">
-<<<<<<< HEAD
             <input 
             id="email" 
             type="email" 
@@ -90,17 +85,6 @@ function Login() {
             alt="" 
             className="icon" 
             />
-=======
-            <input
-              id="email"
-              type="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <img src="/email.svg" alt="" className="icon" />
->>>>>>> 5c4416f2e9294b0a0a01b3146409138c27fb40e9
           </div>
 
         {/* SENHA */}
@@ -132,6 +116,6 @@ function Login() {
       </div>
     </div>
   );
-}
 
+}
 export default Login;

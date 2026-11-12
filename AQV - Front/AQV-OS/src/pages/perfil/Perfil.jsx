@@ -9,11 +9,11 @@ const Perfil = () => {
   const { usuario } = useContext(UsuarioContext);
   let img = null;
   if (usuario.role === "Professor") {
-    img = "../../public/professor.png";
+    img = "../../public/professor.svg.svg";
   } else if (usuario.role === "AQV") {
-    img = "../../public/aqv.png";
+    img = "../../public/aqv.svg.svg";
   } else if (usuario.role === "Coordenador") {
-    img = "../../public/coordenador.png";
+    img = "../../public/coordenador.svg.svg";
   }
   let imgStyle = null;
   if (usuario.role === "Professor") {
@@ -116,7 +116,7 @@ const Perfil = () => {
 
         <div className="caixa">
           <img
-            src={usuario ? img : <img src="../../public/professor.svg.svg">carregando</img>}
+            src={usuario ?  img : <p>carregando</p>}
             alt=""
             className={imgStyle}
           />
@@ -200,7 +200,7 @@ const Perfil = () => {
               disabled={salvando}
               type="button"
             >
-              <img src="/salvar.png" alt="" className="salvar_img" />
+              <img src="../../public/salvar.svg.svg" alt="" className="salvar_img" />
               <p className="salvar_txt">
                 {salvando ? "Salvando..." : "Salvar"}
               </p>
