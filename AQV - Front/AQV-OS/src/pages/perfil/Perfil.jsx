@@ -116,7 +116,7 @@ const Perfil = () => {
 
         <div className="caixa">
           <img
-            src={usuario ? img : <img src="../../public/professor.svg.svg">carregando</img>}
+            src={usuario ? img : carregando}
             alt=""
             className={imgStyle}
           />

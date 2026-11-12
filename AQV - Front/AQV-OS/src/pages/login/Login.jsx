@@ -12,7 +12,7 @@ function Login() {
   const [senha, setSenha] = useState("");
   const { setUsuario } = useContext(UsuarioContext);
 
-  
+
   const navigate = useNavigate();
   const login = async () => {
     if (email.trim().length === 0 || senha.trim().length === 0) {
@@ -47,12 +47,7 @@ function Login() {
       });
       console.error("Erro ao fazer login:", error);
     }
-<<<<<<< HEAD
-}
-
-=======
   };
->>>>>>> 5c4416f2e9294b0a0a01b3146409138c27fb40e9
   return (
     <div className="login-layout">
       <div className="login-presentation">
@@ -76,21 +71,6 @@ function Login() {
 
           {/* E-MAIL */}
           <div className="input-wrapper">
-<<<<<<< HEAD
-            <input 
-            id="email" 
-            type="email" 
-            placeholder="E-mail" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required 
-            />
-            <img 
-            src="/email.svg" 
-            alt="" 
-            className="icon" 
-            />
-=======
             <input
               id="email"
               type="email"
@@ -100,10 +80,9 @@ function Login() {
               required
             />
             <img src="/email.svg" alt="" className="icon" />
->>>>>>> 5c4416f2e9294b0a0a01b3146409138c27fb40e9
           </div>
 
-        {/* SENHA */}
+          {/* SENHA */}
           <div className="input-wrapper">
             <input
               id="password"
@@ -122,10 +101,10 @@ function Login() {
           </div>
 
 
-    {/* BOTAO */}
-          <button type="button" 
-          className="login-button" 
-          onClick={login}>
+          {/* BOTAO */}
+          <button type="button"
+            className="login-button"
+            onClick={login}>
             Entrar
           </button>
         </form>
