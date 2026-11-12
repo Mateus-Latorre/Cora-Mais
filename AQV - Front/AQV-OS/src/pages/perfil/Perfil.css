@@ -72,6 +72,16 @@
     height: 300px;
     margin-left: 20px;
 }
+.imgAQV{
+    width: 240px;
+    height: 240px;
+    margin-left: 65px;
+}
+.imgCoordenador{
+    width: 240px;
+    height: 240px;
+    margin-left: 65px;
+}
 .caixa {
     align-items: center;
     width: 795px;

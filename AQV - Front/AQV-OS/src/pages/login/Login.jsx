@@ -14,40 +14,45 @@ function Login() {
 
   
   const navigate = useNavigate();
-   const login = async () => {
+  const login = async () => {
     if (email.trim().length === 0 || senha.trim().length === 0) {
-         Alerta({
-            title: 'Atenção',
-            text: 'O login não pode estar em branco.',
-            icon: 'warning',
-            confirmButtonText: 'Ok',
-        })
-        return
-    };
+      Alerta({
+        title: "Atenção",
+        text: "O login não pode estar em branco.",
+        icon: "warning",
+        confirmButtonText: "Ok",
+      });
+      return;
+    }
     const dadosLogin = {
-        email: email,
-        senha: senha
+      email: email,
+      senha: senha,
     };
     try {
-        const retornoAPI = await api.post("/Login", dadosLogin);
-        const token = retornoAPI.data.token;
-        const usuarioDecoded = jwtDecode(token);
-        setUsuario(usuarioDecoded);
-        localStorage.setItem("usuario", JSON.stringify(usuarioDecoded));
-        navigate("/DashBoard");
-        setEmail("");
-        setSenha("");
+      const retornoAPI = await api.post("/Login", dadosLogin);
+      const token = retornoAPI.data.token;
+      const usuarioDecoded = jwtDecode(token);
+      setUsuario(usuarioDecoded);
+      localStorage.setItem("usuario", JSON.stringify(usuarioDecoded));
+      localStorage.setItem("token", token);
+      navigate("/DashBoard");
+      setEmail("");
+      setSenha("");
     } catch (error) {
-        Alerta({
-            title: 'Login',
-            text: 'Usuário não encontrado',
-            icon: 'error',
-            confirmButtonText: 'Ok',
-        });
-        console.error("Erro ao fazer login:", error);
+      Alerta({
+        title: "Login",
+        text: "Usuário não encontrado",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+      console.error("Erro ao fazer login:", error);
     }
+<<<<<<< HEAD
 }
 
+=======
+  };
+>>>>>>> 5c4416f2e9294b0a0a01b3146409138c27fb40e9
   return (
     <div className="login-layout">
       <div className="login-presentation">
@@ -71,6 +76,7 @@ function Login() {
 
           {/* E-MAIL */}
           <div className="input-wrapper">
+<<<<<<< HEAD
             <input 
             id="email" 
             type="email" 
@@ -84,6 +90,17 @@ function Login() {
             alt="" 
             className="icon" 
             />
+=======
+            <input
+              id="email"
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <img src="/email.svg" alt="" className="icon" />
+>>>>>>> 5c4416f2e9294b0a0a01b3146409138c27fb40e9
           </div>
 
         {/* SENHA */}
