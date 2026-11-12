@@ -22,6 +22,8 @@ public partial class AqvContext : DbContext
 
     public virtual DbSet<Encaminhamento> Encaminhamentos { get; set; }
 
+    public virtual DbSet<Notificacao> Notificacaos { get; set; }
+
     public virtual DbSet<Ocorrencia> Ocorrencias { get; set; }
 
     public virtual DbSet<Ostatus> Ostatuses { get; set; }
@@ -104,6 +106,26 @@ public partial class AqvContext : DbContext
             entity.HasOne(d => d.IdUsuarioCoordenadorNavigation).WithMany(p => p.EncaminhamentoIdUsuarioCoordenadorNavigations)
                 .HasForeignKey(d => d.IdUsuarioCoordenador)
                 .HasConstraintName("FK_Encaminhamento_Coordenador");
+        });
+
+        modelBuilder.Entity<Notificacao>(entity =>
+        {
+            entity.HasKey(e => e.IdNotificacao).HasName("PK__Notificacao__ID");
+
+            entity.ToTable("Notificacao");
+
+            entity.Property(e => e.IdNotificacao).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.Mensagem).HasMaxLength(300).IsUnicode(false);
+            entity.Property(e => e.DataEnvio).HasDefaultValueSql("(getdate())").HasColumnType("datetime");
+            entity.Property(e => e.Lida).HasDefaultValue(false);
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Notificacaos)
+                .HasForeignKey(d => d.IdUsuario)
+                .HasConstraintName("FK_Notificacao_Usuario");
+
+            entity.HasOne(d => d.IdOcorrenciaNavigation).WithMany(p => p.Notificacaos)
+                .HasForeignKey(d => d.IdOcorrencia)
+                .HasConstraintName("FK_Notificacao_Ocorrencia");
         });
 
         modelBuilder.Entity<Feedback>(entity =>

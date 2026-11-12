@@ -11,13 +11,16 @@ namespace AQV_API.Controllers
     {
         private readonly IEncaminhamentoRepository _encaminhamentoRepository;
         private readonly IOcorrenciaRepository _ocorrenciaRepository;
+        private readonly INotificacaoRepository _notificacaoRepository;
 
         public EncaminhamentoController(
             IEncaminhamentoRepository encaminhamentoRepository,
-            IOcorrenciaRepository ocorrenciaRepository)
+            IOcorrenciaRepository ocorrenciaRepository,
+            INotificacaoRepository notificacaoRepository)
         {
             _encaminhamentoRepository = encaminhamentoRepository;
             _ocorrenciaRepository = ocorrenciaRepository;
+            _notificacaoRepository = notificacaoRepository;
         }
 
         /// <summary>

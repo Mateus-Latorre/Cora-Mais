@@ -19,6 +19,8 @@ public partial class Usuario
 
     public virtual TipoUsuario? IdTipoUsuarioNavigation { get; set; }
 
+    public virtual ICollection<Notificacao> Notificacaos { get; set; } = new List<Notificacao>();
+
     public virtual ICollection<Ocorrencia> Ocorrencia { get; set; } = new List<Ocorrencia>();
 
     public virtual ICollection<Encaminhamento> EncaminhamentoIdUsuarioAqvNavigations { get; set; } = new List<Encaminhamento>();
