@@ -205,21 +205,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OcorrenciaRepository.cs",
-              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\OcorrenciaRepository.cs",
-              "RelativeDocumentMoniker": "AQV-API\\Repositories\\OcorrenciaRepository.cs",
-              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\OcorrenciaRepository.cs",
-              "RelativeToolTip": "AQV-API\\Repositories\\OcorrenciaRepository.cs",
-              "ViewState": "AgIAALcAAAAAAAAAAAAuwMMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:34:40.356Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -288,10 +275,22 @@
               "RelativeDocumentMoniker": "AQV-API\\Controllers\\OcorrenciaController.cs",
               "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Controllers\\OcorrenciaController.cs",
               "RelativeToolTip": "AQV-API\\Controllers\\OcorrenciaController.cs",
-              "ViewState": "AgIAABgBAAAAAAAAAAAswCsBAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABUBAAAAAAAAAAAswCsBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-12T17:12:30.753Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OcorrenciaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\OcorrenciaRepository.cs",
+              "RelativeDocumentMoniker": "AQV-API\\Repositories\\OcorrenciaRepository.cs",
+              "ToolTip": "C:\\Users\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\OcorrenciaRepository.cs",
+              "RelativeToolTip": "AQV-API\\Repositories\\OcorrenciaRepository.cs",
+              "ViewState": "AgIAALcAAAAAAAAAAAAuwMMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T17:34:40.356Z"
             },
             {
               "$type": "Document",
@@ -303,8 +302,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAC4XAAAAAAAAAAAUwDcXAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-11-12T17:17:34.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-12T17:17:34.179Z"
             },
             {
               "$type": "Document",
