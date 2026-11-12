@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using AQV_API.DTO;
 using AQV_API.Interfaces;
+using AQV.WebAPI.BdContext;
 using AQV.WebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,13 +17,19 @@ namespace AQV_API.Controllers
     {
         private readonly IFeedbackRepository _feedbackRepository;
         private readonly IOcorrenciaRepository _ocorrenciaRepository;
+        private readonly INotificacaoRepository _notificacaoRepository;
+        private readonly AqvContext _context;
 
         public FeedbackController(
             IFeedbackRepository feedbackRepository,
-            IOcorrenciaRepository ocorrenciaRepository)
+            IOcorrenciaRepository ocorrenciaRepository,
+            INotificacaoRepository notificacaoRepository,
+            AqvContext context)
         {
             _feedbackRepository = feedbackRepository;
             _ocorrenciaRepository = ocorrenciaRepository;
+            _notificacaoRepository = notificacaoRepository;
+            _context = context;
         }
 
         /// <summary>
@@ -43,6 +50,23 @@ namespace AQV_API.Controllers
                     IdOcorrencia = dto.IdOcorrencia
                 };
                 _feedbackRepository.Cadastrar(feedback);
+
+                // Notifica o professor que registrou a ocorrência
+                var ocorrencia = _context.Ocorrencias.Find(dto.IdOcorrencia);
+                if (ocorrencia != null)
+                {
+                    var notificacao = new AQV.WebAPI.Models.Notificacao
+                    {
+                        IdNotificacao = Guid.NewGuid(),
+                        IdUsuario = ocorrencia.IdUsuario,
+                        Mensagem = $"Novo feedback na ocorrência '{ocorrencia.Titulo}': {dto.Mensagem}",
+                        DataEnvio = DateTime.Now,
+                        Lida = false,
+                        IdOcorrencia = dto.IdOcorrencia
+                    };
+                    _notificacaoRepository.Cadastrar(notificacao);
+                }
+
                 return StatusCode(201, feedback);
             }
             catch (Exception ex) { return BadRequest(ex.Message); }

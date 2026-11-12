@@ -103,13 +103,15 @@ input::placeholder {
 .input-container .icon {
     position: absolute;
     /* Posiciona o ícone em relação à div pai */
-    top: 3px;
+    top: 10px;
     left: 13px;
     transform: translateY(center);
 
 }
 
 .icon img {
+    /* transform: translateY(center); */
+    padding-top: 5px ;
     width: 15px;
 }
 

@@ -39,14 +39,13 @@ namespace AQV_API.Controllers
                 }
 
                 var perfil = usuario.IdTipoUsuarioNavigation?.Titulo ?? string.Empty;
-
                 var claims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, usuario.IdUsuario.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, usuario.Email!),
-                    new Claim(ClaimTypes.Name, usuario.Nome!),
-                    new Claim(ClaimTypes.Role, perfil),
-                    new Claim(ClaimTypes.NameIdentifier, usuario.IdUsuario.ToString())
+                    new Claim("nome", usuario.Nome!),
+                    new Claim("role", perfil),
+                    new Claim("id", usuario.IdUsuario.ToString())
                 };
 
                 var jwtKey = _configuration["Jwt:Key"] ?? throw new InvalidOperationException("A chave Jwt:Key não foi configurada.");

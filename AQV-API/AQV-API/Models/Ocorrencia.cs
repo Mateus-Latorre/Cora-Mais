@@ -38,4 +38,6 @@ public partial class Ocorrencia
 
 
     public virtual Usuario? IdUsuarioNavigation { get; set; }
+
+    public virtual ICollection<Notificacao> Notificacaos { get; set; } = new List<Notificacao>();
 }
