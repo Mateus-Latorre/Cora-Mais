@@ -22,7 +22,7 @@ namespace AQV_API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "AQV,Coordenador")]
+
         public IActionResult Cadastrar([FromBody] AlunoCadastroDTO dto)
         {
             try
