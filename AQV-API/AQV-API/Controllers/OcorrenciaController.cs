@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using AQV_API.DTO;
 using AQV_API.Interfaces;
+using AQV.WebAPI.BdContext;
 using AQV.WebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,13 +17,19 @@ namespace AQV_API.Controllers
     {
         private readonly IOcorrenciaRepository _ocorrenciaRepository;
         private readonly IEncaminhamentoRepository _encaminhamentoRepository;
+        private readonly INotificacaoRepository _notificacaoRepository;
+        private readonly AqvContext _context;
 
         public OcorrenciaController(
             IOcorrenciaRepository ocorrenciaRepository,
-            IEncaminhamentoRepository encaminhamentoRepository)
+            IEncaminhamentoRepository encaminhamentoRepository,
+            INotificacaoRepository notificacaoRepository,
+            AqvContext context)
         {
             _ocorrenciaRepository = ocorrenciaRepository;
             _encaminhamentoRepository = encaminhamentoRepository;
+            _notificacaoRepository = notificacaoRepository;
+            _context = context;
         }
 
         /// <summary>Registra uma nova ocorrência (professor, AQV ou coordenação).</summary>
@@ -47,6 +54,19 @@ namespace AQV_API.Controllers
                     IdUsuario = idUsuario
                 };
                 _ocorrenciaRepository.Cadastrar(ocorrencia);
+
+                // Cria notificação para o professor que registrou
+                var notificacao = new AQV.WebAPI.Models.Notificacao
+                {
+                    IdNotificacao = Guid.NewGuid(),
+                    IdUsuario = idUsuario,
+                    Mensagem = $"Ocorrência '{ocorrencia.Titulo}' registrada com sucesso.",
+                    DataEnvio = DateTime.Now,
+                    Lida = false,
+                    IdOcorrencia = ocorrencia.IdOcorrencia
+                };
+                _notificacaoRepository.Cadastrar(notificacao);
+
                 return StatusCode(201, ocorrencia);
             }
             catch (Exception ex)
@@ -174,6 +194,36 @@ namespace AQV_API.Controllers
                     dto.TipoDestino == "Responsavel" ? dto.IdDestino : null,
                     dto.TipoDestino == "Coordenador" ? dto.IdDestino : null,
                     "ENCAMINHADA");
+
+                // Notifica o destinatário (responsável ou coordenador)
+                var notificacaoDestinatario = new AQV.WebAPI.Models.Notificacao
+                {
+                    IdNotificacao = Guid.NewGuid(),
+                    IdUsuario = dto.TipoDestino == "Responsavel"
+                        ? _context.Responsavels.FirstOrDefault(r => r.IdResponsavel == dto.IdDestino)?.IdUsuario 
+                        : dto.IdDestino,
+                    Mensagem = $"Ocorrência encaminhada para você: {ocorrencia.Titulo}",
+                    DataEnvio = DateTime.Now,
+                    Lida = false,
+                    IdOcorrencia = id
+                };
+
+                if (notificacaoDestinatario.IdUsuario != Guid.Empty)
+                {
+                    _notificacaoRepository.Cadastrar(notificacaoDestinatario);
+                }
+
+                // Notifica o professor que registrou
+                var notificacaoProfessor = new AQV.WebAPI.Models.Notificacao
+                {
+                    IdNotificacao = Guid.NewGuid(),
+                    IdUsuario = ocorrencia.IdUsuario,
+                    Mensagem = $"Sua ocorrência '{ocorrencia.Titulo}' foi encaminhada para {(dto.TipoDestino == "Responsavel" ? "um responsável" : "um coordenador")}.",
+                    DataEnvio = DateTime.Now,
+                    Lida = false,
+                    IdOcorrencia = id
+                };
+                _notificacaoRepository.Cadastrar(notificacaoProfessor);
 
                 return StatusCode(201, encaminhamento);
             }

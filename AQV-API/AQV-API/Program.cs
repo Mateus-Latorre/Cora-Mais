@@ -33,6 +33,8 @@ builder.Services.AddScoped<IOstatusRepository, OstatusRepository>();
 builder.Services.AddScoped<IOcorrenciaRepository, OcorrenciaRepository>();
 builder.Services.AddScoped<IEncaminhamentoRepository, EncaminhamentoRepository>();
 builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+builder.Services.AddScoped<INotificacaoRepository, NotificacaoRepository>();
+builder.Services.AddScoped<INotificacaoRepository, NotificacaoRepository>();
 
 // ---------------------------------------------------------------------------
 // Controllers

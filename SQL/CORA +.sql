@@ -77,6 +77,21 @@ IdUsuario UNIQUEIDENTIFIER FOREIGN KEY REFERENCES Usuario(IdUsuario),
 
 SELECT*FROM Ocorrencia
 
+USE CORA;
+
+CREATE TABLE Notificacao (
+    IdNotificacao UNIQUEIDENTIFIER PRIMARY KEY DEFAULT (NEWID()),
+    IdUsuario     UNIQUEIDENTIFIER NOT NULL
+        CONSTRAINT FK_Notificacao_Usuario REFERENCES Usuario(IdUsuario),
+    Mensagem      VARCHAR(300) NOT NULL,
+    DataEnvio     DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+    Lida          BIT NOT NULL DEFAULT 0,
+    IdOcorrencia  UNIQUEIDENTIFIER NULL
+        CONSTRAINT FK_Notificacao_Ocorrencia REFERENCES Ocorrencia(IdOcorrencia)
+);
+SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'Notificacao';
 --alteração/correção das tabela--
 SELECT *
 FROM INFORMATION_SCHEMA.TABLES
@@ -147,6 +162,6 @@ USE CORA;
 -- senha nova = "123456" para o usuário abaixo (troque o e-mail)
 USE CORA;
 
-UPDATE Usuario
-SET Senha = '$2b$11$6fyx/gExENXjdpVGgKy6geMvCdRs0Kamcg6Gjr3IFqyE8dmP9c4/2'
-WHERE Email = 'ste@gmail.com';
+    UPDATE Usuario
+    SET Senha = '$2b$11$6fyx/gExENXjdpVGgKy6geMvCdRs0Kamcg6Gjr3IFqyE8dmP9c4/2'
+    WHERE Email = 'ma@gmail.com';
