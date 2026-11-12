@@ -72,6 +72,9 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
+    // Utiliza os nomes originais das claims do JWT
+    options.MapInboundClaims = false;
+
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = false,
@@ -80,6 +83,7 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
         ClockSkew = TimeSpan.FromMinutes(5),
+
         RoleClaimType = "role",
         NameClaimType = "nome"
     };

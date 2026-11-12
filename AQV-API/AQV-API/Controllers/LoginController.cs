@@ -38,7 +38,12 @@ namespace AQV_API.Controllers
                     return NotFound("E-mail ou senha inválidos.");
                 }
 
-                var perfil = usuario.IdTipoUsuarioNavigation?.Titulo ?? string.Empty;
+                var perfil = (usuario.IdTipoUsuarioNavigation?.Titulo ?? string.Empty).Trim();
+
+                if (string.IsNullOrWhiteSpace(perfil))
+                {
+                    return BadRequest("O usuário não possui um perfil cadastrado.");
+                }
                 var claims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, usuario.IdUsuario.ToString()),

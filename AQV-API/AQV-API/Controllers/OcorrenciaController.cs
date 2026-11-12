@@ -302,7 +302,7 @@ namespace AQV_API.Controllers
         /// <summary>Lê o perfil (Role) do usuário logado a partir do token JWT.</summary>
         private string ObterPerfilUsuarioLogado()
         {
-            return User.FindFirst(ClaimTypes.Role)?.Value ?? string.Empty;
+            return User.FindFirst("role")?.Value ?? string.Empty;
         }
     }
 }
