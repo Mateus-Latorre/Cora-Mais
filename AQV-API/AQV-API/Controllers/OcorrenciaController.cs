@@ -32,14 +32,14 @@ namespace AQV_API.Controllers
             _context = context;
         }
 
-        /// <summary>Registra uma nova ocorrência (professor, AQV ou coordenação).</summary>
+        /// <summary>Registra uma nova ocorrência (professor).</summary>
         [HttpPost]
-        [Authorize(Roles = "Professor,AQV,Coordenador")]
+        [Authorize(Roles = "Professor")]
         public IActionResult Cadastrar([FromBody] OcorrenciaCadastroDTO dto)
         {
             try
             {
-                // O usuário que registra vem do token (não confie no corpo da requisição)
+                // O usuário que registra vem do token
                 var idUsuario = ObterIdUsuarioLogado();
 
                 var ocorrencia = new Ocorrencia
@@ -55,23 +55,38 @@ namespace AQV_API.Controllers
                 };
                 _ocorrenciaRepository.Cadastrar(ocorrencia);
 
-                // Cria notificação para o professor que registrou
-                var notificacao = new AQV.WebAPI.Models.Notificacao
+                // Busca o IdTipoUsuario da AQV
+                var idTipoAqv = _context.TipoUsuarios
+                    .Where(t => t.Titulo == "AQV")
+                    .Select(t => t.IdTipoUsuario)
+                    .FirstOrDefault();
+
+                // Notifica todos os usuários da AQV
+                if (idTipoAqv != Guid.Empty)
                 {
-                    IdNotificacao = Guid.NewGuid(),
-                    IdUsuario = idUsuario,
-                    Mensagem = $"Ocorrência '{ocorrencia.Titulo}' registrada com sucesso.",
-                    DataEnvio = DateTime.Now,
-                    Lida = false,
-                    IdOcorrencia = ocorrencia.IdOcorrencia
-                };
-                _notificacaoRepository.Cadastrar(notificacao);
+                    var usuariosAqv = _context.Usuarios
+                        .Where(u => u.IdTipoUsuario == idTipoAqv)
+                        .ToList();
+
+                    foreach (var usuario in usuariosAqv)
+                    {
+                        var notificacao = new AQV.WebAPI.Models.Notificacao
+                        {
+                            IdNotificacao = Guid.NewGuid(),
+                            IdUsuario = usuario.IdUsuario,
+                            Mensagem = $"Nova ocorrência registrada: '{ocorrencia.Titulo}'",
+                            DataEnvio = DateTime.Now,
+                            Lida = false,
+                            IdOcorrencia = ocorrencia.IdOcorrencia
+                        };
+                        _notificacaoRepository.Cadastrar(notificacao);
+                    }
+                }
 
                 return StatusCode(201, ocorrencia);
             }
             catch (Exception ex)
             {
-                // Devolve a causa real (FK invalida, coluna inexistente, etc.)
                 var causa = ex.InnerException?.InnerException?.Message
                          ?? ex.InnerException?.Message
                          ?? ex.Message;
@@ -195,41 +210,40 @@ namespace AQV_API.Controllers
                     dto.TipoDestino == "Coordenador" ? dto.IdDestino : null,
                     "ENCAMINHADA");
 
-                // Notifica o destinatário (responsável ou coordenador)
-                var notificacaoDestinatario = new AQV.WebAPI.Models.Notificacao
+                // Notifica o destinatário (somente se for Coordenador — Responsável não tem usuário no sistema)
+                if (dto.TipoDestino == "Coordenador")
                 {
-                    IdNotificacao = Guid.NewGuid(),
-                    IdUsuario = dto.TipoDestino == "Responsavel"
-                        ? _context.Responsavels.FirstOrDefault(r => r.IdResponsavel == dto.IdDestino)?.IdUsuario 
-                        : dto.IdDestino,
-                    Mensagem = $"Ocorrência encaminhada para você: {ocorrencia.Titulo}",
-                    DataEnvio = DateTime.Now,
-                    Lida = false,
-                    IdOcorrencia = id
-                };
-
-                if (notificacaoDestinatario.IdUsuario != Guid.Empty)
-                {
+                    var notificacaoDestinatario = new AQV.WebAPI.Models.Notificacao
+                    {
+                        IdNotificacao = Guid.NewGuid(),
+                        IdUsuario = dto.IdDestino,
+                        Mensagem = $"Ocorrência encaminhada para você: {ocorrencia.Titulo}",
+                        DataEnvio = DateTime.Now,
+                        Lida = false,
+                        IdOcorrencia = id
+                    };
                     _notificacaoRepository.Cadastrar(notificacaoDestinatario);
                 }
 
-                // Notifica o professor que registrou
-                var notificacaoProfessor = new AQV.WebAPI.Models.Notificacao
+                // Notifica o professor que registrou a ocorrência
+                if (ocorrencia.IdUsuario.HasValue)
                 {
-                    IdNotificacao = Guid.NewGuid(),
-                    IdUsuario = ocorrencia.IdUsuario,
-                    Mensagem = $"Sua ocorrência '{ocorrencia.Titulo}' foi encaminhada para {(dto.TipoDestino == "Responsavel" ? "um responsável" : "um coordenador")}.",
-                    DataEnvio = DateTime.Now,
-                    Lida = false,
-                    IdOcorrencia = id
-                };
-                _notificacaoRepository.Cadastrar(notificacaoProfessor);
+                    var notificacaoProfessor = new AQV.WebAPI.Models.Notificacao
+                    {
+                        IdNotificacao = Guid.NewGuid(),
+                        IdUsuario = ocorrencia.IdUsuario.Value,
+                        Mensagem = $"Sua ocorrência '{ocorrencia.Titulo}' foi encaminhada para {(dto.TipoDestino == "Responsavel" ? "um responsável" : "um coordenador")}.",
+                        DataEnvio = DateTime.Now,
+                        Lida = false,
+                        IdOcorrencia = id
+                    };
+                    _notificacaoRepository.Cadastrar(notificacaoProfessor);
+                }
 
                 return StatusCode(201, encaminhamento);
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
-
         /// <summary>Atualiza título, descrição, prioridade e anexo (AQV).</summary>
         [HttpPut("{id}")]
         [Authorize(Roles = "AQV")]
