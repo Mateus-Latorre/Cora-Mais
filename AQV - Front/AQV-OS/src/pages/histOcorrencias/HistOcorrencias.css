@@ -22,7 +22,6 @@
 
 .container-ocorrencias {
     width: 100%;
-    padding: 30px;
     color: #FFFFFF;
     height: 100vh;
     overflow: scroll;
@@ -136,7 +135,7 @@
 
 .filtros-ocorrencias {
     display: grid;
-grid-template-columns: 1fr 0.5fr 1fr 1fr;
+    grid-template-columns: 1fr 0.5fr 1fr 1fr;
     gap: 16px;
     margin-bottom: 30px;
 }
@@ -160,7 +159,7 @@ grid-template-columns: 1fr 0.5fr 1fr 1fr;
 .input-wrapper select {
     width: 100%;
     height: 45px;
-    padding: 0 60px 0 12px;
+    padding: 0 30px 0 12px;
     cursor: pointer;
 
     font-size: 12px;
@@ -294,7 +293,7 @@ input[type="date"] {
     flex: 1;
     width: auto;
     min-width: 0;
-    padding: 30px 36px;
+    padding: 20px 36px;
 }
 
 /* QUATRO CARDS NA MESMA LINHA */

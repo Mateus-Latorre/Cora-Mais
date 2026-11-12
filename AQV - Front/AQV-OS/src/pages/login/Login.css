@@ -81,14 +81,14 @@ body {
     width: 400px;
     max-width: 100%;
     margin: 0;
-    padding: 50px 30px;
+    padding: 45px 30px;
 
     border: 1px solid rgba(173, 213, 255, 0.6);
-    border-radius: 18px;
+    border-radius: 25px;
 
     background-color: rgba(87, 86, 136, 0.25);
     box-shadow: none;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(60px);
 }
 
 /* TÍTULO DO FORMULÁRIO */
@@ -131,7 +131,7 @@ body {
     padding: 0 45px 0 15px;
     /* espaço à direita para o ícone */
 
-    font-size: 16.5px;
+    font-size: 15px;
     color: white;
 
     border: 1px solid #657a9b;
@@ -184,7 +184,7 @@ body {
     border: none;
     border-radius: 8px;
 
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 700;
     cursor: pointer;
 

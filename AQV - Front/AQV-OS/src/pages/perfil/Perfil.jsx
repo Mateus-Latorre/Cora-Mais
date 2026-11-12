@@ -105,6 +105,10 @@ const Perfil = () => {
       {/* *******           Menu           ********** */}
       <Menu />
       {/* **************        Tela          ***************** */}
+
+
+
+
       <div className="container">
         <div className="titulo">
           <h1 className="titulo_l">Perfil</h1>
@@ -112,7 +116,7 @@ const Perfil = () => {
 
         <div className="caixa">
           <img
-            src={usuario ? img : <p>carregando</p>}
+            src={usuario ? img : <img src="../../public/professor.svg.svg">carregando</img>}
             alt=""
             className={imgStyle}
           />
@@ -127,17 +131,28 @@ const Perfil = () => {
             </div>
             <div className="Info">
               <img
-                src="../../public/Email.png"
+                src="../../public/Email.svg.svg"
                 alt=""
                 className="imgDescEmail"
               />
               <div className="Info_txt">
                 <p className="T_desc">E-mail</p>
-                <p className="txt_desc">{usuario.email}</p>
+                <p className="txt_desc">lady@gmail.com</p>
+              </div>
+            </div>
+            <div className="Info">
+              <img
+                src="../../public/iphone.svg.svg"
+                alt=""
+                className="imgDesc"
+              />
+              <div className="Info_txt">
+                <p className="T_desc">Usuário desde</p>
+                <p className="txt_desc">15/10/2025</p>
               </div>
             </div>
             <div className="Info_tipo">
-              <img src="../../public/pessoas.png" alt="" className="imgDesc" />
+              <img src="../../public/pessoas.svg.svg" alt="" className="imgDesc" />
               <div className="Info_txt">
                 <p className="T_desc">Tipo de usuário</p>
                 <p className="txt_desc">{usuario.role}</p>
