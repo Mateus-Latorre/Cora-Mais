@@ -87,6 +87,28 @@ namespace AQV_API.Repositories
             }
         }
 
+        /// <summary>
+        /// Troca a senha: valida a senha atual contra o hash, gera o hash da nova e salva.
+        /// Lança InvalidOperationException quando o usuário não existe ou a atual não confere.
+        /// </summary>
+        public void TrocarSenha(Guid id, string senhaAtual, string novaSenha)
+        {
+            var usuarioEncontrado = BuscarPorId(id);
+            if (usuarioEncontrado == null)
+            {
+                throw new InvalidOperationException("Usuário não encontrado.");
+            }
+
+            if (!Criptografia.CompararHash(senhaAtual, usuarioEncontrado.Senha))
+            {
+                throw new InvalidOperationException("A senha atual está incorreta.");
+            }
+
+            usuarioEncontrado.Senha = Criptografia.GerarHash(novaSenha);
+            _context.Usuarios.Update(usuarioEncontrado);
+            _context.SaveChanges();
+        }
+
         public void Deletar(Guid id)
         {
             var usuarioEncontrado = BuscarPorId(id);

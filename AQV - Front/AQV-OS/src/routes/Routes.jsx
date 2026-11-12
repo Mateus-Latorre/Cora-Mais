@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from "../pages/login/Login.jsx"
-import CadartroUsuario from "../pages/cadastro/Cadastro.jsx"
-import CadartroOcorrencia from "../pages/criarOcorrencias/CriarOcorrencias.jsx"
+import Cadastro from "../pages/cadastro/Cadastro.jsx"
+import CadastroOcorrencia from "../pages/criarOcorrencias/CriarOcorrencias.jsx"
 import Notificacoes from "../pages/notificacoes/Notificacoes.jsx"
 import Perfil from "../pages/perfil/Perfil.jsx"
 import Ocorrencias from "../pages/ocorrencias/Ocorrencias.jsx"
@@ -14,9 +14,11 @@ const Rotas = () => {
             <Routes>
                 <Route path="/" element={<Login />} />
 
-                <Route path="/Cadastro" element={<CadartroUsuario />} />
+                <Route path="Login" element={<Login />} />
 
-                <Route path="/CadartroOcorrencia" element={<CadartroOcorrencia />} />
+                <Route path="/Cadastro" element={<Cadastro />} />
+
+                <Route path="/CadastroOcorrencia" element={<CadastroOcorrencia />} />
 
                 <Route path="/Notificacoes" element={<Notificacoes />} />
 
@@ -24,7 +26,7 @@ const Rotas = () => {
 
                 <Route path="/Ocorrencias" element={<Ocorrencias />} />
 
-                <Route path="/Feed" element={<HistOcorrencias />} />
+                <Route path="/DashBoard" element={<HistOcorrencias />} />
 
                 {/* <Route path="/livro" element={
                     <PrivateRoutes>

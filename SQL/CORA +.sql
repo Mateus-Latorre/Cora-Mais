@@ -142,3 +142,11 @@ INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ANDAMENTO', 'Em andamento');
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ENCAMINHADA', 'Encaminhada');
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('AGUARDANDO_FEEDBACK', 'Aguardando feedback');
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('FINALIZADA', 'Finalizada');
+
+USE CORA;
+-- senha nova = "123456" para o usuário abaixo (troque o e-mail)
+USE CORA;
+
+UPDATE Usuario
+SET Senha = '$2b$11$6fyx/gExENXjdpVGgKy6geMvCdRs0Kamcg6Gjr3IFqyE8dmP9c4/2'
+WHERE Email = 'ste@gmail.com';

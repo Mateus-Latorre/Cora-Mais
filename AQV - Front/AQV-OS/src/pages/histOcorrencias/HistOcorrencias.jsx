@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Menu from "../../components/menu/menu";
 import './HistOcorrencias.css';
+import { Link } from "react-router-dom";
 
 const HistOcorrencias = () => {
     return (
@@ -14,7 +15,7 @@ const HistOcorrencias = () => {
                 <div className="div-Botao">
                     <h1>Ocorrências</h1>
 
-                    <button className="button-criar">+ Nova ocorrência</button>
+                    <Link to="/CadastroOcorrencia" className="button-criar">+ Nova ocorrência</Link>
                 </div>
 
                 {/* CARDS */}
@@ -38,7 +39,7 @@ const HistOcorrencias = () => {
 
                     <article className="card">
                         <div className="caxa">
-                            <div className="indicador andamento"></div>
+                            <div className="indicador EmAndamento"></div>
                             <h4>Em andamento</h4>
                         </div>
                         <p>2</p>
@@ -57,8 +58,8 @@ const HistOcorrencias = () => {
                 {/* PESQUISA E FILTROS */}
                 <div className="filtros-ocorrencias">
 
-                    <div class="input-container">
-                        <i class="fa-solid fa-user icon"><img src="lupa.svg" alt="" /></i>
+                    <div className="input-container">
+                        <i className="fa-solid fa-user icon"><img src="lupa.svg" alt="" /></i>
                         <input type="text" placeholder="Buscar por CPF ou nome" />
                     </div>
 
@@ -102,7 +103,7 @@ const HistOcorrencias = () => {
 
                 <div className="tabela-conteudo">
 
-                    <div className="informacoes-ocorrencia ">
+                    <Link to="/Ocorrencias" className="informacoes-ocorrencia ">
                         <div className="descri">
                             <strong>Desrespeitou o professor</strong>
                             <p>Maria Eduarda · DEV-Torloni</p>
@@ -113,9 +114,9 @@ const HistOcorrencias = () => {
                             <span></span>
                             <strong>Abertas</strong>
                         </div>
-                    </div>
+                    </Link>
 
-                    <div className="informacoes-ocorrencia">
+                    <Link to="/Ocorrencias" className="informacoes-ocorrencia">
                         <div className="descri">
                             <strong>Uso de boné em sala</strong>
                             <p>Mayara Gussonato · DEV-Torloni</p>
@@ -126,9 +127,9 @@ const HistOcorrencias = () => {
                             <span></span>
                             <strong>Em andamento</strong>
                         </div>
-                    </div>
+                    </Link>
 
-                    <div className="informacoes-ocorrencia">
+                    <Link to="/Ocorrencias" className="informacoes-ocorrencia">
                         <div className="descri">
                             <strong>Chegou ao limite de faltas</strong>
                             <p>Matheus Lima · DEV-Torloni</p>
@@ -139,9 +140,9 @@ const HistOcorrencias = () => {
                             <span></span>
                             <strong>Em andamento</strong>
                         </div>
-                    </div>
+                    </Link>
 
-                    <div className="informacoes-ocorrencia">
+                    <Link to="/Ocorrencias" className="informacoes-ocorrencia">
                         <div className="descri">
                             <strong>Acessou Roblox em sala</strong>
                             <p >Mateus Latorre · DEV-Torloni</p>
@@ -152,9 +153,9 @@ const HistOcorrencias = () => {
                             <span></span>
                             <strong>Em andamento</strong>
                         </div>
-                    </div>
+                    </Link>
 
-                    <div className="informacoes-ocorrencia">
+                    <Link to="/Ocorrencias" className="informacoes-ocorrencia">
                         <div className="descri">
                             <strong>Acessou WhatsApp em sala</strong>
                             <p>Laura Kauany · DEV-Torloni</p>
@@ -165,7 +166,7 @@ const HistOcorrencias = () => {
                             <span></span>
                             <strong>Finalizado</strong>
                         </div>
-                    </div>
+                    </Link>
 
                 </div>
 

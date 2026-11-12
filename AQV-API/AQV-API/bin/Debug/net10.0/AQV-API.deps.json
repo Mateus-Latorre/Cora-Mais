@@ -9,7 +9,7 @@
       "AQV-API/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.2.0",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.13",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.14",
           "Microsoft.AspNetCore.OpenApi": "10.0.10",
           "Microsoft.EntityFrameworkCore": "10.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.13",
@@ -63,14 +63,14 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.13": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.14": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "8.19.2"
         },
         "runtime": {
           "lib/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
-            "assemblyVersion": "10.0.13.0",
-            "fileVersion": "10.0.1326.50504"
+            "assemblyVersion": "10.0.14.0",
+            "fileVersion": "10.0.1426.52326"
           }
         }
       },
@@ -923,12 +923,12 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.13": {
+    "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cEPhQWsaUKymSdQ+NB2rF4GnWtjofAcRrzr2aGPzbjSFyeDtIlBzrbX1Qeh/OAHjvdwBe05SbsukoSbz27AD6g==",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/10.0.13",
-      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.10.0.13.nupkg.sha512"
+      "sha512": "sha512-DaTs32NtRkTabidrvhLhcXpa+Uguw0rN5FaX8Q1HmzbYtcI72iSauYlN4WmqbrXp6QQoB8fmZlHk5/bjiMTY7A==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/10.0.14",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.10.0.14.nupkg.sha512"
     },
     "Microsoft.AspNetCore.OpenApi/10.0.10": {
       "type": "package",

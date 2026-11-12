@@ -5,7 +5,7 @@ const Perfil = () => {
   return (
     <div className="body">
       {/* *******           Menu           ********** */}
-      <Menu/>
+      <Menu />
       {/* **************        Tela          ***************** */}
       <div className="container">
         <div className="titulo">
@@ -71,12 +71,16 @@ const Perfil = () => {
               <input className="campo_input" type="password" />
             </div>
           </div>
-            <div className="btn">
+          <div className="btn">
             <button className="btn_salvar">
-              <img src="../../public/salvar.png" alt="" className="salvar_img"/>
-                <p className="salvar_txt">Salvar</p>
+              <img
+                src="../../public/salvar.png"
+                alt=""
+                className="salvar_img"
+              />
+              <p className="salvar_txt">Salvar</p>
             </button>
-            </div>
+          </div>
         </div>
       </div>
     </div>

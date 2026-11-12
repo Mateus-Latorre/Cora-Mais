@@ -11,6 +11,8 @@ namespace AQV_API.Interfaces
         /// <summary>Lista usuários de um tipo (ex.: "Coordenador") — usado no encaminhamento.</summary>
         List<Usuario> ListarPorTipoUsuario(string tituloTipoUsuario);
         void Atualizar(Guid id, Usuario x);
+        /// <summary>Troca a senha do usuário validando a senha atual.</summary>
+        void TrocarSenha(Guid id, string senhaAtual, string novaSenha);
         void Deletar(Guid id);
     }
 }

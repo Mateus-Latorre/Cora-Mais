@@ -6,6 +6,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 45px;
+    text-decoration: none;
 
 }
 
@@ -23,7 +24,15 @@
     width: 100%;
     padding: 30px;
     color: #FFFFFF;
+    height: 100vh;
+    overflow: scroll;
 }
+
+.container-ocorrencias::-webkit-scrollbar {
+    display: none;
+}
+
+
 
 .button-criar {
     display: flex;
@@ -36,6 +45,7 @@
     font-weight: 600;
     cursor: pointer;
     box-shadow: 3px 6px 5px rgb(255, 172, 120, 0.3);
+    text-decoration: none;
 }
 
 
@@ -112,6 +122,10 @@
     background-color: #FFAC78;
 }
 
+.EmAndamento {
+    background-color: var(--azul-claro);
+}
+
 .andamento span {
     background-color: #ADD5FF;
 }
@@ -121,8 +135,8 @@
 }
 
 .filtros-ocorrencias {
-    display: flex;
-    align-items: center;
+    display: grid;
+grid-template-columns: 1fr 0.5fr 1fr 1fr;
     gap: 16px;
     margin-bottom: 30px;
 }
@@ -130,6 +144,7 @@
 .filtros-ocorrencias input,
 .filtros-ocorrencias select {
     height: 43px;
+    width: 10;
     background-color: #002962;
     border: none;
     border-radius: 7px;
@@ -145,7 +160,7 @@
 .input-wrapper select {
     width: 100%;
     height: 45px;
-    padding: 0 40px 0 12px;
+    padding: 0 60px 0 12px;
     cursor: pointer;
 
     font-size: 12px;
@@ -302,6 +317,7 @@ input[type="date"] {
 .informacoes-ocorrencia {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-decoration: none;
     align-items: center;
     /* min-height: 64px; */
     /* padding: 8px 14px; */
@@ -379,4 +395,5 @@ input[type="date"] {
     padding-left: 30%;
     gap: 10px;
     white-space: nowrap;
+    align-items: center;
 }
