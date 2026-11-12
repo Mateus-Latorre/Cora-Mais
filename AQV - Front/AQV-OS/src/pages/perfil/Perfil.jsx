@@ -7,26 +7,46 @@ import api from "../../services/Services";
 
 const Perfil = () => {
   const { usuario } = useContext(UsuarioContext);
-  let img = null;
-  if (usuario.role === "Professor") {
-    img = "../../public/professor.svg.svg";
-  } else if (usuario.role === "AQV") {
-    img = "../../public/aqv.svg.svg";
-  } else if (usuario.role === "Coordenador") {
-    img = "../../public/coordenador.svg.svg";
-  }
-  let imgStyle = null;
-  if (usuario.role === "Professor") {
-    imgStyle = "imgProf";
-  } else if (usuario.role === "AQV") {
-    imgStyle = "imgAQV";
-  } else if (usuario.role === "Coordenador") {
-    imgStyle = "imgCoordenador";
-  }
+
+  // Estados da troca de senha
   const [senhaAtual, setSenhaAtual] = useState("");
   const [novaSenha, setNovaSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [salvando, setSalvando] = useState(false);
+
+  // Verifica se o usuário já foi carregado
+  if (!usuario) {
+    return (
+      <div className="body">
+        <Menu />
+        <div className="container">
+          <p>Carregando dados do perfil...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Recupera o perfil e o ID do usuário
+  const perfil = usuario.role ?? usuario.perfil;
+  const idUsuario = usuario.idUsuario ?? usuario.id;
+
+  // Imagens de acordo com o perfil
+  const imagens = {
+    Professor: "/professor.svg.svg",
+    AQV: "/aqv.svg.svg",
+    Coordenador: "/coordenador.svg.svg",
+  };
+
+  const classes = {
+    Professor: "imgProf",
+    AQV: "imgAQV",
+    Coordenador: "imgCoordenador",
+  };
+
+  const img = imagens[perfil] ?? "/professor.svg.svg";
+  const imgStyle = classes[perfil] ?? "";
+
+  // Função para trocar a senha
   const trocarSenha = async () => {
     if (!senhaAtual || !novaSenha || !confirmarSenha) {
       Alerta({
@@ -59,16 +79,15 @@ const Perfil = () => {
     }
 
     setSalvando(true);
-    console.log("novaSenha:", JSON.stringify(novaSenha));
-    console.log("confirmarSenha:", JSON.stringify(confirmarSenha));
-    console.log("são iguais?", novaSenha === confirmarSenha);
+
     const dadosSenha = {
       SenhaAtual: senhaAtual,
       NovaSenha: novaSenha,
       ConfirmarNovaSenha: confirmarSenha,
     };
+
     try {
-      await api.patch(`/Usuario/${usuario.id}/senha`, dadosSenha);
+      await api.patch(`/Usuario/${idUsuario}/senha`, dadosSenha);
 
       Alerta({
         title: "Sucesso",
@@ -100,14 +119,10 @@ const Perfil = () => {
       setSalvando(false);
     }
   };
+
   return (
     <div className="body">
-      {/* *******           Menu           ********** */}
       <Menu />
-      {/* **************        Tela          ***************** */}
-
-
-
 
       <div className="container">
         <div className="titulo">
@@ -115,58 +130,58 @@ const Perfil = () => {
         </div>
 
         <div className="caixa">
-          <img
-            src={usuario ?  img : <p>carregando</p>}
-            alt=""
-            className={imgStyle}
-          />
+          <img src={img} alt="Foto do perfil" className={imgStyle} />
+
           <div className="Desc">
-            <img src="../../public/editar.png" alt="" className="imgEdit" />
+            <img src="/editar.png" alt="" className="imgEdit" />
+
             <div className="Info">
-              <img src="../../public/pessoa.svg" alt="" className="imgDesc" />
+              <img src="/pessoa.svg" alt="" className="imgDesc" />
+
               <div className="Info_txt">
                 <p className="T_desc">Nome</p>
                 <p className="txt_desc_nome">{usuario.nome}</p>
               </div>
             </div>
+
             <div className="Info">
-              <img
-                src="../../public/Email.svg.svg"
-                alt=""
-                className="imgDescEmail"
-              />
+              <img src="/Email.svg.svg" alt="" className="imgDescEmail" />
+
               <div className="Info_txt">
                 <p className="T_desc">E-mail</p>
-                <p className="txt_desc">lady@gmail.com</p>
+                <p className="txt_desc">{usuario.email}</p>
               </div>
             </div>
+
             <div className="Info">
-              <img
-                src="../../public/iphone.svg.svg"
-                alt=""
-                className="imgDesc"
-              />
+              <img src="/iphone.svg.svg" alt="" className="imgDesc" />
+
               <div className="Info_txt">
                 <p className="T_desc">Usuário desde</p>
                 <p className="txt_desc">15/10/2025</p>
               </div>
             </div>
+
             <div className="Info_tipo">
-              <img src="../../public/pessoas.svg.svg" alt="" className="imgDesc" />
+              <img src="/pessoas.svg.svg" alt="" className="imgDesc" />
+
               <div className="Info_txt">
                 <p className="T_desc">Tipo de usuário</p>
-                <p className="txt_desc">{usuario.role}</p>
+                <p className="txt_desc">{perfil}</p>
               </div>
             </div>
           </div>
         </div>
+
         <div className="titulo2">
           <h1 className="titulo_2_">Trocar de Senha</h1>
         </div>
+
         <div className="caixa2">
           <div className="campo">
             <div className="campo_senhas_atual">
               <h4 className="campo_txt">Digite sua senha atual</h4>
+
               <input
                 className="campo_input"
                 type="password"
@@ -174,8 +189,10 @@ const Perfil = () => {
                 onChange={(e) => setSenhaAtual(e.target.value)}
               />
             </div>
+
             <div className="campo_senhas">
               <h4 className="campo_txt">Digite sua nova senha</h4>
+
               <input
                 className="campo_input"
                 type="password"
@@ -183,8 +200,10 @@ const Perfil = () => {
                 onChange={(e) => setNovaSenha(e.target.value)}
               />
             </div>
+
             <div className="campo_senhas">
               <h4 className="campo_txt">Confirme sua nova senha</h4>
+
               <input
                 className="campo_input"
                 type="password"
@@ -193,6 +212,7 @@ const Perfil = () => {
               />
             </div>
           </div>
+
           <div className="btn">
             <button
               className="btn_salvar"
@@ -200,7 +220,8 @@ const Perfil = () => {
               disabled={salvando}
               type="button"
             >
-              <img src="../../public/salvar.svg.svg" alt="" className="salvar_img" />
+              <img src="/salvar.svg.svg" alt="" className="salvar_img" />
+
               <p className="salvar_txt">
                 {salvando ? "Salvando..." : "Salvar"}
               </p>

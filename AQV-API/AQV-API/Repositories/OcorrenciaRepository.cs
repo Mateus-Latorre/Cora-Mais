@@ -186,10 +186,11 @@ namespace AQV_API.Repositories
 
         public void Deletar(Guid id)
         {
-            var ocorrenciaEncontrada = _context.Ocorrencias.Find(id);
-            if (ocorrenciaEncontrada != null)
+            var ocorrencia = BuscarPorId(id);
+
+            if (ocorrencia != null)
             {
-                _context.Ocorrencias.Remove(ocorrenciaEncontrada);
+                _context.Ocorrencias.Remove(ocorrencia);
                 _context.SaveChanges();
             }
         }
