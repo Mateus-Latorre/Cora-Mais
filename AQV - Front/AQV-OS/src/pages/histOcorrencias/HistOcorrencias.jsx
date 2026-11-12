@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 
 const HistOcorrencias = () => {
 
+<<<<<<< HEAD
         return (
+=======
+    return (
+>>>>>>> b2c8fb27819f5471bee0ccca2b76331ac46215d8
         <div className="body">
             <Menu />
 
