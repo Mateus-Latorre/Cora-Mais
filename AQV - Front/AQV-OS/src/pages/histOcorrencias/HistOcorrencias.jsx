@@ -4,6 +4,7 @@ import './HistOcorrencias.css';
 import { Link } from "react-router-dom";
 
 const HistOcorrencias = () => {
+
     return (
         <div className="body">
             <Menu />
