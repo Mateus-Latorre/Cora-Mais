@@ -15,10 +15,14 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1e3334df2d36cb1ce93f60fa1edca4309f40875")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ac9962bb71d9eff7ffd221bec3c4aba72e3e5ba")]
 >>>>>>> 496859c8994a1a9512da2db71f2b89a7cff0fe8d
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+496859c8994a1a9512da2db71f2b89a7cff0fe8d")]
+>>>>>>> 5c4416f2e9294b0a0a01b3146409138c27fb40e9
 [assembly: System.Reflection.AssemblyProductAttribute("AQV-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AQV-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

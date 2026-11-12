@@ -53,25 +53,28 @@ namespace AQV_API.Controllers
 
                 // Notifica o professor que registrou a ocorrência
                 var ocorrencia = _context.Ocorrencias.Find(dto.IdOcorrencia);
-                if (ocorrencia != null)
+                if (ocorrencia != null && ocorrencia.IdUsuario.HasValue)
                 {
                     var notificacao = new AQV.WebAPI.Models.Notificacao
                     {
                         IdNotificacao = Guid.NewGuid(),
-                        IdUsuario = ocorrencia.IdUsuario,
+                        IdUsuario = ocorrencia.IdUsuario.Value,
                         Mensagem = $"Novo feedback na ocorrência '{ocorrencia.Titulo}': {dto.Mensagem}",
                         DataEnvio = DateTime.Now,
                         Lida = false,
                         IdOcorrencia = dto.IdOcorrencia
                     };
+
                     _notificacaoRepository.Cadastrar(notificacao);
                 }
 
                 return StatusCode(201, feedback);
             }
-            catch (Exception ex) { return BadRequest(ex.Message); }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-
         /// <summary>Histórico de feedbacks de uma ocorrência.</summary>
         [HttpGet("Ocorrencia/{idOcorrencia}")]
         public IActionResult ListarPorOcorrencia(Guid idOcorrencia)
