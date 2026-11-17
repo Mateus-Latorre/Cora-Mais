@@ -208,7 +208,7 @@
               "RelativeToolTip": "AQV-API\\Controllers\\AlunoController.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.62Z"
+              "WhenOpened": "2026-11-17T14:35:22.646Z"
             },
             {
               "$type": "Document",
@@ -220,7 +220,7 @@
               "RelativeToolTip": "AQV-API\\Controllers\\TipoUsuarioController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAiwBEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.704Z"
+              "WhenOpened": "2026-11-17T14:35:22.717Z"
             },
             {
               "$type": "Document",
@@ -232,7 +232,7 @@
               "RelativeToolTip": "AQV-API\\Controllers\\OcorrenciaController.cs",
               "ViewState": "AgIAALkAAAAAAAAAAAAmwNsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.707Z"
+              "WhenOpened": "2026-11-17T14:35:22.721Z"
             },
             {
               "$type": "Document",
@@ -244,7 +244,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\EncaminhamentoDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.71Z"
+              "WhenOpened": "2026-11-17T14:35:22.723Z"
             },
             {
               "$type": "Document",
@@ -256,7 +256,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\AlunoCadastroDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.712Z"
+              "WhenOpened": "2026-11-17T14:35:22.726Z"
             },
             {
               "$type": "Document",
@@ -268,7 +268,7 @@
               "RelativeToolTip": "AQV-API\\Models\\Ocorrencia.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.715Z",
+              "WhenOpened": "2026-11-17T14:35:22.728Z",
               "EditorCaption": ""
             },
             {
@@ -281,7 +281,7 @@
               "RelativeToolTip": "AQV-API\\Controllers\\TurmaController.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAIwBsAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.737Z"
+              "WhenOpened": "2026-11-17T14:35:22.743Z"
             },
             {
               "$type": "Document",
@@ -293,7 +293,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\UsuarioLoginDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.74Z"
+              "WhenOpened": "2026-11-17T14:35:22.746Z"
             },
             {
               "$type": "Document",
@@ -305,7 +305,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAFgWAAAAAAAAAAAjwGIWAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-11-12T17:09:12.76Z"
+              "WhenOpened": "2026-11-17T14:35:22.759Z"
             },
             {
               "$type": "Document",
@@ -317,7 +317,7 @@
               "RelativeToolTip": "AQV-API\\Controllers\\FeedbackController.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAkwAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.764Z"
+              "WhenOpened": "2026-11-17T14:35:22.765Z"
             },
             {
               "$type": "Document",
@@ -329,7 +329,7 @@
               "RelativeToolTip": "AQV-API\\BdContext\\AqvContext.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAYwBwAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.767Z"
+              "WhenOpened": "2026-11-17T14:35:22.767Z"
             },
             {
               "$type": "Document",
@@ -341,7 +341,7 @@
               "RelativeToolTip": "AQV-API\\Controllers\\UsuarioController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.769Z"
+              "WhenOpened": "2026-11-17T14:35:22.769Z"
             },
             {
               "$type": "Document",
@@ -353,7 +353,7 @@
               "RelativeToolTip": "AQV-API\\Controllers\\EncaminhamentoController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAA4wA4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.771Z"
+              "WhenOpened": "2026-11-17T14:35:22.772Z"
             },
             {
               "$type": "Document",
@@ -365,7 +365,7 @@
               "RelativeToolTip": "AQV-API\\Controllers\\ResponsavelController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.773Z"
+              "WhenOpened": "2026-11-17T14:35:22.773Z"
             },
             {
               "$type": "Document",
@@ -377,7 +377,7 @@
               "RelativeToolTip": "AQV-API\\Interfaces\\IUsuarioRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.776Z"
+              "WhenOpened": "2026-11-17T14:35:22.776Z"
             },
             {
               "$type": "Document",
@@ -389,7 +389,7 @@
               "RelativeToolTip": "AQV-API\\Models\\TipoUsuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.778Z"
+              "WhenOpened": "2026-11-17T14:35:22.779Z"
             },
             {
               "$type": "Document",
@@ -401,7 +401,7 @@
               "RelativeToolTip": "AQV-API\\Program.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAcwBQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.78Z"
+              "WhenOpened": "2026-11-17T14:35:22.781Z"
             },
             {
               "$type": "Document",
@@ -413,7 +413,7 @@
               "RelativeToolTip": "AQV-API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-11-12T17:09:12.782Z"
+              "WhenOpened": "2026-11-17T14:35:22.783Z"
             },
             {
               "$type": "Document",
@@ -425,7 +425,7 @@
               "RelativeToolTip": "AQV-API\\Repositories\\UsuarioRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.784Z"
+              "WhenOpened": "2026-11-17T14:35:22.786Z"
             },
             {
               "$type": "Document",
@@ -437,7 +437,7 @@
               "RelativeToolTip": "AQV-API\\Repositories\\OstatusRepository.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwDMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.786Z"
+              "WhenOpened": "2026-11-17T14:35:22.789Z"
             },
             {
               "$type": "Document",
@@ -449,7 +449,7 @@
               "RelativeToolTip": "AQV-API\\Repositories\\FeedbackRepository.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAwwBUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.788Z"
+              "WhenOpened": "2026-11-17T14:35:22.792Z"
             },
             {
               "$type": "Document",
@@ -461,7 +461,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\43180121823\\Downloads\\AQV\\AQV\\Repositories\\Repositories.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAAAFMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.8Z"
+              "WhenOpened": "2026-11-17T14:35:22.817Z"
             },
             {
               "$type": "Document",
@@ -473,7 +473,7 @@
               "RelativeToolTip": "AQV-API\\Repositories\\EncaminhamentoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.802Z"
+              "WhenOpened": "2026-11-17T14:35:22.819Z"
             },
             {
               "$type": "Document",
@@ -485,7 +485,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\ResponsavelCadastroDTO.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAA9wBUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.805Z"
+              "WhenOpened": "2026-11-17T14:35:22.822Z"
             },
             {
               "$type": "Document",
@@ -497,7 +497,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\OstatusCadastroDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.807Z"
+              "WhenOpened": "2026-11-17T14:35:22.826Z"
             },
             {
               "$type": "Document",
@@ -509,7 +509,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\43180121823\\Downloads\\AQV\\AQV\\Controllers\\Controllers.cs",
               "ViewState": "AgIAAFQAAAAAAAAAAAAcwHAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.809Z"
+              "WhenOpened": "2026-11-17T14:35:22.828Z"
             },
             {
               "$type": "Document",
@@ -521,7 +521,7 @@
               "RelativeToolTip": "AQV-API\\Models\\Usuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.811Z"
+              "WhenOpened": "2026-11-17T14:35:22.83Z"
             },
             {
               "$type": "Document",
@@ -533,7 +533,7 @@
               "RelativeToolTip": "AQV-API\\Repositories\\AlunoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.813Z"
+              "WhenOpened": "2026-11-17T14:35:22.833Z"
             },
             {
               "$type": "Document",
@@ -545,7 +545,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\43180121823\\Desktop\\Cora-Mais\\AQV-API\\AQV-API\\Repositories\\OcorrenciaRepoitory.cs",
               "ViewState": "AgIAALgAAAAAAAAAAAAUwL0AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.816Z"
+              "WhenOpened": "2026-11-17T14:35:22.836Z"
             },
             {
               "$type": "Document",
@@ -557,7 +557,7 @@
               "RelativeToolTip": "AQV-API\\Interfaces\\IOcorrenciaRepository.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAA3wBoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.819Z"
+              "WhenOpened": "2026-11-17T14:35:22.838Z"
             },
             {
               "$type": "Document",
@@ -569,7 +569,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\TipoUsuarioCadastroDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.822Z"
+              "WhenOpened": "2026-11-17T14:35:22.842Z"
             },
             {
               "$type": "Document",
@@ -581,7 +581,7 @@
               "RelativeToolTip": "AQV-API\\Interfaces\\ITipoUsuarioRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.824Z"
+              "WhenOpened": "2026-11-17T14:35:22.843Z"
             },
             {
               "$type": "Document",
@@ -593,7 +593,7 @@
               "RelativeToolTip": "AQV-API\\Repositories\\ResponsavelRepository.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAA3wBkAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.827Z"
+              "WhenOpened": "2026-11-17T14:35:22.846Z"
             },
             {
               "$type": "Document",
@@ -605,7 +605,7 @@
               "RelativeToolTip": "AQV-API\\Repositories\\TurmaRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.83Z"
+              "WhenOpened": "2026-11-17T14:35:22.848Z"
             },
             {
               "$type": "Document",
@@ -617,7 +617,7 @@
               "RelativeToolTip": "AQV-API\\Repositories\\TipoUsuarioRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.832Z"
+              "WhenOpened": "2026-11-17T14:35:22.851Z"
             },
             {
               "$type": "Document",
@@ -629,7 +629,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\43180121823\\Downloads\\AQV\\AQV\\Models\\Aluno.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.835Z"
+              "WhenOpened": "2026-11-17T14:35:22.854Z"
             },
             {
               "$type": "Document",
@@ -641,7 +641,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\UsuarioCadastroDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.837Z"
+              "WhenOpened": "2026-11-17T14:35:22.857Z"
             },
             {
               "$type": "Document",
@@ -653,7 +653,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\TurmaCadastroDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.84Z"
+              "WhenOpened": "2026-11-17T14:35:22.861Z"
             },
             {
               "$type": "Document",
@@ -665,7 +665,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\OcorrenciaCadastroDTO.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.842Z"
+              "WhenOpened": "2026-11-17T14:35:22.864Z"
             },
             {
               "$type": "Document",
@@ -677,7 +677,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\OcorrenciaAtualizadaDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.844Z"
+              "WhenOpened": "2026-11-17T14:35:22.866Z"
             },
             {
               "$type": "Document",
@@ -689,7 +689,7 @@
               "RelativeToolTip": "AQV-API\\DTO\\FeedbackCadastroDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.846Z"
+              "WhenOpened": "2026-11-17T14:35:22.869Z"
             },
             {
               "$type": "Document",
@@ -701,7 +701,7 @@
               "RelativeToolTip": "AQV-API\\Interfaces\\IOstatusRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.848Z"
+              "WhenOpened": "2026-11-17T14:35:22.872Z"
             },
             {
               "$type": "Document",
@@ -713,7 +713,7 @@
               "RelativeToolTip": "AQV-API\\Interfaces\\IFeedbackRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.85Z"
+              "WhenOpened": "2026-11-17T14:35:22.876Z"
             },
             {
               "$type": "Document",
@@ -725,7 +725,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\43180121823\\Downloads\\AQV\\AQV\\Interfaces\\Interfaces.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAAACAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.852Z"
+              "WhenOpened": "2026-11-17T14:35:22.878Z"
             },
             {
               "$type": "Document",
@@ -737,7 +737,7 @@
               "RelativeToolTip": "AQV-API\\Interfaces\\IEncaminhamentoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.854Z"
+              "WhenOpened": "2026-11-17T14:35:22.881Z"
             },
             {
               "$type": "Document",
@@ -749,7 +749,7 @@
               "RelativeToolTip": "AQV-API\\Interfaces\\ITurmaRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.856Z"
+              "WhenOpened": "2026-11-17T14:35:22.884Z"
             },
             {
               "$type": "Document",
@@ -761,7 +761,7 @@
               "RelativeToolTip": "AQV-API\\Interfaces\\IAlunoRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.858Z"
+              "WhenOpened": "2026-11-17T14:35:22.886Z"
             },
             {
               "$type": "Document",
@@ -773,7 +773,7 @@
               "RelativeToolTip": "AQV-API\\Interfaces\\IResponsavelRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:09:12.86Z"
+              "WhenOpened": "2026-11-17T14:35:22.888Z"
             }
           ]
         }

@@ -278,7 +278,6 @@ namespace AQV_API.Controllers
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
-
         [HttpDelete("{id}")]
         [Authorize(Roles = "AQV")]
         public IActionResult Deletar(Guid id)
@@ -288,9 +287,17 @@ namespace AQV_API.Controllers
                 _ocorrenciaRepository.Deletar(id);
                 return NoContent();
             }
-            catch (Exception ex) { return BadRequest(ex.Message); }
-        }
+            catch (Exception ex)
+            {
+                var detalhe = ex.GetBaseException().Message;
 
+                return BadRequest(new
+                {
+                    erro = ex.Message,
+                    detalhe = detalhe
+                });
+            }
+        }
         /// <summary>Lê o Id do usuário logado a partir do token JWT.</summary>
         private Guid ObterIdUsuarioLogado()
         {
@@ -302,7 +309,7 @@ namespace AQV_API.Controllers
         /// <summary>Lê o perfil (Role) do usuário logado a partir do token JWT.</summary>
         private string ObterPerfilUsuarioLogado()
         {
-            return User.FindFirst(ClaimTypes.Role)?.Value ?? string.Empty;
+            return User.FindFirst("role")?.Value ?? string.Empty;
         }
     }
 }

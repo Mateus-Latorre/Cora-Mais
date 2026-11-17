@@ -11,7 +11,7 @@ CREATE TABLE TipoUsuario(
 IdTipoUsuario UNIQUEIDENTIFIER PRIMARY KEY DEFAULT ((NEWID())),
 Titulo VARCHAR(100) NOT NULL,
 )
-SELECT * FROM TipoUsuario;
+SELECT * FROM Usuario;
 CREATE TABLE Usuario (
 IdUsuario UNIQUEIDENTIFIER PRIMARY KEY DEFAULT ((NEWID())),
 Nome VARCHAR(200) NOT NULL,
@@ -21,7 +21,7 @@ Numero VARCHAR (11) UNIQUE NOT NULL,
 
 IdTipoUsuario UNIQUEIDENTIFIER FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario)
 )
-SELECT * FROM Usuario;
+SELECT * FROM TipoUsuario;
 CREATE TABLE Aluno (
 IdAluno UNIQUEIDENTIFIER PRIMARY KEY DEFAULT ((NEWID())),
 Nome VARCHAR(200) NOT NULL,
@@ -157,6 +157,8 @@ INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ANDAMENTO', 'Em andamento');
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ENCAMINHADA', 'Encaminhada');
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('AGUARDANDO_FEEDBACK', 'Aguardando feedback');
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('FINALIZADA', 'Finalizada');
+INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('FEEDBACK', 'Finalizada');
+
 
 USE CORA;
 -- senha nova = "123456" para o usuário abaixo (troque o e-mail)

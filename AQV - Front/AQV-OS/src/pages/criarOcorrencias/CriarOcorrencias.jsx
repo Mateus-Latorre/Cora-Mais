@@ -60,6 +60,7 @@ const NovaOcorrencia = () => {
     };
 
     const cadastrarOcorrencia = async () => {
+        debugger
         try {
             const token = localStorage.getItem("token");
 
@@ -301,7 +302,7 @@ const NovaOcorrencia = () => {
                         </div>
 
                         <div className="areaAzul">
-                            <button onClick={cadastrarOcorrencia} className="btnAzul">Salvar e continuar</button>
+                            <button onClick={() => cadastrarOcorrencia()} className="btnAzul">Salvar e continuar</button>
                             <button className="btnBranco">Cancelar</button>
                         </div>
                     </div>
