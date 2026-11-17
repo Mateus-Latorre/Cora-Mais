@@ -4,6 +4,9 @@ import Menu from "../../components/menu/menu";
 import { useNavigate } from "react-router-dom";
 import { UsuarioContext } from "../../context/UsuarioContext/UsuarioContext";
 import api from "../../services/Services";
+import Swal from "sweetalert2";
+
+const Alerta = Swal.fire;
 
 const NovaOcorrencia = () => {
 
@@ -20,7 +23,7 @@ const NovaOcorrencia = () => {
     const [idTurma, setIdTurma] = useState("");
     const [descricao, setDescricao] = useState("");
     const [prioridade, setPrioridade] = useState("");
-    const { setUsuario } = useContext(UsuarioContext);
+    const { usuario } = useContext(UsuarioContext);
 
     const getTurmas = async () => {
         try {
@@ -67,7 +70,6 @@ const NovaOcorrencia = () => {
             const ocorrenciaDados = {
                 titulo: titulo,
                 descricao: descricao,
-                turma: idTurma,
                 idAluno: IdAluno,
                 prioridade: prioridade,
                 anexo: null
@@ -93,6 +95,7 @@ const NovaOcorrencia = () => {
                 "Erro:",
                 erro.response?.data || erro.message
             );
+            console.log(usuario.perfil)
 
             alert("Erro ao cadastrar ocorrência!");
         }
@@ -144,7 +147,10 @@ const NovaOcorrencia = () => {
                     <p>Nova Ocorrência</p>
                     <h1>Registrar uma nova Ocorrência</h1>
                 </div>
-                <form action="submit" >
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    cadastrarOcorrencia();
+                }}>
                     <div className="box">
                         <div className="caixa-icons">
                             <img src="identificacao.svg" alt="" />
@@ -302,8 +308,8 @@ const NovaOcorrencia = () => {
                         </div>
 
                         <div className="areaAzul">
-                            <button onClick={() => cadastrarOcorrencia()} className="btnAzul">Salvar e continuar</button>
-                            <button className="btnBranco">Cancelar</button>
+                            <button type="submit" className="btnAzul">Salvar e continuar</button>
+                            <button type="button" className="btnBranco">Cancelar</button>
                         </div>
                     </div>
                 </form>

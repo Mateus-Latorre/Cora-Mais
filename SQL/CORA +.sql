@@ -154,8 +154,6 @@ ADD IdResponsavelAtual UNIQUEIDENTIFIER NULL
 
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ABERTA', 'Aberta');
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ANDAMENTO', 'Em andamento');
-INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('ENCAMINHADA', 'Encaminhada');
-INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('AGUARDANDO_FEEDBACK', 'Aguardando feedback');
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('FINALIZADA', 'Finalizada');
 INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('FEEDBACK', 'Finalizada');
 
