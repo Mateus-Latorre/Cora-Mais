@@ -4,22 +4,48 @@ import Menu from "../../components/menu/menu";
 import { useNavigate } from "react-router-dom";
 import { UsuarioContext } from "../../context/UsuarioContext/UsuarioContext";
 import api from "../../services/Services";
+import Swal from "sweetalert2";
+
+const Alerta = Swal.fire;
 
 const NovaOcorrencia = () => {
 
     const [visibilidade, setVisibilidade] = useState(false);
+    const [visibilidadeT, setVisibilidadeT] = useState(false);
     const [titulo, setTitulo] = useState("");
     const [listaAluno, setListaAluno] = useState([]);
+    const [listaTurmas, setListaTurmas] = useState([]);
     const [arrFiltrados, setArrFiltrados] = useState([]);
+    const [arrFiltradosT, setArrFiltradosT] = useState([]);
     const [IdAluno, setIdAluno] = useState("");
     const [nomeAluno, setNomeAluno] = useState("");
     const [turma, setTurma] = useState("");
+    const [idTurma, setIdTurma] = useState("");
     const [descricao, setDescricao] = useState("");
-    const { setUsuario } = useContext(UsuarioContext);
+    const [prioridade, setPrioridade] = useState("");
+    const { usuario } = useContext(UsuarioContext);
+
+    const getTurmas = async () => {
+        try {
+            const retornoAPI = await api.get("/Turma");
+
+            console.log(retornoAPI.data);
+
+            setListaTurmas(retornoAPI.data);
+        } catch (error) {
+            console.log(error);
+
+            Alerta({
+                title: "Erro",
+                text: "Erro ao buscar turmas!",
+                icon: "error",
+            });
+        }
+    };
 
     const getAlunos = async () => {
         try {
-            debugger;
+            // debugger;
             const retornoAPI = await api.get("/Aluno");
 
             console.log(retornoAPI.data);
@@ -30,28 +56,26 @@ const NovaOcorrencia = () => {
 
             Alerta({
                 title: "Erro",
-                text: "Erro ao buscar gêneros!",
+                text: "Erro ao buscar alunos!",
                 icon: "error",
             });
         }
     };
 
     const cadastrarOcorrencia = async () => {
+        debugger
         try {
-
-            debugger;
-
             const token = localStorage.getItem("token");
 
             const ocorrenciaDados = {
                 titulo: titulo,
                 descricao: descricao,
-                idAluno: aluno.IdAluno,
+                idAluno: IdAluno,
                 prioridade: prioridade,
                 anexo: null
             };
 
-            const resposta = await api.post("/api/Ocorrencia", ocorrenciaDados,
+            const resposta = await api.post("/Ocorrencia", ocorrenciaDados,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -71,15 +95,26 @@ const NovaOcorrencia = () => {
                 "Erro:",
                 erro.response?.data || erro.message
             );
+            console.log(usuario.perfil)
 
             alert("Erro ao cadastrar ocorrência!");
         }
     };
 
+    // Filtrar turmas
+    const filtrarTuma = (txtTur) => {
 
+        const procurados = listaTurmas.filter((tur) => {
+            return tur.nome.toLowerCase().startsWith(
+                txtTur.toLowerCase()
+            );
+        });
 
+        setArrFiltradosT(procurados);
 
-    // filtrar alunos
+        console.log(procurados);
+    };
+
     const filtrarAlunos = (txtAluno) => {
 
         const procurados = listaAluno.filter((aluno) => {
@@ -91,8 +126,10 @@ const NovaOcorrencia = () => {
         console.log(procurados);
 
     }
+
     useEffect(() => {
         getAlunos();
+        getTurmas();
     }, []);
 
 
@@ -110,7 +147,10 @@ const NovaOcorrencia = () => {
                     <p>Nova Ocorrência</p>
                     <h1>Registrar uma nova Ocorrência</h1>
                 </div>
-                <form action="submit" >
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    cadastrarOcorrencia();
+                }}>
                     <div className="box">
                         <div className="caixa-icons">
                             <img src="identificacao.svg" alt="" />
@@ -121,28 +161,20 @@ const NovaOcorrencia = () => {
                             <div className="input">
                                 <h5>Titulo da Ocorrência</h5>
 
-                                <input type="text" placeholder="Ex: Atraso freuqentenas entregas das atividades" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
+                                <input type="text" placeholder="Ex: Atraso freuqentenas entregas das atividades" value={titulo || ""} onChange={(e) => setTitulo(e.target.value)} />
                             </div>
 
                             <div className="input">
                                 <h5>Prioridade</h5>
                                 <select
-                                    name="genero"
-                                    onChange={(e) => props.setPrioridade(e.target.value)}
+                                    value={prioridade}
+                                    onChange={(e) => setPrioridade(e.target.value)}
                                 >
-                                    <option value="" disabled>
-                                        Selecione
-                                    </option>
+                                    <option value="" disabled> Selecione </option>
 
-                                    <option value="Rotina">
-                                        Rotina
-                                    </option>
-                                    <option value="Importante">
-                                        Importante
-                                    </option>
-                                    <option value="Urgente">
-                                        Urgente
-                                    </option>
+                                    <option value="Rotina"> Rotina </option>
+                                    <option value="Importante"> Importante </option>
+                                    <option value="Urgente"> Urgente </option>
                                 </select>
                             </div>
                         </div>
@@ -160,31 +192,42 @@ const NovaOcorrencia = () => {
                                 <h5>Selecione o estudante *</h5>
                                 <div className="input-container">
                                     <i className="fa-solid fa-user icon"><img src="lupa.svg" alt="" /></i>
-                                    <input type="text" placeholder="Buscar por CPF ou nome"
-
+                                    <input type="text" placeholder="Buscar nome"
+                                        value={nomeAluno || ""}
+                                        onChange={(e) => setNomeAluno(e.target.value)}
                                         onKeyUp={
                                             (e) => filtrarAlunos(e.target.value)
                                         }
 
-                                        onFocus={() => setVisibilidade(true)} onBlur={() => setVisibilidade(false)} />
+                                        onFocus={() => setVisibilidade(true)}
+
+                                    />
                                     {visibilidade && (
                                         <section className="list-alu">
                                             {
                                                 arrFiltrados.length == 0 ? listaAluno.map((alu) => {
-                                                    return <p className="alu" key={alu.IdAluno} value={alu.IdAluno} onClick={() => {
-                                                        setIdAluno(alu.IdAluno)
-                                                        setNomeAluno(alu.nome)
-                                                    }}>
+                                                    return <p
+                                                        className="alu"
+                                                        key={alu.idAluno}
+                                                        value={alu.idAluno}
+                                                        onClick={() => {
+                                                            setIdAluno(alu.idAluno)
+                                                            setNomeAluno(alu.nome)
+                                                            setVisibilidade(false)
+                                                        }}>
                                                         {alu.nome}
                                                     </p>
                                                 })
                                                     :
 
                                                     arrFiltrados.map((alu) => {
-                                                        return <p className="alu" key={alu.IdAluno} value={alu.IdAluno} onClick={() => {
-                                                            setIdAluno(alu.IdAluno)
-                                                            setNomeAluno(alu.nome)
-                                                        }}>
+                                                        return <p className="alu" key={alu.idAluno}
+                                                            onClick={() => {
+                                                                setIdAluno(alu.idAluno)
+                                                                setNomeAluno(alu.nome)
+                                                                setVisibilidade(false)
+
+                                                            }}>
                                                             {alu.nome}
                                                         </p>
                                                     })
@@ -203,7 +246,46 @@ const NovaOcorrencia = () => {
                             <div className="input">
                                 <h5>Turma</h5>
 
-                                <input type="" placeholder="Selecione a Turma" value={turma} onChange={(e) => setTurma(e.target.value)} />
+                                <input type="" placeholder="Selecione a Turma"
+                                    value={turma || ""}
+                                    onChange={(e) => setTurma(e.target.value)}
+
+                                    onKeyUp={
+                                        (e) => filtrarTuma(e.target.value)
+                                    }
+
+                                    onFocus={() => setVisibilidadeT(true)} />
+
+                                {visibilidadeT && (
+                                    <section className="list-alu">
+                                        {
+                                            arrFiltradosT.length == 0 ? listaTurmas.map((tur) => {
+                                                return <p className="alu" key={tur.idTurma} onClick={() => {
+                                                    setIdTurma(tur.idTurma)
+                                                    setTurma(tur.nome)
+                                                    setVisibilidadeT(false)
+                                                }}>
+                                                    {tur.nome}
+                                                </p>
+                                            })
+                                                :
+
+                                                arrFiltradosT.map((tur) => {
+                                                    return <p className="alu" key={tur.idTurma} value={tur.idTurma} onClick={() => {
+                                                        setIdTurma(tur.idTurma)
+                                                        setTurma(tur.turma)
+                                                        setVisibilidadeT(false)
+                                                        console.log(tur.nome)
+                                                    }}>
+                                                        {tur.nome}
+                                                    </p>
+                                                })
+                                        }
+
+
+                                    </section>
+
+                                )}
                             </div>
                         </div>
                     </div>
@@ -215,7 +297,7 @@ const NovaOcorrencia = () => {
 
                             <h3>Descrição da Ocorrência</h3>
                         </div>
-                        <textarea type="text" placeholder="Digite sobre o assunto ..." className="areaText" />
+                        <textarea type="text" placeholder="Digite sobre o assunto ..." className="areaText" value={descricao || ""} onChange={(e) => setDescricao((e.target.value))} />
                     </div>
 
                     <div className="boxD">
@@ -226,8 +308,8 @@ const NovaOcorrencia = () => {
                         </div>
 
                         <div className="areaAzul">
-                            <button onClick={cadastrarOcorrencia} className="btnAzul">Salvar e continuar</button>
-                            <button className="btnBranco">Cancelar</button>
+                            <button type="submit" className="btnAzul">Salvar e continuar</button>
+                            <button type="button" className="btnBranco">Cancelar</button>
                         </div>
                     </div>
                 </form>

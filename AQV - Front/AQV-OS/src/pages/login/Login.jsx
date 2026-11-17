@@ -69,7 +69,6 @@ function Login() {
       console.error("Erro ao fazer login:", error);
     }
   };
-
   return (
     <div className="login-layout">
       <div className="login-presentation">
@@ -121,8 +120,11 @@ function Login() {
             />
           </div>
 
+
           {/* BOTAO */}
-          <button type="button" className="login-button" onClick={login}>
+          <button type="button"
+            className="login-button"
+            onClick={login}>
             Entrar
           </button>
         </form>
