@@ -72,8 +72,8 @@
 }
 .imgProf{
     /* width: 150; */
-    height: 150px;
-    margin-left: 20px;
+    height: 250px;
+    margin-left: 50px;
 }
 .imgAQV{
     width: 240px;
@@ -87,7 +87,6 @@
 }
 .caixa {
     align-items: center;
-    width: 80%;
     height: 300px;
     border: solid;
     border: 2px solid var(--azul-claro-transparente);

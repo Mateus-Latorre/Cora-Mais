@@ -1,4 +1,6 @@
-﻿using AQV_API.Interfaces;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using AQV_API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,32 +48,93 @@ namespace AQV_API.Controllers
         }
 
         /// <summary>
-        /// Devolutiva: o coordenador devolve a ocorrência para a AQV, ou a própria AQV
-        /// registra a devolutiva após o contato com o responsável do aluno.
+        /// Registra a devolutiva do encaminhamento para a AQV.
+        /// Se o destino foi um coordenador, somente o coordenador selecionado pode devolver.
+        /// Se o destino foi o responsável do aluno, somente o professor que criou a ocorrência pode devolver.
         /// </summary>
         [HttpPatch("{id}/devolver")]
-        [Authorize(Roles = "AQV,Coordenador")]
+        [Authorize(Roles = "Professor,Coordenador")]
         public IActionResult Devolver(Guid id, [FromBody] string? observacao)
         {
             try
             {
                 var encaminhamento = _encaminhamentoRepository.BuscarPorId(id);
-                if (encaminhamento == null) return NotFound("Encaminhamento não encontrado.");
+                if (encaminhamento == null)
+                {
+                    return NotFound("Encaminhamento não encontrado.");
+                }
 
                 if (encaminhamento.DataDevolutiva != null)
                 {
                     return BadRequest("Esta devolutiva já foi registrada.");
                 }
 
+                var idUsuarioLogado = ObterIdUsuarioLogado();
+                if (idUsuarioLogado == Guid.Empty)
+                {
+                    return Unauthorized("Não foi possível identificar o usuário autenticado.");
+                }
+
+                // O SQL também possui uma restrição para garantir que apenas um destino seja informado.
+                var encaminhadoParaCoordenador = encaminhamento.IdUsuarioCoordenador.HasValue;
+                var encaminhadoParaResponsavel = encaminhamento.IdResponsavel.HasValue;
+
+                if (encaminhadoParaCoordenador == encaminhadoParaResponsavel)
+                {
+                    return BadRequest("O encaminhamento não possui um único destino válido.");
+                }
+
+                if (encaminhadoParaCoordenador)
+                {
+                    // Encaminhamento para coordenador: somente o coordenador escolhido pode devolver.
+                    if (!User.IsInRole("Coordenador") ||
+                        encaminhamento.IdUsuarioCoordenador!.Value != idUsuarioLogado)
+                    {
+                        return Forbid();
+                    }
+                }
+                else
+                {
+                    // Encaminhamento para responsável do aluno: o professor criador da ocorrência devolve.
+                    if (!User.IsInRole("Professor"))
+                    {
+                        return Forbid();
+                    }
+
+                    var ocorrencia = _ocorrenciaRepository.BuscarPorId(encaminhamento.IdOcorrencia);
+                    if (ocorrencia == null)
+                    {
+                        return NotFound("Ocorrência vinculada ao encaminhamento não encontrada.");
+                    }
+
+                    if (!ocorrencia.IdUsuario.HasValue || ocorrencia.IdUsuario.Value != idUsuarioLogado)
+                    {
+                        return Forbid();
+                    }
+                }
+
                 _encaminhamentoRepository.RegistrarDevolutiva(id, observacao);
 
-                // A ocorrência volta para a AQV (sem destino atual)
+                // Após a devolutiva, a ocorrência retorna ao fluxo de acompanhamento da AQV.
                 _ocorrenciaRepository.DefinirDestinoAtual(
-                    encaminhamento.IdOcorrencia, null, null, "AGUARDANDO_FEEDBACK");
+                    encaminhamento.IdOcorrencia, null, null, "ANDAMENTO");
 
-                return StatusCode(204);
+                return NoContent();
             }
-            catch (Exception ex) { return BadRequest(ex.Message); }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>Lê o identificador do usuário autenticado a partir das claims do JWT.</summary>
+        private Guid ObterIdUsuarioLogado()
+        {
+            var claim = User.FindFirst(JwtRegisteredClaimNames.Jti)
+                     ?? User.FindFirst("id")
+                     ?? User.FindFirst(ClaimTypes.NameIdentifier);
+
+            return Guid.TryParse(claim?.Value, out var id) ? id : Guid.Empty;
         }
 
         [HttpDelete("{id}")]

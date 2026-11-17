@@ -74,7 +74,7 @@ namespace AQV_API.Controllers
                         {
                             IdNotificacao = Guid.NewGuid(),
                             IdUsuario = usuario.IdUsuario,
-                            Mensagem = $"Nova ocorrência registrada: '{ocorrencia.Titulo}'",
+                            Mensagem = $"registrou uma nova ocorrência: '{ocorrencia.Titulo}'",
                             DataEnvio = DateTime.Now,
                             Lida = false,
                             IdOcorrencia = ocorrencia.IdOcorrencia
