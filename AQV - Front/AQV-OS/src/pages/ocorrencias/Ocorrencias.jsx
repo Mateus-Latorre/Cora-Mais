@@ -19,9 +19,25 @@ const Ocorrencias = () => {
     // Controla a abertura do menu personalizado
     const [mostrarOpcoesDestino, setMostrarOpcoesDestino] = useState(false);
 
-    const dadosEnc = {};
+    const dadosEnc = {
+        tipoDestino: tipoDestino,
+        idDestino: idDestino,
+        observacao: observacao,
+    };
 
-    const encaminharOcorrencia = async (dadosEnc) => {};
+    const encaminharOcorrencia = async (dadosEnc) => {
+        try {
+            const response = await api.post(`/Ocorrencia/${idOcorrencia}/encaminhar`,
+                dadosEnc
+            );
+            console.log("Ocorrência encaminhada com sucesso:", response.data);
+        } catch (error) {
+            console.error(
+                "Erro ao encaminhar ocorrência:",
+                error.response?.data || error.message
+            );
+        }
+    };
 
     const getOcorrenciaId = async (idOcorrencia) => {
         try {
@@ -199,7 +215,7 @@ const Ocorrencias = () => {
                                                 : ""
                                         }`}
                                         onClick={() => {
-                                            setTipoDestino("responsavel");
+                                            setTipoDestino("Responsavel");
                                             setIdDestino("");
                                             setBuscaDestino("");
                                             setMostrarOpcoesDestino(false);
@@ -216,7 +232,7 @@ const Ocorrencias = () => {
                                                 : ""
                                         }`}
                                         onClick={() => {
-                                            setTipoDestino("coordenador");
+                                            setTipoDestino("Coordenador");
                                             setIdDestino("");
                                             setBuscaDestino("");
                                             setMostrarOpcoesDestino(false);
