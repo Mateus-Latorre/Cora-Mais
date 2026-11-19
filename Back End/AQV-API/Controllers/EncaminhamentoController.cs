@@ -117,7 +117,7 @@ namespace AQV_API.Controllers
 
                 // Após a devolutiva, a ocorrência retorna ao fluxo de acompanhamento da AQV.
                 _ocorrenciaRepository.DefinirDestinoAtual(
-                    encaminhamento.IdOcorrencia, null, null, "ANDAMENTO");
+                    encaminhamento.IdOcorrencia, null, null, "FINALIZADA");
 
                 return NoContent();
             }

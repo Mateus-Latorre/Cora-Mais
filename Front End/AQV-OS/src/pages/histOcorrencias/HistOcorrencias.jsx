@@ -23,9 +23,10 @@ const HistOcorrencias = () => {
         <div className="div-Botao">
           <h1>Ocorrências</h1>
 
+          {usuario && usuario.perfil === "Professor" && (
           <Link to="/CadastroOcorrencia" className="button-criar">
             + Nova ocorrência
-          </Link>
+          </Link>)}
         </div>
 
         {/* CARDS */}

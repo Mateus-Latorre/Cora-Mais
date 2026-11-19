@@ -8,7 +8,7 @@ export const AQVProvider = ({ children }) => {
   const [listagemOcorrencia, setListagemOcorrencia] = useState([]);
   const {usuario} = useContext(UsuarioContext);
 
-  let tipoGet = usuario.perfil === "AQV" ? "Comigo" : "Minhas";
+  let tipoGet = usuario.perfil === "Professor" ? "Minhas" : "Comigo";
   const getOcorrencia = async () => {
     try {
       const resposta = await api.get(`/Ocorrencia/${tipoGet}`);

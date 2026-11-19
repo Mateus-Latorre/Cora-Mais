@@ -79,6 +79,24 @@ namespace AQV_API.Controllers
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
+        [HttpGet("Ocorrencia/{idOcorrencia}")]
+        public IActionResult ListarPorOcorrencia(Guid idOcorrencia)
+        {
+            try
+            {
+                var notificacoes = _notificacaoRepository.ListarPorOcorrencia(idOcorrencia);
+
+                return Ok(new
+                {
+                    total = notificacoes.Count(),
+                    itens = notificacoes
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         /// <summary>
         /// Marca uma notificação como lida.
