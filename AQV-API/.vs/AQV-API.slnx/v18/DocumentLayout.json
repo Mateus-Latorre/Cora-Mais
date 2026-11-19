@@ -209,7 +209,7 @@
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\e8bfa51dd600f734fe77d73011deb2012c8c723b35c6aafad4cd4d85c8280d06\\AQV-API\\AQV-API\\Program.cs",
               "ToolTip": "C:\\Users\\53280190835\\AppData\\Local\\SourceServer\\e8bfa51dd600f734fe77d73011deb2012c8c723b35c6aafad4cd4d85c8280d06\\AQV-API\\AQV-API\\Program.cs",
               "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\e8bfa51dd600f734fe77d73011deb2012c8c723b35c6aafad4cd4d85c8280d06\\AQV-API\\AQV-API\\Program.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAawIwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAawI0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-12T17:31:16.306Z",
               "EditorCaption": ""
@@ -248,8 +248,7 @@
               "RelativeToolTip": "AQV-API\\Controllers\\UsuarioController.cs",
               "ViewState": "AgIAAFMAAAAAAAAAAAAswH8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:24:14.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-12T17:24:14.453Z"
             },
             {
               "$type": "Document",
@@ -381,8 +380,7 @@
               "RelativeToolTip": "AQV-API\\Program.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAcwBQAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T17:24:14.484Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-12T17:24:14.484Z"
             },
             {
               "$type": "Document",
