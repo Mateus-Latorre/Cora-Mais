@@ -10,13 +10,13 @@
 
 }
 
-.body {
+.dashboard-body {
     display: flex;
     max-width: 100vw;
     max-height: 919px;
     /* background-color: var(--azul); */
     color: var(--branco);
-    background-image: url("fundo.jpg");
+    background-image: url("/fundo.jpg");
 
 }
 

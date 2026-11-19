@@ -15,7 +15,7 @@ const HistOcorrencias = () => {
     }
   }, [usuario]);
   return (
-    <div className="body">
+    <div className="fundo-pagina dashboard-body">
       <Menu />
 
       <main className="container-ocorrencias">

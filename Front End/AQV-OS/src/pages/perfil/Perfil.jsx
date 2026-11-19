@@ -1,3 +1,4 @@
+
 import "./Perfil.css";
 import Menu from "../../components/menu/menu";
 import { useContext, useState } from "react";
@@ -121,7 +122,7 @@ const Perfil = () => {
   };
 
   return (
-    <div className="body">
+    <div className="fundo-pagina perfil-body">
       <Menu />
 
       <div className="container">
@@ -234,3 +235,5 @@ const Perfil = () => {
 };
 
 export default Perfil;
+
+

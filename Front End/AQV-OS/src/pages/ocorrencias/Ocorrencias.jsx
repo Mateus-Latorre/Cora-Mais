@@ -127,7 +127,7 @@ const funcExcluirOcorrencia = async (idOcorrencia) => {
   }, [idOcorrencia]);
 
   return (
-    <div className="oco-body">
+    <div className="fundo-pagina oco-body">
       <Menu />
 
       <div className="oco-div">

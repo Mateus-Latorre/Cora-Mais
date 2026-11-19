@@ -134,7 +134,7 @@ const NovaOcorrencia = () => {
 
 
     return (
-        <div className="body">
+        <div className="fundo-pagina criar-ocorrencia-body">
 
             { /* *******           Menu           ********** */}
 

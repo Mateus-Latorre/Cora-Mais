@@ -11,7 +11,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     color: var(--branco);
-    background-image: url("fundo.jpg");
+    background-image: url("/fundo.jpg");
 }
 
 .oco-div {

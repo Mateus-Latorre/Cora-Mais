@@ -23,3 +23,14 @@
   --laranja: rgb(255, 172, 120);
   --branco: rgb(248, 250, 252);
 }
+/* FUNDO PADRÃO DO AQV-OS */
+
+.fundo-pagina {
+    background-image: url("/fundo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: var(--azul-escuro);
+    min-height: 100vh;
+    width: 100%;
+}

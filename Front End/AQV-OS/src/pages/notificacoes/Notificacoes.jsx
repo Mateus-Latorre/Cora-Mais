@@ -143,7 +143,7 @@ const Notificacoes = () => {
 
   // 4. Tela
   return (
-    <div className="body">
+    <div className="fundo-pagina notificacoes-body">
       {/* Menu */}
       <Menu />
 
