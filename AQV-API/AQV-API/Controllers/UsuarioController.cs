@@ -45,7 +45,6 @@ namespace AQV_API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "AQV,Coordenador")]
         public IActionResult Listar()
         {
             try { return Ok(_usuarioRepository.Listar()); }
