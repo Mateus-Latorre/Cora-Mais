@@ -255,6 +255,9 @@ function Cadastro() {
               <option value="" disabled>
                 Tipo da Conta
               </option>
+              <option className="txt-opt" value="AQV">AQV</option>
+                            <option className="txt-opt" value="Coordenador">Coordenador</option>
+                            <option className="txt-opt" value="Professor">Professor</option>
 
               {tipoUsuario.map((tipo) => (
                 <option key={tipo.idTipoUsuario} value={tipo.idTipoUsuario}>

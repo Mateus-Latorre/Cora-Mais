@@ -68,12 +68,7 @@ function Login() {
 
       console.error("Erro ao fazer login:", error);
     }
-<<<<<<< HEAD
-}
-
-=======
   };
->>>>>>> 37f44b9c8cd16f4e8a3fe55bad2c1d6d61940fdb
   return (
     <div className="login-layout">
       <div className="login-presentation">
@@ -96,21 +91,6 @@ function Login() {
         <form className="login-form">
           {/* E-MAIL */}
           <div className="input-wrapper">
-<<<<<<< HEAD
-            <input 
-            id="email" 
-            type="email" 
-            placeholder="E-mail" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required 
-            />
-            <img 
-            src="/email.svg" 
-            alt="" 
-            className="icon" 
-            />
-=======
             <input
               id="email"
               type="email"
@@ -120,7 +100,6 @@ function Login() {
               required
             />
             <img src="/email.svg" alt="" className="icon" />
->>>>>>> 37f44b9c8cd16f4e8a3fe55bad2c1d6d61940fdb
           </div>
 
           {/* SENHA */}
