@@ -87,7 +87,6 @@ const NovaOcorrencia = () => {
 
             setTitulo("");
             setDescricao("");
-            setAlunoSelecionado(null);
             setPrioridade("");
 
         } catch (erro) {

@@ -96,23 +96,29 @@
 .oco-badges {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     gap: 6px;
-    width: 120px;
+    width: 170px;
+    flex-shrink: 0;
     margin-right: 15px;
 }
 
 .oco-badge {
     box-sizing: border-box;
-    width: 100%;
+    width: 110px;
+    height: 28px;
+
     border: none;
     border-radius: 6px;
-    padding: 8px 10px;
+
+    padding: 0 10px;
     margin: 0;
+
     font-weight: 600;
     font-size: 15px;
     text-align: center;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,6 +127,14 @@
 
 .oco-verde {
     background-color: #3ECF6E;
+    color: #fff;
+}
+.oco-amarelo {
+    background-color: #d8d802;
+    color: #fff;
+}
+.oco-vermelho {
+    background-color: #F24C4C;
     color: #fff;
 }
 
@@ -151,6 +165,27 @@
     gap: 20px;
 }
 
+.btn-excluir {
+    width: 170px;
+    height: 27px;
+    padding: 0;
+
+    background-color: #C9001B;
+    color: #FFFFFF;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-excluir:hover {
+    background-color: #A90017;
+}
 .oco-box-metade {
     flex: 1;
     background-color: rgba(0, 4, 58, 0.55);

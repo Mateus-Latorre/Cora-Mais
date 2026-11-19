@@ -208,7 +208,7 @@ namespace AQV_API.Controllers
                     id,
                     dto.TipoDestino == "Responsavel" ? dto.IdDestino : null,
                     dto.TipoDestino == "Coordenador" ? dto.IdDestino : null,
-                    "ENCAMINHADA");
+                    "ANDAMENTO");
 
                 // Notifica o destinatário (somente se for Coordenador — Responsável não tem usuário no sistema)
                 if (dto.TipoDestino == "Coordenador")
