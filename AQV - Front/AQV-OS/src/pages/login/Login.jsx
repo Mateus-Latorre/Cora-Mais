@@ -41,20 +41,18 @@ function Login() {
         nome: dados.nome,
         email: dados.email,
         perfil: dados.perfil,
+        numero: dados.numero,
         role: dados.perfil,
       };
 
-      // Salva o token
-      localStorage.setItem("token", dados.token);
+// Salva o token
+localStorage.setItem("token", dados.token);
 
-      // Salva os dados do usuário
-      localStorage.setItem("usuario", JSON.stringify(dadosUsuario));
+// Atualiza o contexto e salva o usuário no Local Storage
+setUsuario(dadosUsuario);
 
-      // Atualiza o UsuarioContext
-      setUsuario(dadosUsuario);
-
-      // Redireciona
-      navigate("/DashBoard");
+// Redireciona
+navigate("/DashBoard");
 
       setEmail("");
       setSenha("");
