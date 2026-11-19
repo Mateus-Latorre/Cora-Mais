@@ -41,20 +41,18 @@ function Login() {
         nome: dados.nome,
         email: dados.email,
         perfil: dados.perfil,
+        numero: dados.numero,
         role: dados.perfil,
       };
 
-      // Salva o token
-      localStorage.setItem("token", dados.token);
+// Salva o token
+localStorage.setItem("token", dados.token);
 
-      // Salva os dados do usuário
-      localStorage.setItem("usuario", JSON.stringify(dadosUsuario));
+// Atualiza o contexto e salva o usuário no Local Storage
+setUsuario(dadosUsuario);
 
-      // Atualiza o UsuarioContext
-      setUsuario(dadosUsuario);
-
-      // Redireciona
-      navigate("/DashBoard");
+// Redireciona
+navigate("/DashBoard");
 
       setEmail("");
       setSenha("");
@@ -68,8 +66,12 @@ function Login() {
 
       console.error("Erro ao fazer login:", error);
     }
+<<<<<<< HEAD:AQV - Front/AQV-OS/src/pages/login/Login.jsx
+  };
+=======
 }
 
+>>>>>>> 2d7825a361339cd4bc43e5285fcee32a7b92a28d:Front End/AQV-OS/src/pages/login/Login.jsx
   return (
     <div className="login-layout">
       <div className="login-presentation">
@@ -92,6 +94,17 @@ function Login() {
         <form className="login-form">
           {/* E-MAIL */}
           <div className="input-wrapper">
+<<<<<<< HEAD:AQV - Front/AQV-OS/src/pages/login/Login.jsx
+            <input
+              id="email"
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <img src="/email.svg" alt="" className="icon" />
+=======
             <input 
             id="email" 
             type="email" 
@@ -105,6 +118,7 @@ function Login() {
             alt="" 
             className="icon" 
             />
+>>>>>>> 2d7825a361339cd4bc43e5285fcee32a7b92a28d:Front End/AQV-OS/src/pages/login/Login.jsx
           </div>
 
           {/* SENHA */}
