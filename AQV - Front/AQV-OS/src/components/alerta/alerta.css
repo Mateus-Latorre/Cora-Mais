@@ -1,0 +1,47 @@
+
+.alerta-popup {
+  border-radius: 16px;
+  font-family: "Poppins", sans-serif;
+  padding: 24px;
+}
+
+.alerta-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.alerta-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.alerta-confirm-btn {
+  background-color: #3085d6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0 8px;
+}
+
+.alerta-confirm-btn:hover {
+  background-color: #2563eb;
+}
+
+.alerta-cancel-btn {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0 8px;
+}
+
+.alerta-cancel-btn:hover {
+  background-color: #e2e2e2;
+}

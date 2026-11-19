@@ -22,7 +22,7 @@ namespace AQV_API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "AQV,Coordenador")]
+
         public IActionResult Cadastrar([FromBody] AlunoCadastroDTO dto)
         {
             try
@@ -39,7 +39,10 @@ namespace AQV_API.Controllers
                 _alunoRepository.Cadastrar(aluno);
                 return StatusCode(201, aluno);
             }
-            catch (Exception ex) { return BadRequest(ex.Message); }
+            catch (Exception ex) {
+                var mensagem = ex.InnerException?.Message ?? ex.Message;
+                return BadRequest(mensagem);
+            }
         }
 
         /// <summary>Lista os alunos (usado no select "Estudante" da nova ocorrência).</summary>

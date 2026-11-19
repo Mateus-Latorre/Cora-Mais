@@ -4,14 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { UsuarioContext } from "../../context/UsuarioContext/UsuarioContext";
 import { Alerta } from "../../components/alerta/alerta";
 import api from "../../services/Services";
-import { jwtDecode } from "jwt-decode";
-
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const { setUsuario } = useContext(UsuarioContext);
+
   const navigate = useNavigate();
+
   const login = async () => {
     if (email.trim().length === 0 || senha.trim().length === 0) {
       Alerta({
@@ -22,27 +22,50 @@ function Login() {
       });
       return;
     }
+
     const dadosLogin = {
-      email: email,
+      email: email.trim(),
       senha: senha,
     };
+
     try {
       const retornoAPI = await api.post("/Login", dadosLogin);
-      const token = retornoAPI.data.token;
-      const usuarioDecoded = jwtDecode(token);
-      setUsuario(usuarioDecoded);
-      localStorage.setItem("usuario", JSON.stringify(usuarioDecoded));
-      localStorage.setItem("token", token);
+
+      // Dados retornados pela API
+      const dados = retornoAPI.data;
+
+      // Organiza os dados do usuário
+      const dadosUsuario = {
+        idUsuario: dados.idUsuario,
+        id: dados.idUsuario,
+        nome: dados.nome,
+        email: dados.email,
+        perfil: dados.perfil,
+        role: dados.perfil,
+      };
+
+      // Salva o token
+      localStorage.setItem("token", dados.token);
+
+      // Salva os dados do usuário
+      localStorage.setItem("usuario", JSON.stringify(dadosUsuario));
+
+      // Atualiza o UsuarioContext
+      setUsuario(dadosUsuario);
+
+      // Redireciona
       navigate("/DashBoard");
+
       setEmail("");
       setSenha("");
     } catch (error) {
       Alerta({
         title: "Login",
-        text: "Usuário não encontrado",
+        text: error.response?.data?.message || "Usuário ou senha inválidos.",
         icon: "error",
         confirmButtonText: "Ok",
       });
+
       console.error("Erro ao fazer login:", error);
     }
   };
@@ -62,9 +85,11 @@ function Login() {
 
       <div className="login-container">
         <h2 className="form-title">Login</h2>
+
         <p>Bem-vindo de volta, entre na sua conta</p>
 
         <form className="login-form">
+          {/* E-MAIL */}
           <div className="input-wrapper">
             <input
               id="email"
@@ -77,6 +102,7 @@ function Login() {
             <img src="/email.svg" alt="" className="icon" />
           </div>
 
+          {/* SENHA */}
           <div className="input-wrapper">
             <input
               id="password"
@@ -94,7 +120,11 @@ function Login() {
             />
           </div>
 
-          <button type="button" className="login-button" onClick={login}>
+
+          {/* BOTAO */}
+          <button type="button"
+            className="login-button"
+            onClick={login}>
             Entrar
           </button>
         </form>
@@ -102,5 +132,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;

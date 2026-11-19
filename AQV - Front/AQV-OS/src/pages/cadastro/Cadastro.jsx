@@ -1,108 +1,281 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Cadastro.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Alerta } from "../../components/alerta/alerta";
+import api from "../../services/Services";
 
 function Cadastro() {
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirm, setShowConfirm] = useState(false);
-    return (
-        <div className="cadastro-layout">
-            <div className="cadastro-presentation">
-                <span className="app-tag">Seu app</span>
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
-                <h1>
-                    Comece a ter mais <span>praticidade</span>
-                    <br />
-                    hoje.
-                </h1>
+  const [nomeCompleto, setNomeCompleto] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [numero, setNumero] = useState("");
+  const [tipoUsuario, setTipoUsuario] = useState([]);
+  const [idTipoUsuario, setIdTipoUsuario] = useState("");
 
-                <p>Entre para continuar de onde parou.</p>
-            </div>
+  const navigate = useNavigate();
 
-            <div className="cadastro-container">
-                <h2 className="form-title">Cadastre-se</h2>
+      useEffect(() => {
+      const buscarTiposUsuario = async () => {
+        try {
+          const resposta = await api.get("/TipoUsuario");
 
-                <p>Preencha os dados para criar sua conta</p>
+          console.log("Tipos recebidos:", resposta.data);
 
-                <form className="cadastro-form">
-                    {/* NOME COMPLETO */}
-                    <div className="input-container">
-                        <input
-                            id="nomeCompleto"
-                            type="text"
-                            placeholder="Nome Completo"
-                            required
-                        />
-                        <img src="/pessoa.svg" alt="" className="icon icon-right icon-static" />
-                    </div>
+          setTipoUsuario(resposta.data);
+        } catch (error) {
+          console.error("Erro ao buscar tipos:", error);
+        }
+      };
 
-                    {/* E-MAIL */}
-                    <div className="input-container">
-                        <input
-                            id="email"
-                            type="email"
-                            placeholder="E-mail"
-                            required
-                        />
-                        <img src="/email.svg" alt="" className="icon icon-right icon-static" />
-                    </div>
+      buscarTiposUsuario();
+    }, []);
+  // FORMATAR TELEFONE AUTOMATICAMENTE
+  const formatarTelefone = (valor) => {
+    return valor
+      .replace(/\D/g, "")
+      .slice(0, 11)
+      .replace(/^(\d{2})(\d)/, "($1) $2")
+      .replace(/(\d{5})(\d)/, "$1-$2");
+  };
 
-                    {/* SENHA */}
-                    <div className="input-container">
-                        <input
-                            id="password"
-                            type={showPassword ? "text" : "password"}
-                            placeholder="Senha"
-                            required
-                        />
-                        <img
-                            src={showPassword ? "/olhofechado.svg" : "/olho.svg"}
-                            alt={showPassword ? "Ocultar senha" : "Mostrar senha"}
-                            className="icon icon-right"
-                            onClick={() => setShowPassword(!showPassword)}
-                        />
-                    </div>
+  const Cadastro = async (e) => {
+    e.preventDefault();
+ const numeroLimpo = numero.replace(/\D/g, "");
+    // Verificar campos vazios
+    if (
+      nomeCompleto.trim() === "" ||
+      email.trim() === "" ||
+      senha.trim() === "" ||
+      confirmarSenha.trim() === "" ||
+      numero.trim() === "" ||
+      idTipoUsuario === ""
+    ) {
+      Alerta({
+        title: "Atenção",
+        text: "Preencha todos os campos.",
+        icon: "warning",
+        confirmButtonText: "Ok",
+      });
 
-                    {/* CONFIRMAR SENHA */}
-                    <div className="input-container">
-                        <input
-                            id="confirmarSenha"
-                            type={showConfirm ? "text" : "password"}
-                            placeholder="Confirme sua senha"
-                            required
-                        />
-                        <img
-                            src={showPassword ? "/olhofechado.svg" : "/olho.svg"}
-                            alt={showConfirm ? "Ocultar senha" : "Mostrar senha"}
-                            className="icon icon-right"
-                            onClick={() => setShowConfirm(!showConfirm)}
-                        />
-                    </div>
+      return;
+    }
+    if (numeroLimpo.length !== 10 && numeroLimpo.length !== 11) {
+  Alerta({
+    title: "Número inválido",
+    text: "O telefone deve conter 10 ou 11 números.",
+    icon: "warning",
+    confirmButtonText: "Ok",
+  });
 
-                    {/* TIPO DA CONTA */}
-                    <div className="input-container">
-                        <select id="tipoConta" required defaultValue="">
-                            <option value="" disabled>
-                                Tipo da Conta
-                            </option>
-                            <option value="AQV">AQV</option>
-                            <option value="Coordenador">Coordenador</option>
-                            <option value="Professor">Professor</option>
-                        </select>
-                    </div>
+  return;
+}
+    // Verificar se as senhas são iguais
+    if (senha !== confirmarSenha) {
+      Alerta({
+        title: "Atenção",
+        text: "As senhas não são iguais.",
+        icon: "warning",
+        confirmButtonText: "Ok",
+      });
 
-                    {/* BOTÃO */}
-                    <Link to="/Feed" className="cadastro-button">
-                        Cadastre-se
-                    </Link>
-                </form>
+      return;
+    }
 
-                <p className="signup-text">
-                    Já tem conta? <a href="/login">Entrar</a>
-                </p>
-            </div>
-        </div>
+    // Dados enviados para a API
+    const dadosCadastro = {
+      Nome: nomeCompleto.trim(),
+      Email: email.trim(),
+      Senha: senha,
+      Numero: numeroLimpo,
+      IdTipoUsuario: idTipoUsuario,
+    };
+
+    try {
+      const retornoAPI = await api.post("/Usuario", dadosCadastro);
+
+      console.log("Cadastro realizado:", retornoAPI.data);
+
+      Alerta({
+        title: "Sucesso!",
+        text: "Usuário cadastrado com sucesso.",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+
+      // Limpar campos
+      setNomeCompleto("");
+      setEmail("");
+      setSenha("");
+      setConfirmarSenha("");
+      setNumero("");
+      setIdTipoUsuario("");
+
+      navigate("/login");
+    } catch (error) {
+    console.log(
+        "ERRO COMPLETO:",
+        JSON.stringify(error.response?.data, null, 2)
     );
+
+    console.log("ERROS DE VALIDAÇÃO:", error.response?.data?.errors);
+
+    Alerta({
+        title: "Erro no cadastro",
+        text: "Verifique o console para identificar o campo com problema.",
+        icon: "error",
+        confirmButtonText: "Ok",
+    });
+}
+  };
+
+  return (
+    <div className="cadastro-layout">
+      <div className="cadastro-presentation">
+        <span className="app-tag">Seu app</span>
+
+        <h1>
+          Comece a ter mais <span>praticidade</span>
+          <br />
+          hoje.
+        </h1>
+
+        <p>Entre para continuar de onde parou.</p>
+      </div>
+
+      <div className="cadastro-container">
+        <h2 className="form-title">Cadastre-se</h2>
+
+        <p>Preencha os dados para criar sua conta</p>
+
+        <form className="cadastro-form" onSubmit={Cadastro}>
+          {/* NOME COMPLETO */}
+          <div className="input-container">
+            <input
+              id="nomeCompleto"
+              type="text"
+              placeholder="Nome Completo"
+              value={nomeCompleto}
+              onChange={(e) => setNomeCompleto(e.target.value)}
+              required
+            />
+
+            <img
+              src="/pessoa.svg"
+              alt=""
+              className="icon icon-right icon-static"
+            />
+          </div>
+
+          {/* E-MAIL */}
+          <div className="input-container">
+            <input
+              id="Email"
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <img
+              src="/email.svg"
+              alt=""
+              className="icon icon-right icon-static"
+            />
+          </div>
+
+          {/* NÚMERO DE TELEFONE */}
+          <div className="input-container">
+            <input
+              id="Numero"
+              type="tel"
+              placeholder="Número de Telefone"
+              value={numero}
+              onChange={(e) => setNumero(formatarTelefone(e.target.value))}
+              required
+            />
+
+            <img
+              src="/bi_telephone.svg"
+              alt=""
+              className="icon icon-right icon-static"
+            />
+          </div>
+
+          {/* SENHA */}
+          <div className="input-container">
+            <input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="Senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              required
+            />
+
+            <img
+              src={showPassword ? "/olhofechado.svg" : "/olho.svg"}
+              alt={showPassword ? "Ocultar senha" : "Mostrar senha"}
+              className="icon icon-right"
+              onClick={() => setShowPassword(!showPassword)}
+            />
+          </div>
+
+          {/* CONFIRMAR SENHA */}
+          <div className="input-container">
+            <input
+              id="confirmarSenha"
+              type={showConfirm ? "text" : "password"}
+              placeholder="Confirme sua senha"
+              value={confirmarSenha}
+              onChange={(e) => setConfirmarSenha(e.target.value)}
+              required
+            />
+
+            <img
+              src={showConfirm ? "/olhofechado.svg" : "/olho.svg"}
+              alt={showConfirm ? "Ocultar senha" : "Mostrar senha"}
+              className="icon icon-right"
+              onClick={() => setShowConfirm(!showConfirm)}
+            />
+          </div>
+
+          {/* TIPO DA CONTA */}
+          <div className="input-container">
+            <select
+              id="tipoConta"
+              value={idTipoUsuario}
+              onChange={(e) => setIdTipoUsuario(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Tipo da Conta
+              </option>
+
+              {tipoUsuario.map((tipo) => (
+                <option key={tipo.idTipoUsuario} value={tipo.idTipoUsuario}>
+                  {tipo.titulo}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* BOTÃO CADASTRAR */}
+          <button type="submit" className="cadastro-button">
+            Cadastre-se
+          </button>
+        </form>
+
+        <p className="signup-text">
+          Já tem conta? <Link to="/login">Entrar</Link>
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default Cadastro;
