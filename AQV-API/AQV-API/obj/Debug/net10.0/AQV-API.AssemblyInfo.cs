@@ -14,7 +14,15 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AQV-API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8379653440db0dc3418c5d2fcfa831485639a19")]
+=======
+<<<<<<< HEAD
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22b8fc91acac91a489914e7f86a64ecb06800229")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44f61915216c0729fe9c361b58d8d1361314a5c0")]
+>>>>>>> 37f44b9c8cd16f4e8a3fe55bad2c1d6d61940fdb
+>>>>>>> 31767c6939662512b1b220c407d790deb69960fb
 [assembly: System.Reflection.AssemblyProductAttribute("AQV-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AQV-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
