@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
 
 /* ===== TELA DE DETALHES DA OCORRÊNCIA ===== */
@@ -58,7 +57,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 180px;
+    min-height: 120px;
 }
 
 .oco-card-head {
@@ -115,7 +114,7 @@
     padding: 0 10px;
     margin: 0;
 
-    font-weight: 600;
+    font-weight: 500;
     font-size: 15px;
     text-align: center;
 
@@ -129,10 +128,12 @@
     background-color: #3ECF6E;
     color: #fff;
 }
+
 .oco-amarelo {
-    background-color: #d8d802;
+    background-color: #E9A23B;
     color: #fff;
 }
+
 .oco-vermelho {
     background-color: #F24C4C;
     color: #fff;
@@ -166,19 +167,15 @@
 }
 
 .btn-excluir {
-    width: 170px;
+    width: 110px;
     height: 27px;
     padding: 0;
-
     background-color: #C9001B;
     color: #FFFFFF;
-
     border: none;
     border-radius: 6px;
-
     font-size: 16px;
-    font-weight: 700;
-
+    font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
@@ -186,6 +183,7 @@
 .btn-excluir:hover {
     background-color: #A90017;
 }
+
 .oco-box-metade {
     flex: 1;
     background-color: var(--azul-transparente);
@@ -374,7 +372,7 @@
     width: 100%;
 }
 
-.oco-encaminhar-row > .oco-input {
+.oco-encaminhar-row>.oco-input {
     width: 100%;
     height: 46px;
     min-height: 46px;
@@ -461,6 +459,7 @@
         font-size: 26px;
     }
 }
+
 /* ===== BUSCA DE DESTINATÁRIOS ===== */
 
 .oco-destino-busca-wrapper {
@@ -469,6 +468,7 @@
     min-width: 0;
     z-index: 200;
 }
+
 /* ===== LISTA DE RESULTADOS ===== */
 .oco-lista-destinos {
     position: absolute;
@@ -528,6 +528,7 @@
     font-size: 13px;
     text-align: center;
 }
+
 /* ===== BOTÃO ENVIAR DEVOLUTIVA ===== */
 
 .oco-btn-devolutiva {

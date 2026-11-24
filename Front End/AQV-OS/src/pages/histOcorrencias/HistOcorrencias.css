@@ -30,6 +30,10 @@
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
+.resultado-busca::-webkit-scrollbar {
+    display: none;
+}
+
 .opcao-aluno {
     width: 100%;
     padding: 13px 15px;
@@ -498,7 +502,7 @@ input[type="date"] {
     gap: 10px;
 }
 
-.informacoes-ocorrencia > div {
+.informacoes-ocorrencia>div {
     min-width: 0;
     overflow-wrap: anywhere;
 }

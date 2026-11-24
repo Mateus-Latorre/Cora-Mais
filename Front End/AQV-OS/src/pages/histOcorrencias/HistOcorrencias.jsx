@@ -25,26 +25,26 @@ const HistOcorrencias = () => {
   const listaAlunos = [
     ...new Map(
       ocorrencias
-        .filter((o) => o.idAlunoNavigation)
+        .filter((o) => o?.idAlunoNavigation != null)
         .map((o) => [obterIdAluno(o.idAlunoNavigation), o.idAlunoNavigation]),
     ).values(),
   ];
 
   // Pesquisa de aluno por nome ou CPF
   const alunosEncontrados = listaAlunos.filter((aluno) => {
-    const nome = String(aluno.nome || "").toLowerCase();
-    const cpf = String(aluno.cpf || "").replace(/\D/g, "");
+    const nome = String(aluno?.nome || "").toLowerCase();
+    const cpf = String(aluno?.cpf || "").replace(/\D/g, "");
 
     const pesquisa = busca.trim().toLowerCase();
     const pesquisaCPF = busca.replace(/\D/g, "");
 
     return (
+      aluno &&
       pesquisa.length > 0 &&
       (nome.includes(pesquisa) ||
         (pesquisaCPF.length > 0 && cpf.includes(pesquisaCPF)))
     );
   });
-
   // Aplicação dos três filtros
   const ocorrenciasFiltradas = ocorrencias.filter((ocorrencia) => {
     // Filtro por aluno
@@ -98,9 +98,9 @@ const HistOcorrencias = () => {
           <h1>Ocorrências</h1>
 
           {usuario && usuario.perfil === "Professor" && (
-          <Link to="/CadastroOcorrencia" className="button-criar">
-            + Nova ocorrência
-          </Link>)}
+            <Link to="/CadastroOcorrencia" className="button-criar">
+              + Nova ocorrência
+            </Link>)}
         </div>
 
         {/* CARDS */}
@@ -203,62 +203,61 @@ const HistOcorrencias = () => {
         </div>
 
         {/* TABELA */}
-          <div className="tabela-cabecalho">
-            <span>OCORRÊNCIAS</span>
-            <span>PROFESSOR</span>
-            <span>DATA</span>
-            <span>STATUS</span>
-          </div>
+        <div className="tabela-cabecalho">
+          <span>OCORRÊNCIAS</span>
+          <span>PROFESSOR</span>
+          <span>DATA</span>
+          <span>STATUS</span>
+        </div>
 
-          <div className="tabela-conteudo">
-            {ocorrenciasFiltradas.map((ocorrencia) => (
-              <Link
-                key={ocorrencia.idOcorrencia}
-                to={`/Ocorrencias/${ocorrencia.idOcorrencia}`}
-                className="informacoes-ocorrencia"
-              >
-                <div className="descri">
-                  <strong>{ocorrencia.titulo}</strong>
-                  <p>
-                    {ocorrencia.idAlunoNavigation?.nome ||
-                      "Aluno não informado"}
-                  </p>
-                </div>
+        <div className="tabela-conteudo">
+          {ocorrenciasFiltradas.map((ocorrencia) => (
+            <Link
+              key={ocorrencia.idOcorrencia}
+              to={`/Ocorrencias/${ocorrencia.idOcorrencia}`}
+              className="informacoes-ocorrencia"
+            >
+              <div className="descri">
+                <strong>{ocorrencia.titulo}</strong>
+                <p>
+                  {ocorrencia.idAlunoNavigation?.nome ||
+                    "Aluno não informado"}
+                </p>
+              </div>
 
-                <div className="prof">
-                  {ocorrencia.idUsuarioNavigation?.nome || "Não informado"}
-                </div>
+              <div className="prof">
+                {ocorrencia.idUsuarioNavigation?.nome || usuario.nome || `Não informado`}
+              </div>
 
-                <div className="data">
-                  {formatarData(ocorrencia.dataAbertura)}
-                </div>
+              <div className="data">
+                {formatarData(ocorrencia.dataAbertura)}
+              </div>
 
-                <div
-                  className={`status ${
-                    ocorrencia.idOstatus === "ABERTA"
-                      ? "aberta"
-                      : ocorrencia.idOstatus === "ANDAMENTO"
-                        ? "andamento"
-                        : ocorrencia.idOstatus === "FINALIZADA"
-                          ? "finalizada"
-                          : ""
+              <div
+                className={`status ${ocorrencia.idOstatus === "ABERTA"
+                  ? "aberta"
+                  : ocorrencia.idOstatus === "ANDAMENTO"
+                    ? "andamento"
+                    : ocorrencia.idOstatus === "FINALIZADA"
+                      ? "finalizada"
+                      : ""
                   }`}
-                >
-                  <span></span>
-                  <strong>
-                    {ocorrencia.idOstatus === "ABERTA"
-                      ? "Aberta"
-                      : ocorrencia.idOstatus === "ANDAMENTO"
-                        ? "Em andamento"
-                        : ocorrencia.idOstatus === "FINALIZADA"
-                          ? "Finalizada"
-                          : "Sem status"}
-                  </strong>
-                </div>
-              </Link>
-            ))}
-          </div>
-        
+              >
+                <span></span>
+                <strong>
+                  {ocorrencia.idOstatus === "ABERTA"
+                    ? "Aberta"
+                    : ocorrencia.idOstatus === "ANDAMENTO"
+                      ? "Em andamento"
+                      : ocorrencia.idOstatus === "FINALIZADA"
+                        ? "Finalizada"
+                        : "Sem status"}
+                </strong>
+              </div>
+            </Link>
+          ))}
+        </div>
+
       </main>
     </div>
   );
