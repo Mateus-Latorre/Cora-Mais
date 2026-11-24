@@ -66,8 +66,7 @@ function Login() {
 
       console.error("Erro ao fazer login:", error);
     }
-  }
-
+  };
   return (
     <div className="login-layout">
       <div className="login-presentation">
@@ -103,7 +102,7 @@ function Login() {
               alt=""
               className="icon"
             />
-          </div >
+          </div>
 
           {/* SENHA */}
           <div div className="input-wrapper" >

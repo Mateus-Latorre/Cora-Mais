@@ -94,8 +94,9 @@
     max-height: 919px;
     /* background-color: var(--azul); */
     color: var(--branco);
-    background-image: url("/fundo.jpg");
-
+    background-image: url("fundo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container-ocorrencias {
