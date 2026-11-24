@@ -1,0 +1,574 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
+
+/* ===== TELA DE DETALHES DA OCORRÊNCIA ===== */
+
+.oco-body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--branco);
+    background-image: url("/fundo.jpg");
+}
+
+.oco-div {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 32px 48px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.oco-breadcrumb {
+    font-size: 14px;
+    color: var(--branco);
+    opacity: 0.8;
+}
+
+.oco-h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--branco);
+    margin: 0;
+}
+
+/* ===== CARDS ===== */
+
+.oco-card {
+    background-color: rgba(0, 4, 58, 0.55);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 10px;
+    padding: 22px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.oco-card-top {
+    background-color: rgba(0, 4, 58, 0.55);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 10px;
+    padding-left: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 180px;
+}
+
+.oco-card-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ===== ÍCONES E TÍTULOS ===== */
+
+.oco-icone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--branco);
+    font-weight: 500;
+}
+
+.oco-icone-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.oco-titulo-valor {
+    font-size: 28px;
+    color: var(--branco);
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+/* ===== BADGES ===== */
+
+.oco-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    width: 170px;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.oco-badge {
+    box-sizing: border-box;
+    width: 110px;
+    height: 28px;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 0 10px;
+    margin: 0;
+
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.oco-verde {
+    background-color: #3ECF6E;
+    color: #fff;
+}
+.oco-amarelo {
+    background-color: #d8d802;
+    color: #fff;
+}
+.oco-vermelho {
+    background-color: #F24C4C;
+    color: #fff;
+}
+
+.oco-azul {
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+}
+
+.oco-azul-escuro {
+    background-color: #868df8;
+    color: #fff;
+}
+
+.oco-laranja {
+    background-color: #FFAC78;
+    color: #fff;
+}
+
+.oco-branco {
+    background-color: #FAFAFA;
+    color: #002962;
+}
+
+/* ===== ESTUDANTE E TURMA ===== */
+
+.oco-row2 {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-excluir {
+    width: 170px;
+    height: 27px;
+    padding: 0;
+
+    background-color: #C9001B;
+    color: #FFFFFF;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-excluir:hover {
+    background-color: #A90017;
+}
+.oco-box-metade {
+    flex: 1;
+    background-color: rgba(0, 4, 58, 0.55);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.oco-box-metade label {
+    font-size: 14px;
+    color: var(--branco);
+    opacity: 0.8;
+}
+
+.oco-valor {
+    background-color: rgba(0, 4, 58, 0);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 15px;
+    color: var(--branco);
+}
+
+/* ===== DESCRIÇÃO ===== */
+
+.oco-descricao {
+    background-color: rgba(0, 4, 58, 0);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--branco);
+    word-break: break-all;
+    min-height: 70px;
+}
+
+/* ===== INPUTS ===== */
+
+.oco-input {
+    width: 100%;
+    height: 46px;
+    min-height: 46px;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 4, 58, 0);
+    font-family: "Roboto", sans-serif;
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 6px;
+
+    color: var(--branco);
+    padding: 0 16px;
+    font-size: 14px;
+}
+
+.oco-input::placeholder {
+    font-size: 12px;
+    color: var(--azul-claro);
+}
+
+.oco-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.oco-label {
+    font-size: 14px;
+    color: var(--branco);
+}
+
+/* ===== MENU PERSONALIZADO ===== */
+
+.oco-select-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    z-index: 10;
+}
+
+/* Campo fechado: azul escuro original */
+
+.oco-select-destino {
+    width: 100%;
+    height: 46px;
+    box-sizing: border-box;
+    padding: 0 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: rgba(0, 4, 58, 0);
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 6px;
+
+    color: var(--branco);
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+.oco-select-destino:hover {
+    background-color: rgba(0, 4, 58, 0.2);
+}
+
+.oco-seta-select {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* ===== LISTA DE OPÇÕES ===== */
+
+/* Menu abre para cima */
+
+.oco-opcoes-destino {
+    position: absolute;
+    bottom: calc(100% + 4px);
+    top: auto;
+    left: 0;
+
+    width: 100%;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #244F9C;
+    border: 1px solid #6F98C9;
+    border-radius: 6px;
+    overflow: hidden;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Todas as opções azuis */
+
+.oco-opcao-destino {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 16px;
+
+    background-color: #244F9C;
+    color: #FFFFFF;
+
+    border: none;
+    text-align: left;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse */
+
+.oco-opcao-destino:hover {
+    background-color: #173A78;
+}
+
+/* Opção selecionada continua azul */
+
+.oco-opcao-destino.selecionada {
+    background-color: #244F9C;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.oco-opcao-destino.selecionada:hover {
+    background-color: #173A78;
+    color: #FFFFFF;
+}
+
+/* ===== LINHA DE ENCAMINHAMENTO ===== */
+
+.oco-encaminhar-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) 176px;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.oco-encaminhar-row > .oco-input {
+    width: 100%;
+    height: 46px;
+    min-height: 46px;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BOTÃO ENCAMINHAR ===== */
+
+.oco-btn-enviar {
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    border: none;
+    border-radius: 6px;
+
+    height: 46px;
+    min-height: 46px;
+    width: 176px;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oco-btn-enviar:hover {
+    filter: brightness(1.08);
+}
+
+.oco-btn-enviar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.txt-btn-enviar {
+    margin: 0;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 900px) {
+
+    .oco-div {
+        padding: 24px;
+    }
+
+    .oco-encaminhar-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .oco-encaminhar-row .oco-btn-enviar {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .oco-encaminhar-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .oco-encaminhar-row .oco-select-wrapper,
+    .oco-encaminhar-row .oco-input,
+    .oco-encaminhar-row .oco-btn-enviar {
+        width: 100%;
+    }
+
+    .oco-row2 {
+        flex-direction: column;
+    }
+
+    .oco-card-top {
+        padding: 16px;
+    }
+
+    .oco-h1 {
+        font-size: 26px;
+    }
+}
+/* ===== BUSCA DE DESTINATÁRIOS ===== */
+
+.oco-destino-busca-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    z-index: 200;
+}
+/* ===== LISTA DE RESULTADOS ===== */
+.oco-lista-destinos {
+    position: absolute;
+
+    /* Faz a lista abrir para cima */
+    bottom: calc(100% + 4px);
+    top: auto;
+
+    left: 0;
+    width: 100%;
+    max-height: 220px;
+
+    overflow-y: auto;
+    z-index: 200;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #244F9C;
+    border: 1px solid #6F98C9;
+    border-radius: 6px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== CADA DESTINATÁRIO ===== */
+
+.oco-item-destino {
+    width: 100%;
+    min-height: 42px;
+
+    padding: 10px 16px;
+
+    background-color: #244F9C;
+    color: #FFFFFF;
+
+    border: none;
+    text-align: left;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.oco-item-destino:hover {
+    background-color: #173A78;
+}
+
+/* ===== LISTA VAZIA ===== */
+
+.oco-destino-vazio {
+    margin: 0;
+    padding: 14px;
+
+    color: #D8EBF3;
+    font-size: 13px;
+    text-align: center;
+}
+/* ===== BOTÃO ENVIAR DEVOLUTIVA ===== */
+
+.oco-btn-devolutiva {
+    width: 100%;
+    height: 46px;
+    margin-top: 12px;
+    padding: 0 20px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+
+    border: none;
+    border-radius: 6px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.oco-btn-devolutiva:hover {
+    background-color: #8CC8FF;
+    transform: translateY(-1px);
+}
+
+.oco-btn-devolutiva:active {
+    transform: translateY(0);
+}
+
+.oco-btn-devolutiva:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
