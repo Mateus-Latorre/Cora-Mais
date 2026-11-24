@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Dancing+Script:wght@400..700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap');
+
+* {
+  transition: all 0.5s ease-out;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --azul-claro: rgb(183, 217, 254);
+  --azul-claro-transparente: rgb(183, 217, 254, 0.5);
+
+  --azul: #002962;
+  --azul-transparente: rgb(0, 41, 98, 0.5);
+
+  --cinza: rgb(144, 144, 144);
+
+  --azul-escuro: #00043a;
+  --azul-escuro-transparente: rgb(0, 4, 58, 0.5);
+
+  --laranja: rgb(255, 172, 120);
+  --branco: rgb(248, 250, 252);
+}
+
+/* FUNDO PADRÃO DO AQV-OS */
+
+.fundo-pagina {
+  background-image: url("/fundo.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--azul-escuro);
+  min-height: 100vh;
+  width: 100%;
+}
