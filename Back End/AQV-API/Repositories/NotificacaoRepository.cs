@@ -35,6 +35,13 @@ namespace AQV_API.Repositories
         {
             return _context.Notificacaos.FirstOrDefault(n => n.IdNotificacao == id)!;
         }
+        public IEnumerable<Notificacao> ListarPorOcorrencia(Guid idOcorrencia)
+        {
+            return _context.Notificacaos
+                .Where(n => n.IdOcorrencia == idOcorrencia)
+                .OrderByDescending(n => n.DataEnvio)
+                .ToList();
+        }
 
         public void MarcarComoLida(Guid id)
         {
