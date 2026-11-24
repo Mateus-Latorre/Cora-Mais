@@ -40,7 +40,7 @@ const HistOcorrencias = () => {
   const listaAlunos = [
     ...new Map(
       ocorrencias
-        .filter((o) => o.idAlunoNavigation)
+        .filter((o) => o?.idAlunoNavigation != null)
         .map((o) => [obterIdAluno(o.idAlunoNavigation), o.idAlunoNavigation]),
     ).values(),
   ];
@@ -50,13 +50,14 @@ const HistOcorrencias = () => {
   // ==========================================
 
   const alunosEncontrados = listaAlunos.filter((aluno) => {
-    const nome = String(aluno.nome || "").toLowerCase();
-    const cpf = String(aluno.cpf || "").replace(/\D/g, "");
+    const nome = String(aluno?.nome || "").toLowerCase();
+    const cpf = String(aluno?.cpf || "").replace(/\D/g, "");
 
     const pesquisa = busca.trim().toLowerCase();
     const pesquisaCPF = busca.replace(/\D/g, "");
 
     return (
+      aluno &&
       pesquisa.length > 0 &&
       (nome.includes(pesquisa) ||
         (pesquisaCPF.length > 0 && cpf.includes(pesquisaCPF)))
@@ -67,6 +68,7 @@ const HistOcorrencias = () => {
   // APLICAÇÃO DOS FILTROS
   // ==========================================
 
+  // Aplicação dos três filtros
   const ocorrenciasFiltradas = ocorrencias.filter((ocorrencia) => {
     // Filtro por aluno
     const aluno = ocorrencia.idAlunoNavigation;

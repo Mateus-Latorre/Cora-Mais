@@ -218,6 +218,10 @@
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
+.resultado-busca::-webkit-scrollbar {
+    display: none;
+}
+
 .opcao-aluno {
     width: 100%;
     padding: 13px 15px;
@@ -452,6 +456,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .container-ocorrencias {
         padding: 20px 16px;
     }
+.informacoes-ocorrencia>div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
 
     .etapas-ocorrencia {
         grid-template-columns: repeat(2, minmax(0, 1fr));

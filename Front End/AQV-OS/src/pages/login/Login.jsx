@@ -45,14 +45,14 @@ function Login() {
         role: dados.perfil,
       };
 
-// Salva o token
-localStorage.setItem("token", dados.token);
+      // Salva o token
+      localStorage.setItem("token", dados.token);
 
-// Atualiza o contexto e salva o usuário no Local Storage
-setUsuario(dadosUsuario);
+      // Atualiza o contexto e salva o usuário no Local Storage
+      setUsuario(dadosUsuario);
 
-// Redireciona
-navigate("/DashBoard");
+      // Redireciona
+      navigate("/DashBoard");
 
       setEmail("");
       setSenha("");
@@ -66,7 +66,9 @@ navigate("/DashBoard");
 
       console.error("Erro ao fazer login:", error);
     }
-  };
+
+}
+
   return (
     <div className="login-layout">
       <div className="login-presentation">
@@ -89,23 +91,25 @@ navigate("/DashBoard");
         <form className="login-form">
           {/* E-MAIL */}
           <div className="input-wrapper">
-            <input 
-            id="email" 
-            type="email" 
-            placeholder="E-mail" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required 
+            <input
+              id="email"
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
-            <img 
-            src="/email.svg" 
-            alt="" 
-            className="icon" 
+            <img
+              src="/email.svg"
+              alt=""
+              className="icon"
             />
+            <img src="/email.svg" alt="" className="icon" />
+        
           </div>
 
           {/* SENHA */}
-          <div className="input-wrapper">
+          <div div className="input-wrapper" >
             <input
               id="password"
               type={showPassword ? "text" : "password"}
@@ -120,18 +124,18 @@ navigate("/DashBoard");
               className="icon clickable"
               onClick={() => setShowPassword(!showPassword)}
             />
-          </div>
+          </div >
 
 
           {/* BOTAO */}
-          <button type="button"
+          < button type="button"
             className="login-button"
-            onClick={login}>
+            onClick={login} >
             Entrar
-          </button>
-        </form>
-      </div>
-    </div>
+          </ button>
+        </form >
+      </div >
+    </div >
   );
 }
 export default Login;

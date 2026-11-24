@@ -2,6 +2,10 @@ import { Link, Links } from "react-router-dom";
 import "./menu.css"
 
 const Menu = () => {
+    const sair = () => {
+        localStorage.clear();
+    };
+
     return (
         <header className="menu">
             <div className="logo">
@@ -27,7 +31,7 @@ const Menu = () => {
                 </Link>
 
             </div>
-            <Link className="rota" to="/">
+            <Link className="rota" to="/" on onClick={sair}>
                 <img src="/Img-Sair.svg" alt="imagem pra tela de login" className="icon-menu" />
                 <h2 className="Texto-sair">Sair</h2>
 
