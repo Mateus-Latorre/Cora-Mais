@@ -90,14 +90,9 @@
     max-height: 919px;
     /* background-color: var(--azul); */
     color: var(--branco);
-<<<<<<< HEAD:AQV - Front/AQV-OS/src/pages/histOcorrencias/HistOcorrencias.css
     background-image: url("fundo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-=======
-    background-image: url("/fundo.jpg");
-
->>>>>>> 485f60334802a6350635720154248485d2295ec8:Front End/AQV-OS/src/pages/histOcorrencias/HistOcorrencias.css
 }
 
 .container-ocorrencias {
