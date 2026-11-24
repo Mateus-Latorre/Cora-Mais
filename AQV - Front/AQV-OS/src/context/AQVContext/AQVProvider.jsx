@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import api from "../../services/Services";
 import { AQVContext } from "./AQVContext";
+import { UsuarioContext } from "../UsuarioContext/UsuarioContext";
 
 export const AQVProvider = ({ children }) => {
   const [listagemNotificacao, setListagemNotificacao] = useState([]);
   const [listagemOcorrencia, setListagemOcorrencia] = useState([]);
+  const {usuario} = useContext(UsuarioContext);
 
+  let tipoGet = usuario.perfil === "AQV" ? "Comigo" : "Minhas";
   const getOcorrencia = async () => {
     try {
-      const resposta = await api.get("/Ocorrencia/Minhas");
+      const resposta = await api.get(`/Ocorrencia/${tipoGet}`);
       setListagemOcorrencia(resposta.data ?? []);
     } catch (error) {
       console.error(
@@ -19,7 +22,7 @@ export const AQVProvider = ({ children }) => {
   }
 
   const getNotificacao = async () => {
-    
+    const idUsuario = usuario?.idUsuario
 
     try {
       console.log("Buscando notificações do usuário:", idUsuario);

@@ -11,37 +11,15 @@ const Alerta = Swal.fire;
 const NovaOcorrencia = () => {
 
     const [visibilidade, setVisibilidade] = useState(false);
-    const [visibilidadeT, setVisibilidadeT] = useState(false);
     const [titulo, setTitulo] = useState("");
     const [listaAluno, setListaAluno] = useState([]);
     const [listaTurmas, setListaTurmas] = useState([]);
     const [arrFiltrados, setArrFiltrados] = useState([]);
-    const [arrFiltradosT, setArrFiltradosT] = useState([]);
     const [IdAluno, setIdAluno] = useState("");
     const [nomeAluno, setNomeAluno] = useState("");
-    const [turma, setTurma] = useState("");
-    const [idTurma, setIdTurma] = useState("");
     const [descricao, setDescricao] = useState("");
     const [prioridade, setPrioridade] = useState("");
     const { usuario } = useContext(UsuarioContext);
-
-    const getTurmas = async () => {
-        try {
-            const retornoAPI = await api.get("/Turma");
-
-            console.log(retornoAPI.data);
-
-            setListaTurmas(retornoAPI.data);
-        } catch (error) {
-            console.log(error);
-
-            Alerta({
-                title: "Erro",
-                text: "Erro ao buscar turmas!",
-                icon: "error",
-            });
-        }
-    };
 
     const getAlunos = async () => {
         try {
@@ -87,7 +65,6 @@ const NovaOcorrencia = () => {
 
             setTitulo("");
             setDescricao("");
-            setAlunoSelecionado(null);
             setPrioridade("");
 
         } catch (erro) {
@@ -101,19 +78,7 @@ const NovaOcorrencia = () => {
         }
     };
 
-    // Filtrar turmas
-    const filtrarTuma = (txtTur) => {
-
-        const procurados = listaTurmas.filter((tur) => {
-            return tur.nome.toLowerCase().startsWith(
-                txtTur.toLowerCase()
-            );
-        });
-
-        setArrFiltradosT(procurados);
-
-        console.log(procurados);
-    };
+    // Filtrar Alunos
 
     const filtrarAlunos = (txtAluno) => {
 
@@ -129,7 +94,6 @@ const NovaOcorrencia = () => {
 
     useEffect(() => {
         getAlunos();
-        getTurmas();
     }, []);
 
 
@@ -244,48 +208,9 @@ const NovaOcorrencia = () => {
                             </div>
 
                             <div className="input">
-                                <h5>Turma</h5>
-
-                                <input type="" placeholder="Selecione a Turma"
-                                    value={turma || ""}
-                                    onChange={(e) => setTurma(e.target.value)}
-
-                                    onKeyUp={
-                                        (e) => filtrarTuma(e.target.value)
-                                    }
-
-                                    onFocus={() => setVisibilidadeT(true)} />
-
-                                {visibilidadeT && (
-                                    <section className="list-alu">
-                                        {
-                                            arrFiltradosT.length == 0 ? listaTurmas.map((tur) => {
-                                                return <p className="alu" key={tur.idTurma} onClick={() => {
-                                                    setIdTurma(tur.idTurma)
-                                                    setTurma(tur.nome)
-                                                    setVisibilidadeT(false)
-                                                }}>
-                                                    {tur.nome}
-                                                </p>
-                                            })
-                                                :
-
-                                                arrFiltradosT.map((tur) => {
-                                                    return <p className="alu" key={tur.idTurma} value={tur.idTurma} onClick={() => {
-                                                        setIdTurma(tur.idTurma)
-                                                        setTurma(tur.turma)
-                                                        setVisibilidadeT(false)
-                                                        console.log(tur.nome)
-                                                    }}>
-                                                        {tur.nome}
-                                                    </p>
-                                                })
-                                        }
 
 
-                                    </section>
 
-                                )}
                             </div>
                         </div>
                     </div>

@@ -30,8 +30,7 @@ namespace AQV_API.Controllers
             try
             {
                 int abertas = _ocorrenciaRepository.ContarPorStatus("ABERTA");
-                int emAndamento = _ocorrenciaRepository.ContarPorStatus("ANDAMENTO")
-                                + _ocorrenciaRepository.ContarPorStatus("ENCAMINHADA");
+                int emAndamento = _ocorrenciaRepository.ContarPorStatus("ANDAMENTO");
                 int finalizadas = _ocorrenciaRepository.ContarPorStatus("FINALIZADA");
 
                 return Ok(new

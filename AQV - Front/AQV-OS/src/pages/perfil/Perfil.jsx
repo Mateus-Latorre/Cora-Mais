@@ -33,7 +33,7 @@ const Perfil = () => {
   // Imagens de acordo com o perfil
   const imagens = {
     Professor: "/professor.svg.svg",
-    AQV: "/aqv.svg.svg",
+    AQV: "/aqv.png",
     Coordenador: "/coordenador.svg.svg",
   };
 
