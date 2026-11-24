@@ -5,6 +5,7 @@ import "./Notificacoes.css";
 import { AQVContext } from "../../context/AQVContext/AQVContext";
 import { UsuarioContext } from "../../context/UsuarioContext/UsuarioContext";
 import api from "../../services/Services";
+import { Link } from "react-router-dom";
 
 const Notificacoes = () => {
   // Estados
@@ -12,7 +13,8 @@ const Notificacoes = () => {
   const [usuariosPorNotificacao, setUsuariosPorNotificacao] = useState({});
 
   // Contextos
-  const { listagemNotificacao, getNotificacao, marcarComoLidas } = useContext(AQVContext);
+  const { listagemNotificacao, getNotificacao, marcarComoLidas } =
+    useContext(AQVContext);
   const { usuario } = useContext(UsuarioContext);
 
   // Garante que notificacoes seja sempre um array
@@ -159,7 +161,10 @@ const Notificacoes = () => {
           </div>
 
           <div className="btn-lidas">
-            <button className="noti_lidas" onClick={() => marcarComoLidas(idLogado)}>
+            <button
+              className="noti_lidas"
+              onClick={() => marcarComoLidas(idLogado)}
+            >
               <img src="/lidas.png" alt="" className="lidas_img" />
 
               <p className="noti-txt">Marcar todas como lidas</p>
@@ -243,14 +248,17 @@ const Notificacoes = () => {
                       </div>
 
                       {/* Informações */}
-                      <div className="campo-noti-txt">
+                      <Link
+                        className="campo-noti-txt"
+                        to={`/Ocorrencias/${notificacao.idOcorrencia}`}
+                      >
                         <p className="txt-noti">
                           <span className="noti-prof">{nomeUsuario}</span>{" "}
                           {notificacao.mensagem}
                         </p>
 
                         <p className="hora-txt">{horaFormatada}</p>
-                      </div>
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AQV.WebAPI.Models;
+namespace AQV_API.Models;
 
 public partial class Ocorrencia
 {
@@ -21,21 +21,21 @@ public partial class Ocorrencia
 
     public string Prioridade { get; set; } = null!;
 
+    public Guid? IdResponsavelAtual { get; set; }
 
-
-
-    /// <summary>URL da imagem anexada à ocorrência.</summary>
-    public string? Anexo { get; set; }
+    public Guid? IdCoordenadorAtual { get; set; }
 
     public virtual ICollection<Encaminhamento> Encaminhamentos { get; set; } = new List<Encaminhamento>();
 
-    public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
+    public virtual Feedback? Feedback { get; set; }
 
     public virtual Aluno? IdAlunoNavigation { get; set; }
 
+    public virtual Usuario? IdCoordenadorAtualNavigation { get; set; }
 
     public virtual Ostatus? IdOstatusNavigation { get; set; }
 
+    public virtual Responsavel? IdResponsavelAtualNavigation { get; set; }
 
     public virtual Usuario? IdUsuarioNavigation { get; set; }
 

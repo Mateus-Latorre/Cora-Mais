@@ -1,15 +1,15 @@
-﻿using AQV.WebAPI.BdContext;
-using AQV.WebAPI.Models;
+﻿using AQV_API.BdContext;
+using AQV_API.Models;
 using AQV.WebAPI.Utils;
 using AQV_API.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace AQV_API.Repositories
 {
-    public class OcorrenciaRepository : IOcorrenciaRepository
+    public class OcorrenciasRepository : IOcorrenciasRepository
     {
         private readonly AqvContext _context;
 
-        public OcorrenciaRepository(AqvContext context)
+        public OcorrenciasRepository(AqvContext context)
         {
             _context = context;
         }
@@ -80,8 +80,10 @@ namespace AQV_API.Repositories
         public List<Ocorrencia> ListarPorUsuario(Guid idUsuario)
         {
             return _context.Ocorrencias
-                .Include(o => o.IdAlunoNavigation)!.ThenInclude(a => a!.IdTurmaNavigation)
+                .Include(o => o.IdAlunoNavigation)
+                    .ThenInclude(a => a.IdTurmaNavigation)
                 .Include(o => o.IdOstatusNavigation)
+                .Include(o => o.IdUsuarioNavigation)
                 .Where(o => o.IdUsuario == idUsuario)
                 .OrderByDescending(o => o.DataAbertura)
                 .ToList();
@@ -129,28 +131,24 @@ namespace AQV_API.Repositories
 
         public void Atualizar(Guid id, Ocorrencia x)
         {
-            var ocorrenciaEncontrada = _context.Ocorrencias.Find(id);
-            if (ocorrenciaEncontrada != null)
+            var OcorrenciasEncontrada = _context.Ocorrencias.Find(id);
+
+            if (OcorrenciasEncontrada != null)
             {
-                ocorrenciaEncontrada.Titulo = x.Titulo;
-                ocorrenciaEncontrada.Descricao = x.Descricao;
+                OcorrenciasEncontrada.Titulo = x.Titulo;
+                OcorrenciasEncontrada.Descricao = x.Descricao;
 
                 if (x.IdAluno != Guid.Empty)
                 {
-                    ocorrenciaEncontrada.IdAluno = x.IdAluno;
+                    OcorrenciasEncontrada.IdAluno = x.IdAluno;
                 }
 
                 if (!string.IsNullOrWhiteSpace(x.Prioridade))
                 {
-                    ocorrenciaEncontrada.Prioridade = x.Prioridade;
+                    OcorrenciasEncontrada.Prioridade = x.Prioridade;
                 }
 
-                if (!string.IsNullOrWhiteSpace(x.Anexo))
-                {
-                    ocorrenciaEncontrada.Anexo = x.Anexo;
-                }
-
-                _context.Ocorrencias.Update(ocorrenciaEncontrada);
+                _context.Ocorrencias.Update(OcorrenciasEncontrada);
                 _context.SaveChanges();
             }
         }
@@ -158,11 +156,11 @@ namespace AQV_API.Repositories
         /// <summary>Altera apenas o status. Regra de negócio: somente a AQV pode chamar isto.</summary>
         public void AtualizarStatus(Guid id, string idOstatus)
         {
-            var ocorrenciaEncontrada = _context.Ocorrencias.Find(id);
-            if (ocorrenciaEncontrada != null)
+            var OcorrenciasEncontrada = _context.Ocorrencias.Find(id);
+            if (OcorrenciasEncontrada != null)
             {
-                ocorrenciaEncontrada.IdOstatus = idOstatus;
-                _context.Ocorrencias.Update(ocorrenciaEncontrada);
+                OcorrenciasEncontrada.IdOstatus = idOstatus;
+                _context.Ocorrencias.Update(OcorrenciasEncontrada);
                 _context.SaveChanges();
             }
         }
@@ -173,24 +171,24 @@ namespace AQV_API.Repositories
         /// </summary>
         public void DefinirDestinoAtual(Guid id, Guid? idResponsavel, Guid? idCoordenador, string idOstatus)
         {
-            var ocorrenciaEncontrada = _context.Ocorrencias.Find(id);
-            if (ocorrenciaEncontrada != null)
+            var OcorrenciasEncontrada = _context.Ocorrencias.Find(id);
+            if (OcorrenciasEncontrada != null)
             {
-                // Quem esta com a ocorrencia e controlado pela tabela Encaminhamento
+                // Quem esta com a Ocorrencia e controlado pela tabela Encaminhamento
                 // (registros com DataDevolutiva nula). Aqui apenas o status muda.
-                ocorrenciaEncontrada.IdOstatus = idOstatus;
-                _context.Ocorrencias.Update(ocorrenciaEncontrada);
+                OcorrenciasEncontrada.IdOstatus = idOstatus;
+                _context.Ocorrencias.Update(OcorrenciasEncontrada);
                 _context.SaveChanges();
             }
         }
 
         public void Deletar(Guid id)
         {
-            var ocorrencia = BuscarPorId(id);
+            var Ocorrencia = BuscarPorId(id);
 
-            if (ocorrencia != null)
+            if (Ocorrencia != null)
             {
-                _context.Ocorrencias.Remove(ocorrencia);
+                _context.Ocorrencias.Remove(Ocorrencia);
                 _context.SaveChanges();
             }
         }

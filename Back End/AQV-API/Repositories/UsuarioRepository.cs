@@ -1,5 +1,5 @@
-﻿using AQV.WebAPI.BdContext;
-using AQV.WebAPI.Models;
+﻿using AQV_API.BdContext;
+using AQV_API.Models;
 using AQV.WebAPI.Utils;
 using AQV_API.Interfaces;
 using Microsoft.EntityFrameworkCore;

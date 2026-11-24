@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using AQV.WebAPI.Models;
+using AQV_API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AQV.WebAPI.BdContext;
+namespace AQV_API.BdContext;
 
 public partial class AqvContext : DbContext
 {
@@ -18,9 +18,9 @@ public partial class AqvContext : DbContext
 
     public virtual DbSet<Aluno> Alunos { get; set; }
 
-    public virtual DbSet<Feedback> Feedbacks { get; set; }
-
     public virtual DbSet<Encaminhamento> Encaminhamentos { get; set; }
+
+    public virtual DbSet<Feedback> Feedbacks { get; set; }
 
     public virtual DbSet<Notificacao> Notificacaos { get; set; }
 
@@ -44,27 +44,31 @@ public partial class AqvContext : DbContext
     {
         modelBuilder.Entity<Aluno>(entity =>
         {
-            entity.HasKey(e => e.IdAluno).HasName("PK__Aluno__8092FCB3835249B9");
+            entity.HasKey(e => e.IdAluno).HasName("PK__Aluno__8092FCB30D2B8172");
 
             entity.ToTable("Aluno");
 
-            entity.HasIndex(e => e.Numero, "UQ__Aluno__7E532BC640F6DA2C").IsUnique();
+            entity.HasIndex(e => e.Numero, "UQ__Aluno__7E532BC65BB0C136").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__Aluno__A9D10534AB4C01D7").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Aluno__A9D105346605D046").IsUnique();
 
-            entity.HasIndex(e => e.Cpf, "UQ__Aluno__C1F897311D77C7C8").IsUnique();
+            entity.HasIndex(e => e.Cpf, "UQ__Aluno__C1F89731D171C072").IsUnique();
 
             entity.Property(e => e.IdAluno).HasDefaultValueSql("(newid())");
+
             entity.Property(e => e.Cpf)
                 .HasMaxLength(11)
                 .IsUnicode(false)
                 .HasColumnName("CPF");
+
             entity.Property(e => e.Email)
                 .HasMaxLength(256)
                 .IsUnicode(false);
+
             entity.Property(e => e.Nome)
                 .HasMaxLength(200)
                 .IsUnicode(false);
+
             entity.Property(e => e.Numero)
                 .HasMaxLength(11)
                 .IsUnicode(false);
@@ -81,18 +85,25 @@ public partial class AqvContext : DbContext
             entity.ToTable("Encaminhamento");
 
             entity.Property(e => e.IdEncaminhamento).HasDefaultValueSql("(newid())");
-            entity.Property(e => e.DataDevolutiva).HasColumnType("datetime");
+
+            entity.Property(e => e.DataDevolutiva)
+                .HasColumnType("datetime");
+
             entity.Property(e => e.DataEnvio)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
-            entity.Property(e => e.IdUsuarioAqv).HasColumnName("IdUsuarioAQV");
+
+            entity.Property(e => e.IdUsuarioAqv)
+                .HasColumnName("IdUsuarioAQV");
+
             entity.Property(e => e.Observacao)
                 .HasMaxLength(300)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdOcorrenciaNavigation).WithMany(p => p.Encaminhamentos)
+            entity.HasOne(d => d.IdOcorrenciasNavigation).WithMany(p => p.Encaminhamentos)
                 .HasForeignKey(d => d.IdOcorrencia)
-                .HasConstraintName("FK_Encaminhamento_Ocorrencia");
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Encaminhamento_Ocorrencias");
 
             entity.HasOne(d => d.IdResponsavelNavigation).WithMany(p => p.Encaminhamentos)
                 .HasForeignKey(d => d.IdResponsavel)
@@ -108,98 +119,123 @@ public partial class AqvContext : DbContext
                 .HasConstraintName("FK_Encaminhamento_Coordenador");
         });
 
-        modelBuilder.Entity<Notificacao>(entity =>
-        {
-            entity.HasKey(e => e.IdNotificacao).HasName("PK__Notificacao__ID");
-
-            entity.ToTable("Notificacao");
-
-            entity.Property(e => e.IdNotificacao).HasDefaultValueSql("(newid())");
-            entity.Property(e => e.Mensagem).HasMaxLength(300).IsUnicode(false);
-            entity.Property(e => e.DataEnvio).HasDefaultValueSql("(getdate())").HasColumnType("datetime");
-            entity.Property(e => e.Lida).HasDefaultValue(false);
-
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Notificacaos)
-                .HasForeignKey(d => d.IdUsuario)
-                .HasConstraintName("FK_Notificacao_Usuario");
-
-            entity.HasOne(d => d.IdOcorrenciaNavigation).WithMany(p => p.Notificacaos)
-                .HasForeignKey(d => d.IdOcorrencia)
-                .HasConstraintName("FK_Notificacao_Ocorrencia");
-        });
-
         modelBuilder.Entity<Feedback>(entity =>
         {
-            entity.HasKey(e => e.IdFeedback).HasName("PK__Feedback__408FF103A4A22688");
+            entity.HasKey(e => e.IdFeedback).HasName("PK__Feedback__408FF10321CD9D29");
 
             entity.ToTable("Feedback");
 
-            entity.Property(e => e.IdFeedback).HasDefaultValueSql("(newid())");
-            entity.Property(e => e.Anexo)
-                .HasMaxLength(255)
-                .IsUnicode(false);
+            entity.HasIndex(e => e.IdOcorrencia, "UX_Feedback_IdOcorrencias")
+                .IsUnique()
+                .HasFilter("([IdOcorrencia] IS NOT NULL)");
+
+            entity.Property(e => e.IdFeedback)
+                .HasDefaultValueSql("(newid())");
+
             entity.Property(e => e.DataEnvio)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
-            entity.Property(e => e.Lido).HasDefaultValue(false);
+
+            entity.Property(e => e.Lido)
+                .HasDefaultValue(false);
+
             entity.Property(e => e.Mensagem)
                 .HasMaxLength(300)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdOcorrenciaNavigation).WithMany(p => p.Feedbacks)
+            entity.HasOne(d => d.IdOcorrenciasNavigation).WithOne(p => p.Feedback)
+                .HasForeignKey<Feedback>(d => d.IdOcorrencia)
+                .HasConstraintName("FK__Feedback__IdOcor__02084FDA");
+        });
+
+        modelBuilder.Entity<Notificacao>(entity =>
+        {
+            entity.HasKey(e => e.IdNotificacao).HasName("PK__Notifica__046D3872DB18AF37");
+
+            entity.ToTable("Notificacao");
+
+            entity.Property(e => e.IdNotificacao)
+                .HasDefaultValueSql("(newid())");
+
+            entity.Property(e => e.DataEnvio)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+
+            entity.Property(e => e.Mensagem)
+                .HasMaxLength(300)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.IdOcorrenciasNavigation).WithMany(p => p.Notificacaos)
                 .HasForeignKey(d => d.IdOcorrencia)
-                .HasConstraintName("FK__Feedback__IdOcor__7C4F7684");
+                .HasConstraintName("FK_Notificacao_Ocorrencias");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Notificacaos)
+                .HasForeignKey(d => d.IdUsuario)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Notificacao_Usuario");
         });
 
         modelBuilder.Entity<Ocorrencia>(entity =>
         {
-            entity.HasKey(e => e.IdOcorrencia).HasName("PK__Ocorrenc__831D923991173D65");
-
-            entity.Property(e => e.Anexo)
-                .HasMaxLength(255)
-                .IsUnicode(false);
+            entity.HasKey(e => e.IdOcorrencia)
+                .HasName("PK__Ocorrenc__831D9239C88761DC");
 
             entity.ToTable("Ocorrencia");
 
-            entity.Property(e => e.IdOcorrencia).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.IdOcorrencia)
+                .HasDefaultValueSql("(newid())");
+
             entity.Property(e => e.DataAbertura)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
+
             entity.Property(e => e.Descricao)
                 .HasMaxLength(250)
                 .IsUnicode(false);
+
             entity.Property(e => e.IdOstatus)
                 .HasMaxLength(20)
                 .IsUnicode(false);
+
             entity.Property(e => e.Prioridade)
                 .HasMaxLength(20)
                 .IsUnicode(false);
+
             entity.Property(e => e.Titulo)
                 .HasMaxLength(55)
                 .IsUnicode(false);
 
             entity.HasOne(d => d.IdAlunoNavigation).WithMany(p => p.Ocorrencia)
                 .HasForeignKey(d => d.IdAluno)
-                .HasConstraintName("FK__Ocorrenci__IdAlu__74AE54BC");
+                .HasConstraintName("FK__Ocorrenci__IdAlu__7A672E12");
+
+            entity.HasOne(d => d.IdCoordenadorAtualNavigation).WithMany(p => p.OcorrenciaIdCoordenadorAtualNavigations)
+                .HasForeignKey(d => d.IdCoordenadorAtual)
+                .HasConstraintName("FK_Ocorrencias_CoordenadorAtual");
 
             entity.HasOne(d => d.IdOstatusNavigation).WithMany(p => p.Ocorrencia)
                 .HasForeignKey(d => d.IdOstatus)
-                .HasConstraintName("FK__Ocorrenci__IdOst__75A278F5");
+                .HasConstraintName("FK__Ocorrenci__IdOst__7B5B524B");
 
-            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Ocorrencia)
+            entity.HasOne(d => d.IdResponsavelAtualNavigation).WithMany(p => p.Ocorrencia)
+                .HasForeignKey(d => d.IdResponsavelAtual)
+                .HasConstraintName("FK_Ocorrencias_ResponsavelAtual");
+
+            entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.OcorrenciaIdUsuarioNavigations)
                 .HasForeignKey(d => d.IdUsuario)
-                .HasConstraintName("FK__Ocorrenci__IdUsu__76969D2E");
+                .HasConstraintName("FK__Ocorrenci__IdUsu__7C4F7684");
         });
 
         modelBuilder.Entity<Ostatus>(entity =>
         {
-            entity.HasKey(e => e.IdOstatus).HasName("PK__Ostatus__E76FF4A8763A2458");
+            entity.HasKey(e => e.IdOstatus).HasName("PK__Ostatus__E76FF4A8824BD310");
 
             entity.ToTable("Ostatus");
 
             entity.Property(e => e.IdOstatus)
                 .HasMaxLength(20)
                 .IsUnicode(false);
+
             entity.Property(e => e.Titulo)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -207,21 +243,25 @@ public partial class AqvContext : DbContext
 
         modelBuilder.Entity<Responsavel>(entity =>
         {
-            entity.HasKey(e => e.IdResponsavel).HasName("PK__Responsa__CDF1DCAD8E5F5FEB");
+            entity.HasKey(e => e.IdResponsavel).HasName("PK__Responsa__CDF1DCADCAC30A87");
 
             entity.ToTable("Responsavel");
 
-            entity.HasIndex(e => e.Numero, "UQ__Responsa__7E532BC69F7E985C").IsUnique();
+            entity.HasIndex(e => e.Numero, "UQ__Responsa__7E532BC6A628A7DE").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__Responsa__A9D10534DA8E759E").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Responsa__A9D105344EBB2EDD").IsUnique();
 
-            entity.Property(e => e.IdResponsavel).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.IdResponsavel)
+                .HasDefaultValueSql("(newid())");
+
             entity.Property(e => e.Email)
                 .HasMaxLength(256)
                 .IsUnicode(false);
+
             entity.Property(e => e.Nome)
                 .HasMaxLength(200)
                 .IsUnicode(false);
+
             entity.Property(e => e.Numero)
                 .HasMaxLength(11)
                 .IsUnicode(false);
@@ -233,11 +273,13 @@ public partial class AqvContext : DbContext
 
         modelBuilder.Entity<TipoUsuario>(entity =>
         {
-            entity.HasKey(e => e.IdTipoUsuario).HasName("PK__TipoUsua__CA04062B619A6846");
+            entity.HasKey(e => e.IdTipoUsuario).HasName("PK__TipoUsua__CA04062BBCAF6288");
 
             entity.ToTable("TipoUsuario");
 
-            entity.Property(e => e.IdTipoUsuario).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.IdTipoUsuario)
+                .HasDefaultValueSql("(newid())");
+
             entity.Property(e => e.Titulo)
                 .HasMaxLength(100)
                 .IsUnicode(false);
@@ -245,11 +287,13 @@ public partial class AqvContext : DbContext
 
         modelBuilder.Entity<Turma>(entity =>
         {
-            entity.HasKey(e => e.IdTurma).HasName("PK__Turma__C1ECFFC97FAD934E");
+            entity.HasKey(e => e.IdTurma).HasName("PK__Turma__C1ECFFC943F81592");
 
             entity.ToTable("Turma");
 
-            entity.Property(e => e.IdTurma).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.IdTurma)
+                .HasDefaultValueSql("(newid())");
+
             entity.Property(e => e.Nome)
                 .HasMaxLength(200)
                 .IsUnicode(false);
@@ -257,24 +301,29 @@ public partial class AqvContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__5B65BF9738D8A2A0");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__5B65BF97889CB7B5");
 
             entity.ToTable("Usuario");
 
-            entity.HasIndex(e => e.Numero, "UQ__Usuario__7E532BC6D919333E").IsUnique();
+            entity.HasIndex(e => e.Numero, "UQ__Usuario__7E532BC6089B7676").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__Usuario__A9D105341EC743F5").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__Usuario__A9D105346B8F51E3").IsUnique();
 
-            entity.Property(e => e.IdUsuario).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.IdUsuario)
+                .HasDefaultValueSql("(newid())");
+
             entity.Property(e => e.Email)
                 .HasMaxLength(256)
                 .IsUnicode(false);
+
             entity.Property(e => e.Nome)
                 .HasMaxLength(200)
                 .IsUnicode(false);
+
             entity.Property(e => e.Numero)
                 .HasMaxLength(11)
                 .IsUnicode(false);
+
             entity.Property(e => e.Senha)
                 .HasMaxLength(60)
                 .IsUnicode(false);

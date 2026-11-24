@@ -93,6 +93,12 @@
 
 .noti-prof {
   font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+.txt-noti {
+  font-size: 16px;
+  color: #fff;
 }
 
 .hora-txt {
@@ -136,4 +142,6 @@
 
 .campo-noti-txt {
   margin-left: 10px;
+  cursor: pointer;
+  text-decoration: none;
 }

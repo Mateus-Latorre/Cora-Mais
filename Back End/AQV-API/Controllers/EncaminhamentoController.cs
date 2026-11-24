@@ -12,26 +12,26 @@ namespace AQV_API.Controllers
     public class EncaminhamentoController : ControllerBase
     {
         private readonly IEncaminhamentoRepository _encaminhamentoRepository;
-        private readonly IOcorrenciaRepository _ocorrenciaRepository;
+        private readonly IOcorrenciasRepository _OcorrenciasRepository;
         private readonly INotificacaoRepository _notificacaoRepository;
 
         public EncaminhamentoController(
             IEncaminhamentoRepository encaminhamentoRepository,
-            IOcorrenciaRepository ocorrenciaRepository,
+            IOcorrenciasRepository OcorrenciasRepository,
             INotificacaoRepository notificacaoRepository)
         {
             _encaminhamentoRepository = encaminhamentoRepository;
-            _ocorrenciaRepository = ocorrenciaRepository;
+            _OcorrenciasRepository = OcorrenciasRepository;
             _notificacaoRepository = notificacaoRepository;
         }
 
         /// <summary>
         /// Histórico completo de encaminhamentos da ocorrência (linha do tempo da tratativa).
         /// </summary>
-        [HttpGet("Ocorrencia/{idOcorrencia}")]
-        public IActionResult ListarPorOcorrencia(Guid idOcorrencia)
+        [HttpGet("Ocorrencia/{idOcorrencias}")]
+        public IActionResult ListarPorOcorrencias(Guid idOcorrencias)
         {
-            try { return Ok(_encaminhamentoRepository.ListarPorOcorrencia(idOcorrencia)); }
+            try { return Ok(_encaminhamentoRepository.ListarPorOcorrencias(idOcorrencias)); }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
@@ -101,13 +101,13 @@ namespace AQV_API.Controllers
                         return Forbid();
                     }
 
-                    var ocorrencia = _ocorrenciaRepository.BuscarPorId(encaminhamento.IdOcorrencia);
-                    if (ocorrencia == null)
+                    var Ocorrencia = _OcorrenciasRepository.BuscarPorId(encaminhamento.IdOcorrencia);
+                    if (Ocorrencia == null)
                     {
                         return NotFound("Ocorrência vinculada ao encaminhamento não encontrada.");
                     }
 
-                    if (!ocorrencia.IdUsuario.HasValue || ocorrencia.IdUsuario.Value != idUsuarioLogado)
+                    if (!Ocorrencia.IdUsuario.HasValue || Ocorrencia.IdUsuario.Value != idUsuarioLogado)
                     {
                         return Forbid();
                     }
@@ -116,7 +116,7 @@ namespace AQV_API.Controllers
                 _encaminhamentoRepository.RegistrarDevolutiva(id, observacao);
 
                 // Após a devolutiva, a ocorrência retorna ao fluxo de acompanhamento da AQV.
-                _ocorrenciaRepository.DefinirDestinoAtual(
+                _OcorrenciasRepository.DefinirDestinoAtual(
                     encaminhamento.IdOcorrencia, null, null, "FINALIZADA");
 
                 return NoContent();

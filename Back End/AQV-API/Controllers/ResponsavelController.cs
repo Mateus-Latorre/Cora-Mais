@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using AQV_API.DTO;
 using AQV_API.Interfaces;
-using AQV.WebAPI.Models;
+using AQV_API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;

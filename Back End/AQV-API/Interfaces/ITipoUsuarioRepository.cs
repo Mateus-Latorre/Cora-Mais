@@ -1,4 +1,4 @@
-﻿using AQV.WebAPI.Models;
+﻿using AQV_API.Models;
 using Microsoft.AspNetCore.Authorization;
 
 namespace AQV_API.Interfaces

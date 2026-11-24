@@ -183,6 +183,10 @@
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
+.oco-vermelho {
+    background-color: #C9001B;
+    color: #FFFFFF;
+}
 
 .btn-excluir:hover {
     background-color: #A90017;
@@ -404,7 +408,25 @@
     justify-content: center;
     align-items: center;
 }
+.oco-btn-lida{
+        background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    border: none;
+    border-radius: 6px;
 
+    height: 29px;
+    min-height: 29px;
+    width: 176px;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .oco-btn-enviar:hover {
     filter: brightness(1.08);
 }
@@ -572,4 +594,32 @@
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
+}
+.oco-icone-img-finalizado{
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+/* ==========================================
+   CABEÇALHO DO CARD DE FEEDBACK
+========================================== */
+
+.oco-feedback-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+}
+
+.oco-feedback-head .oco-icone {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.oco-feedback-head .oco-badge {
+    flex-shrink: 0;
+    margin-left: auto;
 }

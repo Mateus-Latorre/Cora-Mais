@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using AQV_API.DTO;
 using AQV_API.Interfaces;
-using AQV.WebAPI.Models;
+using AQV_API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -14,11 +14,11 @@ namespace AQV_API.Controllers
     [ApiController]
     public class DashboardController : ControllerBase
     {
-        private readonly IOcorrenciaRepository _ocorrenciaRepository;
+        private readonly IOcorrenciasRepository _OcorrenciasRepository;
 
-        public DashboardController(IOcorrenciaRepository ocorrenciaRepository)
+        public DashboardController(IOcorrenciasRepository OcorrenciasRepository)
         {
-            _ocorrenciaRepository = ocorrenciaRepository;
+            _OcorrenciasRepository = OcorrenciasRepository;
         }
 
         /// <summary>
@@ -29,9 +29,9 @@ namespace AQV_API.Controllers
         {
             try
             {
-                int abertas = _ocorrenciaRepository.ContarPorStatus("ABERTA");
-                int emAndamento = _ocorrenciaRepository.ContarPorStatus("ANDAMENTO");
-                int finalizadas = _ocorrenciaRepository.ContarPorStatus("FINALIZADA");
+                int abertas = _OcorrenciasRepository.ContarPorStatus("ABERTA");
+                int emAndamento = _OcorrenciasRepository.ContarPorStatus("ANDAMENTO");
+                int finalizadas = _OcorrenciasRepository.ContarPorStatus("FINALIZADA");
 
                 return Ok(new
                 {
@@ -39,9 +39,9 @@ namespace AQV_API.Controllers
                     Abertas = abertas,
                     EmAndamento = emAndamento,
                     Finalizadas = finalizadas,
-                    Urgentes = _ocorrenciaRepository.ContarPorPrioridade("Urgente"),
-                    Importantes = _ocorrenciaRepository.ContarPorPrioridade("Importante"),
-                    Rotina = _ocorrenciaRepository.ContarPorPrioridade("Rotina")
+                    Urgentes = _OcorrenciasRepository.ContarPorPrioridade("Urgente"),
+                    Importantes = _OcorrenciasRepository.ContarPorPrioridade("Importante"),
+                    Rotina = _OcorrenciasRepository.ContarPorPrioridade("Rotina")
                 });
             }
             catch (Exception ex) { return BadRequest(ex.Message); }

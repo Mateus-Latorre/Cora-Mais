@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace AQV.WebAPI.Models;
+namespace AQV_API.Models;
 
 public partial class Notificacao
 {
@@ -11,13 +11,13 @@ public partial class Notificacao
 
     public string Mensagem { get; set; } = null!;
 
-    public DateTime? DataEnvio { get; set; }
+    public DateTime DataEnvio { get; set; }
 
-    public bool? Lida { get; set; }
+    public bool Lida { get; set; }
 
     public Guid? IdOcorrencia { get; set; }
 
-    public virtual Usuario? IdUsuarioNavigation { get; set; }
+    public virtual Ocorrencia? IdOcorrenciasNavigation { get; set; }
 
-    public virtual Ocorrencia? IdOcorrenciaNavigation { get; set; }
+    public virtual Usuario IdUsuarioNavigation { get; set; } = null!;
 }
