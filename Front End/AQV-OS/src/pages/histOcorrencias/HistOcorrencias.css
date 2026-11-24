@@ -90,14 +90,9 @@
     max-height: 919px;
     /* background-color: var(--azul); */
     color: var(--branco);
-<<<<<<< HEAD:AQV - Front/AQV-OS/src/pages/histOcorrencias/HistOcorrencias.css
     background-image: url("fundo.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-=======
-    background-image: url("/fundo.jpg");
-
->>>>>>> 485f60334802a6350635720154248485d2295ec8:Front End/AQV-OS/src/pages/histOcorrencias/HistOcorrencias.css
 }
 
 .container-ocorrencias {
@@ -477,8 +472,6 @@ input[type="date"] {
     align-items: center;
 }
 
-<<<<<<< HEAD:AQV - Front/AQV-OS/src/pages/histOcorrencias/HistOcorrencias.css
-=======
 /* TABELA RESPONSIVA */
 
 .tabela-ocorrencias {
@@ -545,4 +538,3 @@ input[type="date"] {
         gap: 5px;
     }
 }
->>>>>>> 8ad78871392c7c9943fc4a8d6d45c95141e8e216:Front End/AQV-OS/src/pages/histOcorrencias/HistOcorrencias.css

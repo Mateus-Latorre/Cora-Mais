@@ -97,7 +97,7 @@
     margin-top: 20px;
 }
 .caixa2 {
-    background-color: rgb(0, 4, 58, 0.5);
+    /* background-color: rgb(0, 4, 58, 0.5);
     font-family: "Roboto";
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 15px;
@@ -105,13 +105,29 @@
     width: 80%;
     color: var(--branco);
     /* padding-left: 13px; */
-    height: 300px;   
+    height: 250px;   
     display: flex;
+
+    background-color: rgb(0, 4, 58, 0.5);
+    font-family: "Roboto";
+    border: 2px solid var(--azul-claro-transparente);
+    border-radius: 15px;
+    width: 65%;
+    color: var(--branco);
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px 30px;
 }
 .campo{
-    margin-top: 10px;
-    margin-left: 30px;
-    margin-right: 30px;
+    /* padding-bottom: 25px;
+    margin-left: 25px;
+    margin-right: 30px; */
+
+     padding-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
 }
 .campo_senhas {
     margin-top: 20px;
@@ -119,15 +135,17 @@
 }
 .campo_txt{
     margin-bottom: 7px;
+      font-size: 13.28px;
 }
 .campo_input {
     width: 590px;
-    height: 35px;
-    background-color: rgb(0, 4, 58, 0.5);
+    height: 30px;
+    /* background-color: rgb(0, 4, 58, 0.5); */
+    border-radius: 5px;
     border: 2px solid var(--azul-claro-transparente);
 }
 .btn_salvar {
-    width: 250px;
+    /* width: 250px;
     height: 35px;
     border-radius: 10px;
     background-color: #ADD5FF;
@@ -136,6 +154,17 @@
     align-items: center;
     justify-content: center;
     margin-right: 15px;
+    gap: 12px; */
+
+    width: 150px;
+    /* height: 35px; */
+    border-radius: 10px;
+    background-color: #ADD5FF;
+    border: rgb(0, 4, 58, 0.5);
+    display: flex;
+    margin-right: 65px;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
 }
 .salvar_txt {
@@ -148,7 +177,12 @@
     height: 30px;
 }
 .btn{
-      width: 250px;
+      /* width: 250px;
     height: 35px;
-    flex-shrink: 0;
+    flex-shrink: 0; */
+
+     width: 100%;
+    /* display: flex; */
+    justify-content: flex-end;
+        /* margin-top: 3px; */
 }
