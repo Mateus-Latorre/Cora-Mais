@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import "./Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UsuarioContext } from "../../context/UsuarioContext/UsuarioContext";
 import { Alerta } from "../../components/alerta/alerta";
 import api from "../../services/Services";
+
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -66,11 +67,7 @@ function Login() {
 
       console.error("Erro ao fazer login:", error);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
-}
+  };
 
   return (
     <div className="login-layout">
@@ -94,21 +91,6 @@ function Login() {
         <form className="login-form">
           {/* E-MAIL */}
           <div className="input-wrapper">
-<<<<<<< HEAD
-            <input 
-            id="email" 
-            type="email" 
-            placeholder="E-mail" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required 
-            />
-            <img 
-            src="/email.svg" 
-            alt="" 
-            className="icon" 
-            />
-=======
             <input
               id="email"
               type="email"
@@ -122,13 +104,10 @@ function Login() {
               alt=""
               className="icon"
             />
-            <img src="/email.svg" alt="" className="icon" />
-        
->>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
           </div>
 
           {/* SENHA */}
-          <div div className="input-wrapper" >
+          <div className="input-wrapper">
             <input
               id="password"
               type={showPassword ? "text" : "password"}
@@ -143,18 +122,20 @@ function Login() {
               className="icon clickable"
               onClick={() => setShowPassword(!showPassword)}
             />
-          </div >
+          </div>
 
-
-          {/* BOTAO */}
-          < button type="button"
+          {/* BOTÃO */}
+          <button
+            type="button"
             className="login-button"
-            onClick={login} >
+            onClick={login}
+          >
             Entrar
-          </ button>
-        </form >
-      </div >
-    </div >
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
+
 export default Login;

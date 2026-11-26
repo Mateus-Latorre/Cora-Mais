@@ -1,7 +1,4 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
-
-/* CONFIGURAÇÕES GERAIS */
 
 * {
     margin: 0;
@@ -10,48 +7,56 @@
     font-family: "Roboto", sans-serif;
 }
 
-body {
+html, body {
+    width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
     background-image: url("/Loginf.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #071333;
 }
 
 #root {
     width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
+    background: transparent;
 }
-
-/* LAYOUT PRINCIPAL */
 
 .cadastro-layout {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 40px;
 
     width: 100%;
     max-width: 1300px;
     min-height: 100vh;
+    min-height: 100dvh;
     margin: 0 auto;
-    padding: 20px;
+    padding: 35px 40px;
 }
 
-/* TEXTO DA ESQUERDA */
+/* APRESENTAÇÃO */
 
 .cadastro-presentation {
     flex: 1;
+    min-width: 0;
+
+    color: #ffffff;
     text-align: left;
-    color: white;
 }
 
 .app-tag {
     display: inline-block;
-    padding: 10px 20px;
-    margin-bottom: 25px;
+    padding: 8px 18px;
+    margin-bottom: 22px;
 
     font-size: 12px;
+    letter-spacing: 0.3px;
     color: #dce8ff;
 
     border: 1px solid #ADD5FF;
@@ -59,11 +64,12 @@ body {
 }
 
 .cadastro-presentation h1 {
-    font-size: 45px;
+    max-width: 500px;
+    margin: 8px 0 14px;
+
+    font-size: clamp(28px, 3.8vw, 45px);
     line-height: 1.2;
     font-weight: 700;
-    margin: 10px 0 15px;
-    max-width: 500px;
 }
 
 .cadastro-presentation h1 span {
@@ -71,55 +77,60 @@ body {
 }
 
 .cadastro-presentation p {
-    font-size: 20px;
+    max-width: 480px;
+    font-size: clamp(15px, 1.6vw, 20px);
+    line-height: 1.5;
     color: #c2cfe6;
 }
 
-/* QUADRO PRINCIPAL */
+/* CARTÃO */
 
 .cadastro-container {
-    flex: 0 0 430px;
-    width: 400px;
-    max-width: 100%;
-    margin: 0;
-    padding: 30px 25px;
+    flex: 0 1 430px;
+    width: 100%;
+    max-width: 430px;
+    min-width: 0;
+
+    padding: 32px 28px;
 
     border: 1px solid rgba(173, 213, 255, 0.6);
     border-radius: 25px;
 
-    background-color: rgba(87, 86, 136, 0.25);
-    box-shadow: none;
-    backdrop-filter: blur(60px);
+    background-color: rgba(30, 35, 90, 0.35);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
 }
 
-/* TÍTULO E DESCRIÇÃO */
+/* TÍTULO */
 
 .cadastro-container .form-title {
-    color: white;
+    margin-bottom: 9px;
+
+    color: #ffffff;
     text-align: left;
     font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 9px;
 }
 
 .cadastro-container > p:not(.signup-text) {
-    color: white;
+    margin-bottom: 25px;
+
+    color: #ffffff;
     text-align: left;
     font-size: 1rem;
     font-weight: 300;
-    margin-bottom: 30px;
+    line-height: 1.5;
 }
 
 /* FORMULÁRIO */
 
 .cadastro-form {
-    width: 100%;
-    max-width: none;
-
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 13px;
+    gap: 14px;
+
+    width: 100%;
 }
 
 /* CAMPOS */
@@ -129,32 +140,27 @@ body {
     display: block;
 
     width: 100%;
-    max-width: none;
-
-    align-self: stretch;
+    min-width: 0;
 }
-
-/* INPUTS */
 
 .cadastro-form .input-container input {
     display: block;
 
     width: 100%;
-    max-width: none;
     height: 52px;
 
-    padding: 0 42px 0 12px !important;
-    text-align: left !important;
+    padding: 0 42px 0 14px;
 
+    color: #ffffff;
     font-size: 15px;
-    color: white;
+    text-align: left;
 
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid #657a9b;
     border-radius: 10px;
 
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .cadastro-form .input-container input::placeholder {
@@ -163,6 +169,15 @@ body {
 
 .cadastro-form .input-container input:focus {
     border-color: #d99a7d;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cadastro-form .input-container input:-webkit-autofill,
+.cadastro-form .input-container input:-webkit-autofill:hover,
+.cadastro-form .input-container input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px rgba(30, 35, 90, 0.85) inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 /* ÍCONES */
@@ -177,11 +192,8 @@ body {
 
     transform: translateY(-50%);
     object-fit: contain;
-
     pointer-events: none;
 }
-
-/* ÍCONE DO LADO DIREITO */
 
 .cadastro-form .input-container .icon-right {
     left: auto;
@@ -191,19 +203,18 @@ body {
     pointer-events: auto;
 }
 
-/* TIPO DA CONTA */
+/* SELECT */
 
 .cadastro-form .input-container select {
     display: block;
 
     width: 100%;
-    max-width: none;
     height: 52px;
 
-    padding: 0 40px 0 12px;
+    padding: 0 40px 0 14px;
 
-    font-size: 16px;
     color: #aebbd0;
+    font-size: 15px;
 
     border: 1px solid #657a9b;
     border-radius: 10px;
@@ -213,31 +224,30 @@ body {
     -webkit-appearance: none;
 
     background-color: rgba(255, 255, 255, 0.06);
-
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
-
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 16px;
 
     cursor: pointer;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .cadastro-form .input-container select:focus {
     border-color: #d99a7d;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .cadastro-form .input-container select:valid {
-    color: white;
+    color: #ffffff;
 }
 
 .cadastro-form .input-container select option {
-    color: white;
+    color: #ffffff;
     background-color: #002962;
 }
 
-/* BOTÃO CADASTRO */
+/* BOTÃO */
 
 .cadastro-container .cadastro-button {
     display: flex;
@@ -245,9 +255,7 @@ body {
     justify-content: center;
 
     width: 100%;
-    max-width: none;
-    height: 52px;
-
+    min-height: 52px;
     margin-top: 3px;
 
     color: #071333;
@@ -260,22 +268,27 @@ body {
     font-weight: 700;
     cursor: pointer;
 
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .cadastro-container .cadastro-button:hover {
     background: #efad8c;
 }
 
-/* LINK PARA LOGIN */
+.cadastro-container .cadastro-button:active {
+    transform: scale(0.99);
+}
+
+/* LOGIN LINK */
 
 .cadastro-container .signup-text {
-    margin-top: 1.5rem;
+    margin-top: 22px;
     margin-bottom: 0;
 
-    text-align: center;
-    font-size: 1rem;
     color: #dce5f5;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .cadastro-container .signup-text a {
@@ -288,67 +301,118 @@ body {
     text-decoration: underline;
 }
 
-/* RESPONSIVIDADE */
+/* TABLET E JANELAS MENORES (<= 900px) */
 
 @media (max-width: 900px) {
     .cadastro-layout {
-        justify-content: center;
-        gap: 25px;
-    }
-
-    .cadastro-presentation {
-        display: none;
-    }
-
-    .cadastro-container {
-        flex: 0 1 500px;
-        width: 100%;
-    }
-}
-
-@media (max-width: 760px) {
-    .cadastro-layout {
         flex-direction: column;
         justify-content: center;
-        align-items: stretch;
-        gap: 35px;
-        padding: 35px 24px;
+        align-items: center;
+        gap: 28px;
+
+        padding: 32px 24px;
     }
 
     .cadastro-presentation {
-        display: block;
+        flex: none;
+        width: 100%;
+        max-width: 460px;
+        text-align: left;
     }
 
     .cadastro-presentation h1 {
         max-width: 100%;
-        font-size: 28px;
+        font-size: 32px;
     }
 
     .cadastro-presentation p {
+        max-width: 100%;
         font-size: 16px;
     }
 
+    .app-tag {
+        margin-bottom: 14px;
+    }
+
     .cadastro-container {
-        flex: auto;
+        flex: none;
         width: 100%;
-        padding: 30px 20px;
+        max-width: 460px;
+        padding: 30px 24px;
     }
 }
 
-@media (max-width: 400px) {
-    .cadastro-layout {
-        padding: 25px 16px;
-    }
+/* CELULAR (<= 480px) */
 
-    .cadastro-container {
-        padding: 25px 16px;
+@media (max-width: 480px) {
+    .cadastro-layout {
+        padding: 24px 16px;
+        gap: 20px;
     }
 
     .cadastro-presentation h1 {
-        font-size: 25px;
+        font-size: 26px;
+        margin: 6px 0 10px;
     }
 
-    .cadastro-form .input-container input {
+    .cadastro-presentation p {
         font-size: 15px;
+    }
+
+    .app-tag {
+        padding: 6px 14px;
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+
+    .cadastro-container {
+        padding: 24px 18px;
+        border-radius: 20px;
+    }
+
+    .cadastro-container .form-title {
+        font-size: 1.65rem;
+    }
+
+    .cadastro-container > p:not(.signup-text) {
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+    }
+
+    .cadastro-form {
+        gap: 12px;
+    }
+
+    .cadastro-form .input-container input,
+    .cadastro-form .input-container select {
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .cadastro-container .cadastro-button {
+        min-height: 48px;
+        font-size: 16px;
+    }
+}
+
+/* TELAS BAIXAS (MODO PAISAGEM NO CELULAR) */
+
+@media (max-height: 680px) and (min-width: 768px) {
+    .cadastro-layout {
+        flex-direction: row;
+        padding: 20px 30px;
+        gap: 24px;
+    }
+
+    .cadastro-container {
+        padding: 22px 22px;
+    }
+
+    .cadastro-container > p:not(.signup-text) {
+        margin-bottom: 14px;
+    }
+
+    .cadastro-form {
+        gap: 10px;
     }
 }

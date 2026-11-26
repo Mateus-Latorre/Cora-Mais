@@ -1,17 +1,17 @@
-
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./menu.css";
 
 const Menu = () => {
-<<<<<<< HEAD
     const [menuAberto, setMenuAberto] = useState(false);
     const location = useLocation();
 
+    // Fecha o menu ao trocar de página
     useEffect(() => {
         setMenuAberto(false);
     }, [location.pathname]);
 
+    // Fecha o menu ao voltar para o computador
     useEffect(() => {
         const verificarTela = () => {
             if (window.innerWidth > 768) {
@@ -25,11 +25,12 @@ const Menu = () => {
             window.removeEventListener("resize", verificarTela);
         };
     }, []);
-=======
+
+    // Função para sair
     const sair = () => {
         localStorage.clear();
+        sessionStorage.clear();
     };
->>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
 
     return (
         <>
@@ -77,6 +78,7 @@ const Menu = () => {
                 {/* NAVEGAÇÃO */}
                 <div className="rotas">
 
+                    {/* INÍCIO */}
                     <Link className="rota" to="/DashBoard">
                         <img
                             src="/Img-Casa.svg"
@@ -87,6 +89,7 @@ const Menu = () => {
                         <h2 className="Texto-menu">Inicio</h2>
                     </Link>
 
+                    {/* NOTIFICAÇÕES */}
                     <Link className="rota" to="/Notificacoes">
                         <img
                             src="/Img-Notificacao.svg"
@@ -97,6 +100,7 @@ const Menu = () => {
                         <h2 className="Texto-menu">Notificações</h2>
                     </Link>
 
+                    {/* PERFIL */}
                     <Link className="rota" to="/Perfil">
                         <img
                             src="/Img-Perfil-Laran.svg"
@@ -110,7 +114,11 @@ const Menu = () => {
                 </div>
 
                 {/* SAIR */}
-                <Link className="rota rota-sair" to="/">
+                <Link
+                    className="rota rota-sair"
+                    to="/"
+                    onClick={sair}
+                >
                     <img
                         src="/Img-Sair.svg"
                         alt=""
@@ -125,18 +133,4 @@ const Menu = () => {
     );
 };
 
-<<<<<<< HEAD
 export default Menu;
-=======
-            </div>
-            <Link className="rota" to="/" on onClick={sair}>
-                <img src="/Img-Sair.svg" alt="imagem pra tela de login" className="icon-menu" />
-                <h2 className="Texto-sair">Sair</h2>
-
-            </Link>
-        </header>
-    )
-}
-
-export default Menu;
->>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
