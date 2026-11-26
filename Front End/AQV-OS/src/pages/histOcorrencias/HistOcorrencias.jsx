@@ -221,7 +221,8 @@ const HistOcorrencias = () => {
                 <strong>{ocorrencia.titulo}</strong>
                 <p>
                   {ocorrencia.idAlunoNavigation?.nome ||
-                    "Aluno não informado"}
+                    "Aluno não informado"} · {ocorrencia?.idAlunoNavigation?.idTurmaNavigation?.nome}
+
                 </p>
               </div>
 
