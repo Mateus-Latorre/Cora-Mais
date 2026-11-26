@@ -41,16 +41,14 @@ function Login() {
         nome: dados.nome,
         email: dados.email,
         perfil: dados.perfil,
+        numero: dados.numero,
         role: dados.perfil,
       };
 
       // Salva o token
       localStorage.setItem("token", dados.token);
 
-      // Salva os dados do usuário
-      localStorage.setItem("usuario", JSON.stringify(dadosUsuario));
-
-      // Atualiza o UsuarioContext
+      // Atualiza o contexto e salva o usuário no Local Storage
       setUsuario(dadosUsuario);
 
       // Redireciona
@@ -68,6 +66,10 @@ function Login() {
 
       console.error("Erro ao fazer login:", error);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
 }
 
   return (
@@ -92,6 +94,7 @@ function Login() {
         <form className="login-form">
           {/* E-MAIL */}
           <div className="input-wrapper">
+<<<<<<< HEAD
             <input 
             id="email" 
             type="email" 
@@ -105,10 +108,27 @@ function Login() {
             alt="" 
             className="icon" 
             />
+=======
+            <input
+              id="email"
+              type="email"
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <img
+              src="/email.svg"
+              alt=""
+              className="icon"
+            />
+            <img src="/email.svg" alt="" className="icon" />
+        
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
           </div>
 
           {/* SENHA */}
-          <div className="input-wrapper">
+          <div div className="input-wrapper" >
             <input
               id="password"
               type={showPassword ? "text" : "password"}
@@ -123,18 +143,18 @@ function Login() {
               className="icon clickable"
               onClick={() => setShowPassword(!showPassword)}
             />
-          </div>
+          </div >
 
 
           {/* BOTAO */}
-          <button type="button"
+          < button type="button"
             className="login-button"
-            onClick={login}>
+            onClick={login} >
             Entrar
-          </button>
-        </form>
-      </div>
-    </div>
+          </ button>
+        </form >
+      </div >
+    </div >
   );
 }
 export default Login;

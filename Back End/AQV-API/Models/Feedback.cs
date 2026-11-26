@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AQV.WebAPI.Models;
+namespace AQV_API.Models;
 
 public partial class Feedback
 {
@@ -13,9 +13,7 @@ public partial class Feedback
 
     public bool? Lido { get; set; }
 
-    public string? Anexo { get; set; }
-
     public Guid? IdOcorrencia { get; set; }
 
-    public virtual Ocorrencia? IdOcorrenciaNavigation { get; set; }
+    public virtual Ocorrencia? IdOcorrenciasNavigation { get; set; }
 }

@@ -1,5 +1,5 @@
-using AQV.WebAPI.BdContext;
-using AQV.WebAPI.Models;
+using AQV_API.BdContext;
+using AQV_API.Models;
 using AQV_API.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,6 +34,13 @@ namespace AQV_API.Repositories
         public Notificacao BuscarPorId(Guid id)
         {
             return _context.Notificacaos.FirstOrDefault(n => n.IdNotificacao == id)!;
+        }
+        public IEnumerable<Notificacao> ListarPorOcorrencias(Guid idOcorrencias)
+        {
+            return _context.Notificacaos
+                .Where(n => n.IdOcorrencia == idOcorrencias)
+                .OrderByDescending(n => n.DataEnvio)
+                .ToList();
         }
 
         public void MarcarComoLida(Guid id)

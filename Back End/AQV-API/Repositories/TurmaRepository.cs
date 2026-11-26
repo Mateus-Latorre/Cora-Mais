@@ -1,5 +1,5 @@
-﻿using AQV.WebAPI.BdContext;
-using AQV.WebAPI.Models;
+﻿using AQV_API.BdContext;
+using AQV_API.Models;
 using AQV_API.Interfaces;
 
 namespace AQV_API.Repositories

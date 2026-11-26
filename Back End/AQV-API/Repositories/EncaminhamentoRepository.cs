@@ -1,5 +1,5 @@
-﻿using AQV.WebAPI.BdContext;
-using AQV.WebAPI.Models;
+﻿using AQV_API.BdContext;
+using AQV_API.Models;
 using AQV_API.Interfaces;
 
 namespace AQV_API.Repositories
@@ -23,19 +23,19 @@ namespace AQV_API.Repositories
             _context.SaveChanges();
         }
 
-        public List<Encaminhamento> ListarPorOcorrencia(Guid idOcorrencia)
+        public List<Encaminhamento> ListarPorOcorrencias(Guid idOcorrencias)
         {
             return _context.Encaminhamentos
-                .Where(e => e.IdOcorrencia == idOcorrencia)
+                .Where(e => e.IdOcorrencia == idOcorrencias)
                 .OrderBy(e => e.DataEnvio)
                 .ToList();
         }
 
         /// <summary>Encaminhamento mais recente ainda sem devolutiva — indica quem está com o caso.</summary>
-        public Encaminhamento BuscarPendentePorOcorrencia(Guid idOcorrencia)
+        public Encaminhamento BuscarPendentePorOcorrencias(Guid idOcorrencias)
         {
             return _context.Encaminhamentos
-                .Where(e => e.IdOcorrencia == idOcorrencia && e.DataDevolutiva == null)
+                .Where(e => e.IdOcorrencia == idOcorrencias && e.DataDevolutiva == null)
                 .OrderByDescending(e => e.DataEnvio)
                 .FirstOrDefault()!;
         }

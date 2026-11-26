@@ -1,4 +1,5 @@
-﻿using AQV.WebAPI.Models;
+﻿using AQV_API.Models;
+using AQV_API.Models;
 
 namespace AQV_API.Interfaces
 {

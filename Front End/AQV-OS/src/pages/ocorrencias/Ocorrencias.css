@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
 
 /* =========================
@@ -63,11 +62,15 @@
 ========================= */
 
 .oco-card {
+<<<<<<< HEAD
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
 
     background-color: rgba(0, 4, 58, 0.55);
+=======
+    background-color: var(--azul-transparente);
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 10px;
 
@@ -78,12 +81,16 @@
 }
 
 .oco-card-top {
+<<<<<<< HEAD
     width: 100%;
     min-width: 0;
     min-height: 160px;
     box-sizing: border-box;
 
     background-color: rgba(0, 4, 58, 0.55);
+=======
+    background-color: var(--azul-transparente);
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 10px;
 
@@ -92,7 +99,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
     gap: 20px;
+=======
+    min-height: 120px;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
 }
 
 .oco-card-head {
@@ -159,8 +170,13 @@
     padding: 6px 12px;
     margin: 0;
 
+<<<<<<< HEAD
     font-weight: 600;
     font-size: 14px;
+=======
+    font-weight: 500;
+    font-size: 15px;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     text-align: center;
 
     display: flex;
@@ -175,8 +191,13 @@
 }
 
 .oco-amarelo {
+<<<<<<< HEAD
     background-color: #D8D802;
     color: #FFFFFF;
+=======
+    background-color: #E9A23B;
+    color: #fff;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
 }
 
 .oco-vermelho {
@@ -209,28 +230,44 @@
 ========================= */
 
 .btn-excluir {
+<<<<<<< HEAD
     width: 110px;
     min-height: 32px;
     padding: 7px 12px;
     box-sizing: border-box;
 
+=======
+    margin-top: 20px;
+    width: 110px;
+    height: 27px;
+    padding: 0;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     background-color: #C9001B;
     color: #FFFFFF;
-
     border: none;
     border-radius: 6px;
+<<<<<<< HEAD
 
     font-size: 14px;
     font-weight: 700;
 
+=======
+    font-size: 16px;
+    font-weight: 500;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     cursor: pointer;
     transition: background-color 0.2s ease;
+}
+.oco-vermelho {
+    background-color: #C9001B;
+    color: #FFFFFF;
 }
 
 .btn-excluir:hover {
     background-color: #A90017;
 }
 
+<<<<<<< HEAD
 /* =========================
    ESTUDANTE E TURMA
 ========================= */
@@ -247,6 +284,11 @@
     box-sizing: border-box;
 
     background-color: rgba(0, 4, 58, 0.55);
+=======
+.oco-box-metade {
+    flex: 1;
+    background-color: var(--azul-transparente);
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 10px;
 
@@ -444,7 +486,7 @@
     width: 100%;
 }
 
-.oco-encaminhar-row > .oco-input {
+.oco-encaminhar-row>.oco-input {
     width: 100%;
     min-width: 0;
 }
@@ -469,7 +511,25 @@
     justify-content: center;
     align-items: center;
 }
+.oco-btn-lida{
+        background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    border: none;
+    border-radius: 6px;
 
+    height: 29px;
+    min-height: 29px;
+    width: 176px;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .oco-btn-enviar:hover {
     filter: brightness(1.08);
 }
@@ -627,4 +687,146 @@
         font-size: 12px;
         padding: 6px 9px;
     }
+}
+
+/* ===== BUSCA DE DESTINATÁRIOS ===== */
+
+.oco-destino-busca-wrapper {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    z-index: 200;
+}
+
+/* ===== LISTA DE RESULTADOS ===== */
+.oco-lista-destinos {
+    position: absolute;
+
+    /* Faz a lista abrir para cima */
+    bottom: calc(100% + 4px);
+    top: auto;
+
+    left: 0;
+    width: 100%;
+    max-height: 220px;
+
+    overflow-y: auto;
+    z-index: 200;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #244F9C;
+    border: 1px solid #6F98C9;
+    border-radius: 6px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== CADA DESTINATÁRIO ===== */
+
+.oco-item-destino {
+    width: 100%;
+    min-height: 42px;
+
+    padding: 10px 16px;
+
+    background-color: #244F9C;
+    color: #FFFFFF;
+
+    border: none;
+    text-align: left;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.oco-item-destino:hover {
+    background-color: #173A78;
+}
+
+/* ===== LISTA VAZIA ===== */
+
+.oco-destino-vazio {
+    margin: 0;
+    padding: 14px;
+
+    color: #D8EBF3;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ===== BOTÃO ENVIAR DEVOLUTIVA ===== */
+
+.oco-btn-devolutiva {
+    width: 100%;
+    height: 46px;
+    margin-top: 12px;
+    padding: 0 20px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+
+    border: none;
+    border-radius: 6px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.oco-btn-devolutiva:hover {
+    background-color: #8CC8FF;
+    transform: translateY(-1px);
+}
+
+.oco-btn-devolutiva:active {
+    transform: translateY(0);
+}
+
+.oco-btn-devolutiva:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+.oco-icone-img-finalizado{
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+/* ==========================================
+   CABEÇALHO DO CARD DE FEEDBACK
+========================================== */
+
+.oco-feedback-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+}
+
+.oco-feedback-head .oco-icone {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.oco-feedback-head .oco-badge {
+    flex-shrink: 0;
+    margin-left: auto;
 }

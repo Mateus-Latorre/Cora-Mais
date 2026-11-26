@@ -9,39 +9,15 @@ import Swal from "sweetalert2";
 const Alerta = Swal.fire;
 
 const NovaOcorrencia = () => {
-
+    const [alunoSelecionado, setAlunoSelecionado] = useState(null);
     const [visibilidade, setVisibilidade] = useState(false);
-    const [visibilidadeT, setVisibilidadeT] = useState(false);
     const [titulo, setTitulo] = useState("");
     const [listaAluno, setListaAluno] = useState([]);
-    const [listaTurmas, setListaTurmas] = useState([]);
-    const [arrFiltrados, setArrFiltrados] = useState([]);
-    const [arrFiltradosT, setArrFiltradosT] = useState([]);
+    const [busca, setBusca] = useState("");
     const [IdAluno, setIdAluno] = useState("");
-    const [nomeAluno, setNomeAluno] = useState("");
-    const [turma, setTurma] = useState("");
-    const [idTurma, setIdTurma] = useState("");
     const [descricao, setDescricao] = useState("");
     const [prioridade, setPrioridade] = useState("");
     const { usuario } = useContext(UsuarioContext);
-
-    const getTurmas = async () => {
-        try {
-            const retornoAPI = await api.get("/Turma");
-
-            console.log(retornoAPI.data);
-
-            setListaTurmas(retornoAPI.data);
-        } catch (error) {
-            console.log(error);
-
-            Alerta({
-                title: "Erro",
-                text: "Erro ao buscar turmas!",
-                icon: "error",
-            });
-        }
-    };
 
     const getAlunos = async () => {
         try {
@@ -63,7 +39,6 @@ const NovaOcorrencia = () => {
     };
 
     const cadastrarOcorrencia = async () => {
-        debugger
         try {
             const token = localStorage.getItem("token");
 
@@ -100,35 +75,27 @@ const NovaOcorrencia = () => {
         }
     };
 
-    // Filtrar turmas
-    const filtrarTuma = (txtTur) => {
+    // Filtrar Alunos
 
-        const procurados = listaTurmas.filter((tur) => {
-            return tur.nome.toLowerCase().startsWith(
-                txtTur.toLowerCase()
-            );
-        });
+    const alunosEncontrados = listaAluno.filter((aluno) => {
+        const nome = String(aluno?.nome || "").toLowerCase();
+        const cpf = String(aluno?.cpf || "").replace(/\D/g, "");
 
-        setArrFiltradosT(procurados);
+        const pesquisa = busca.trim().toLowerCase();
+        const pesquisaCPF = busca.replace(/\D/g, "");
 
-        console.log(procurados);
-    };
-
-    const filtrarAlunos = (txtAluno) => {
-
-        const procurados = listaAluno.filter((aluno) => {
-            return aluno.nome.toLowerCase().startsWith(txtAluno.toLowerCase())
-        })
-
-        setArrFiltrados(procurados)
-
-        console.log(procurados);
-
-    }
+        return (
+            aluno &&
+            pesquisa.length > 0 &&
+            (
+                nome.includes(pesquisa) ||
+                (pesquisaCPF.length > 0 && cpf.includes(pesquisaCPF))
+            )
+        );
+    });
 
     useEffect(() => {
         getAlunos();
-        getTurmas();
     }, []);
 
 
@@ -190,101 +157,65 @@ const NovaOcorrencia = () => {
                             <div className="input">
                                 <h5>Selecione o estudante *</h5>
                                 <div className="input-container">
-                                    <i className="fa-solid fa-user icon"><img src="lupa.svg" alt="" /></i>
-                                    <input type="text" placeholder="Buscar nome"
-                                        value={nomeAluno || ""}
-                                        onChange={(e) => setNomeAluno(e.target.value)}
-                                        onKeyUp={
-                                            (e) => filtrarAlunos(e.target.value)
-                                        }
 
+                                    <i className="fa-solid fa-user icon">
+                                        <img src="lupa.svg" alt="" />
+                                    </i>
+
+                                    <input
+                                        type="text"
+                                        placeholder="Buscar por CPF ou nome"
+                                        value={busca}
+                                        onChange={(e) => {
+                                            setBusca(e.target.value);
+                                            setAlunoSelecionado(null);
+                                            setIdAluno("");
+                                            setVisibilidade(true);
+                                        }}
                                         onFocus={() => setVisibilidade(true)}
-
                                     />
-                                    {visibilidade && (
+
+                                    {visibilidade && !alunoSelecionado && busca.trim() !== "" && (
                                         <section className="list-alu">
-                                            {
-                                                arrFiltrados.length == 0 ? listaAluno.map((alu) => {
-                                                    return <p
+
+                                            {alunosEncontrados.length > 0 ? (
+
+                                                alunosEncontrados.map((alu) => (
+                                                    <button
+                                                        type="button"
                                                         className="alu"
                                                         key={alu.idAluno}
-                                                        value={alu.idAluno}
                                                         onClick={() => {
-                                                            setIdAluno(alu.idAluno)
-                                                            setNomeAluno(alu.nome)
-                                                            setVisibilidade(false)
-                                                        }}>
-                                                        {alu.nome}
-                                                    </p>
-                                                })
-                                                    :
+                                                            setAlunoSelecionado(alu);
+                                                            setIdAluno(alu.idAluno);
+                                                            setBusca(alu.nome);
+                                                            setVisibilidade(false);
+                                                        }}
+                                                    >
+                                                        <strong>{alu.nome}</strong>
+                                                        <span>CPF: {alu.cpf || "Não informado"}</span>
+                                                    </button>
+                                                ))
 
-                                                    arrFiltrados.map((alu) => {
-                                                        return <p className="alu" key={alu.idAluno}
-                                                            onClick={() => {
-                                                                setIdAluno(alu.idAluno)
-                                                                setNomeAluno(alu.nome)
-                                                                setVisibilidade(false)
+                                            ) : (
 
-                                                            }}>
-                                                            {alu.nome}
-                                                        </p>
-                                                    })
-                                            }
+                                                <p className="sem-resultados">
+                                                    Nenhum aluno encontrado.
+                                                </p>
 
+                                            )}
 
                                         </section>
-
                                     )}
-
 
                                 </div>
 
                             </div>
 
                             <div className="input">
-                                <h5>Turma</h5>
-
-                                <input type="" placeholder="Selecione a Turma"
-                                    value={turma || ""}
-                                    onChange={(e) => setTurma(e.target.value)}
-
-                                    onKeyUp={
-                                        (e) => filtrarTuma(e.target.value)
-                                    }
-
-                                    onFocus={() => setVisibilidadeT(true)} />
-
-                                {visibilidadeT && (
-                                    <section className="list-alu">
-                                        {
-                                            arrFiltradosT.length == 0 ? listaTurmas.map((tur) => {
-                                                return <p className="alu" key={tur.idTurma} onClick={() => {
-                                                    setIdTurma(tur.idTurma)
-                                                    setTurma(tur.nome)
-                                                    setVisibilidadeT(false)
-                                                }}>
-                                                    {tur.nome}
-                                                </p>
-                                            })
-                                                :
-
-                                                arrFiltradosT.map((tur) => {
-                                                    return <p className="alu" key={tur.idTurma} value={tur.idTurma} onClick={() => {
-                                                        setIdTurma(tur.idTurma)
-                                                        setTurma(tur.turma)
-                                                        setVisibilidadeT(false)
-                                                        console.log(tur.nome)
-                                                    }}>
-                                                        {tur.nome}
-                                                    </p>
-                                                })
-                                        }
 
 
-                                    </section>
 
-                                )}
                             </div>
                         </div>
                     </div>

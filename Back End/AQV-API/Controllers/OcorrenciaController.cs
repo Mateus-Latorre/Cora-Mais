@@ -3,8 +3,8 @@ using System.Security.Claims;
 using System.Text;
 using AQV_API.DTO;
 using AQV_API.Interfaces;
-using AQV.WebAPI.BdContext;
-using AQV.WebAPI.Models;
+using AQV_API.BdContext;
+using AQV_API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -15,18 +15,18 @@ namespace AQV_API.Controllers
     [ApiController]
     public class OcorrenciaController : ControllerBase
     {
-        private readonly IOcorrenciaRepository _ocorrenciaRepository;
+        private readonly IOcorrenciasRepository _OcorrenciasRepository;
         private readonly IEncaminhamentoRepository _encaminhamentoRepository;
         private readonly INotificacaoRepository _notificacaoRepository;
         private readonly AqvContext _context;
 
         public OcorrenciaController(
-            IOcorrenciaRepository ocorrenciaRepository,
+            IOcorrenciasRepository OcorrenciasRepository,
             IEncaminhamentoRepository encaminhamentoRepository,
             INotificacaoRepository notificacaoRepository,
             AqvContext context)
         {
-            _ocorrenciaRepository = ocorrenciaRepository;
+            _OcorrenciasRepository = OcorrenciasRepository;
             _encaminhamentoRepository = encaminhamentoRepository;
             _notificacaoRepository = notificacaoRepository;
             _context = context;
@@ -35,25 +35,23 @@ namespace AQV_API.Controllers
         /// <summary>Registra uma nova ocorrência (professor).</summary>
         [HttpPost]
         [Authorize(Roles = "Professor")]
-        public IActionResult Cadastrar([FromBody] OcorrenciaCadastroDTO dto)
+        public IActionResult Cadastrar([FromBody] OcorrenciasCadastroDTO dto)
         {
             try
             {
                 // O usuário que registra vem do token
                 var idUsuario = ObterIdUsuarioLogado();
-
-                var ocorrencia = new Ocorrencia
+                var Ocorrencia = new Ocorrencia
                 {
                     IdOcorrencia = Guid.NewGuid(),
                     Titulo = dto.Titulo,
                     Descricao = dto.Descricao,
                     IdAluno = dto.IdAluno,
                     Prioridade = dto.Prioridade,
-                    Anexo = dto.Anexo,
                     IdOstatus = "ABERTA",
                     IdUsuario = idUsuario
                 };
-                _ocorrenciaRepository.Cadastrar(ocorrencia);
+                _OcorrenciasRepository.Cadastrar(Ocorrencia);
 
                 // Busca o IdTipoUsuario da AQV
                 var idTipoAqv = _context.TipoUsuarios
@@ -70,20 +68,20 @@ namespace AQV_API.Controllers
 
                     foreach (var usuario in usuariosAqv)
                     {
-                        var notificacao = new AQV.WebAPI.Models.Notificacao
+                        var notificacao = new AQV_API.Models.Notificacao
                         {
                             IdNotificacao = Guid.NewGuid(),
                             IdUsuario = usuario.IdUsuario,
-                            Mensagem = $"registrou uma nova ocorrência: '{ocorrencia.Titulo}'",
+                            Mensagem = $"registrou uma nova ocorrência: '{Ocorrencia.Titulo}'",
                             DataEnvio = DateTime.Now,
                             Lida = false,
-                            IdOcorrencia = ocorrencia.IdOcorrencia
+                            IdOcorrencia = Ocorrencia.IdOcorrencia
                         };
                         _notificacaoRepository.Cadastrar(notificacao);
                     }
                 }
 
-                return StatusCode(201, ocorrencia);
+                return StatusCode(201, Ocorrencia);
             }
             catch (Exception ex)
             {
@@ -99,7 +97,7 @@ namespace AQV_API.Controllers
         [Authorize(Roles = "AQV,Coordenador")]
         public IActionResult Listar()
         {
-            try { return Ok(_ocorrenciaRepository.Listar()); }
+            try { return Ok(_OcorrenciasRepository.Listar()); }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
@@ -109,9 +107,9 @@ namespace AQV_API.Controllers
         {
             try
             {
-                var ocorrencia = _ocorrenciaRepository.BuscarPorId(id);
-                if (ocorrencia == null) return NotFound("Ocorrência não encontrada.");
-                return Ok(ocorrencia);
+                var Ocorrencia = _OcorrenciasRepository.BuscarPorId(id);
+                if (Ocorrencia == null) return NotFound("Ocorrência não encontrada.");
+                return Ok(Ocorrencia);
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
@@ -119,7 +117,7 @@ namespace AQV_API.Controllers
         [HttpGet("Aluno/{idAluno}")]
         public IActionResult ListarPorAluno(Guid idAluno)
         {
-            try { return Ok(_ocorrenciaRepository.ListarPorAluno(idAluno)); }
+            try { return Ok(_OcorrenciasRepository.ListarPorAluno(idAluno)); }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
@@ -127,7 +125,7 @@ namespace AQV_API.Controllers
         [Authorize(Roles = "AQV,Coordenador")]
         public IActionResult ListarPorStatus(string idOstatus)
         {
-            try { return Ok(_ocorrenciaRepository.ListarPorStatus(idOstatus)); }
+            try { return Ok(_OcorrenciasRepository.ListarPorStatus(idOstatus)); }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
@@ -136,7 +134,7 @@ namespace AQV_API.Controllers
         [Authorize(Roles = "AQV,Coordenador")]
         public IActionResult ListarPorPrioridade(string prioridade)
         {
-            try { return Ok(_ocorrenciaRepository.ListarPorPrioridade(prioridade)); }
+            try { return Ok(_OcorrenciasRepository.ListarPorPrioridade(prioridade)); }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
@@ -144,7 +142,7 @@ namespace AQV_API.Controllers
         [HttpGet("Minhas")]
         public IActionResult ListarMinhas()
         {
-            try { return Ok(_ocorrenciaRepository.ListarPorUsuario(ObterIdUsuarioLogado())); }
+            try { return Ok(_OcorrenciasRepository.ListarPorUsuario(ObterIdUsuarioLogado())); }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
@@ -159,10 +157,10 @@ namespace AQV_API.Controllers
 
                 if (perfil == "Coordenador")
                 {
-                    return Ok(_ocorrenciaRepository.ListarPorCoordenadorAtual(id));
+                    return Ok(_OcorrenciasRepository.ListarPorCoordenadorAtual(id));
                 }
 
-                return Ok(_ocorrenciaRepository.Listar());
+                return Ok(_OcorrenciasRepository.Listar());
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
@@ -177,10 +175,10 @@ namespace AQV_API.Controllers
         {
             try
             {
-                var ocorrencia = _ocorrenciaRepository.BuscarPorId(id);
-                if (ocorrencia == null) return NotFound("Ocorrência não encontrada.");
+                var Ocorrencia = _OcorrenciasRepository.BuscarPorId(id);
+                if (Ocorrencia == null) return NotFound("Ocorrência não encontrada.");
 
-                var pendente = _encaminhamentoRepository.BuscarPendentePorOcorrencia(id);
+                var pendente = _encaminhamentoRepository.BuscarPendentePorOcorrencias(id);
                 if (pendente != null)
                 {
                     return BadRequest("Esta ocorrência já está encaminhada e aguarda devolutiva.");
@@ -204,7 +202,7 @@ namespace AQV_API.Controllers
 
                 _encaminhamentoRepository.Cadastrar(encaminhamento);
 
-                _ocorrenciaRepository.DefinirDestinoAtual(
+                _OcorrenciasRepository.DefinirDestinoAtual(
                     id,
                     dto.TipoDestino == "Responsavel" ? dto.IdDestino : null,
                     dto.TipoDestino == "Coordenador" ? dto.IdDestino : null,
@@ -213,11 +211,11 @@ namespace AQV_API.Controllers
                 // Notifica o destinatário (somente se for Coordenador — Responsável não tem usuário no sistema)
                 if (dto.TipoDestino == "Coordenador")
                 {
-                    var notificacaoDestinatario = new AQV.WebAPI.Models.Notificacao
+                    var notificacaoDestinatario = new AQV_API.Models.Notificacao
                     {
                         IdNotificacao = Guid.NewGuid(),
                         IdUsuario = dto.IdDestino,
-                        Mensagem = $"Ocorrência encaminhada para você: {ocorrencia.Titulo}",
+                        Mensagem = $"Ocorrência encaminhada para você: {Ocorrencia.Titulo}",
                         DataEnvio = DateTime.Now,
                         Lida = false,
                         IdOcorrencia = id
@@ -226,13 +224,13 @@ namespace AQV_API.Controllers
                 }
 
                 // Notifica o professor que registrou a ocorrência
-                if (ocorrencia.IdUsuario.HasValue)
+                if (Ocorrencia.IdUsuario.HasValue)
                 {
-                    var notificacaoProfessor = new AQV.WebAPI.Models.Notificacao
+                    var notificacaoProfessor = new AQV_API.Models.Notificacao
                     {
                         IdNotificacao = Guid.NewGuid(),
-                        IdUsuario = ocorrencia.IdUsuario.Value,
-                        Mensagem = $"Sua ocorrência '{ocorrencia.Titulo}' foi encaminhada para {(dto.TipoDestino == "Responsavel" ? "um responsável" : "um coordenador")}.",
+                        IdUsuario = Ocorrencia.IdUsuario.Value,
+                        Mensagem = $"Sua ocorrência '{Ocorrencia.Titulo}' foi encaminhada para {(dto.TipoDestino == "Responsavel" ? "um responsável" : "um coordenador")}.",
                         DataEnvio = DateTime.Now,
                         Lida = false,
                         IdOcorrencia = id
@@ -244,21 +242,20 @@ namespace AQV_API.Controllers
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
-        /// <summary>Atualiza título, descrição, prioridade e anexo (AQV).</summary>
+        /// <summary>Atualiza título, descrição, prioridade (AQV).</summary>
         [HttpPut("{id}")]
         [Authorize(Roles = "AQV")]
-        public IActionResult Atualizar(Guid id, [FromBody] OcorrenciaAtualizadaDTO dto)
+        public IActionResult Atualizar(Guid id, [FromBody] OcorrenciasAtualizadaDTO dto)
         {
             try
             {
-                var ocorrencia = new Ocorrencia
+                var Ocorrencia = new Ocorrencia
                 {
                     Titulo = dto.Titulo,
                     Descricao = dto.Descricao,
-                    Prioridade = dto.Prioridade,
-                    Anexo = dto.Anexo
+                    Prioridade = dto.Prioridade
                 };
-                _ocorrenciaRepository.Atualizar(id, ocorrencia);
+                _OcorrenciasRepository.Atualizar(id, Ocorrencia);
                 return StatusCode(204);
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
@@ -273,7 +270,7 @@ namespace AQV_API.Controllers
         {
             try
             {
-                _ocorrenciaRepository.AtualizarStatus(id, idOstatus);
+                _OcorrenciasRepository.AtualizarStatus(id, idOstatus);
                 return StatusCode(204);
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
@@ -284,7 +281,7 @@ namespace AQV_API.Controllers
         {
             try
             {
-                _ocorrenciaRepository.Deletar(id);
+                _OcorrenciasRepository.Deletar(id);
                 return NoContent();
             }
             catch (Exception ex)

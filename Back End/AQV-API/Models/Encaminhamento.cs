@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AQV.WebAPI.Models;
+namespace AQV_API.Models;
 
 public partial class Encaminhamento
 {
@@ -21,7 +21,7 @@ public partial class Encaminhamento
 
     public string? Observacao { get; set; }
 
-    public virtual Ocorrencia IdOcorrenciaNavigation { get; set; } = null!;
+    public virtual Ocorrencia IdOcorrenciasNavigation { get; set; } = null!;
 
     public virtual Responsavel? IdResponsavelNavigation { get; set; }
 

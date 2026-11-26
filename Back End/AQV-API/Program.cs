@@ -1,4 +1,4 @@
-using AQV.WebAPI.BdContext;
+using AQV_API.BdContext;
 using AQV_API.Interfaces;
 using AQV_API.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -30,7 +30,7 @@ builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
 builder.Services.AddScoped<ITurmaRepository, TurmaRepository>();
 builder.Services.AddScoped<IResponsavelRepository, ResponsavelRepository>();
 builder.Services.AddScoped<IOstatusRepository, OstatusRepository>();
-builder.Services.AddScoped<IOcorrenciaRepository, OcorrenciaRepository>();
+builder.Services.AddScoped<IOcorrenciasRepository, OcorrenciasRepository>();
 builder.Services.AddScoped<IEncaminhamentoRepository, EncaminhamentoRepository>();
 builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
 builder.Services.AddScoped<INotificacaoRepository, NotificacaoRepository>();

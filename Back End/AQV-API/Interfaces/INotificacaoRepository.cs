@@ -1,4 +1,4 @@
-using AQV.WebAPI.Models;
+using AQV_API.Models;
 
 namespace AQV_API.Interfaces
 {
@@ -7,6 +7,7 @@ namespace AQV_API.Interfaces
         void Cadastrar(Notificacao x);
         List<Notificacao> ListarPorUsuario(Guid idUsuario);
         Notificacao BuscarPorId(Guid id);
+        IEnumerable<Notificacao> ListarPorOcorrencias(Guid idOcorrencias);
         void MarcarComoLida(Guid id);
         void Deletar(Guid id);
     }

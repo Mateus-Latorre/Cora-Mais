@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import "./menu.css";
 
 const Menu = () => {
+<<<<<<< HEAD
     const [menuAberto, setMenuAberto] = useState(false);
     const location = useLocation();
 
@@ -24,6 +25,11 @@ const Menu = () => {
             window.removeEventListener("resize", verificarTela);
         };
     }, []);
+=======
+    const sair = () => {
+        localStorage.clear();
+    };
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
 
     return (
         <>
@@ -119,4 +125,18 @@ const Menu = () => {
     );
 };
 
+<<<<<<< HEAD
 export default Menu;
+=======
+            </div>
+            <Link className="rota" to="/" on onClick={sair}>
+                <img src="/Img-Sair.svg" alt="imagem pra tela de login" className="icon-menu" />
+                <h2 className="Texto-sair">Sair</h2>
+
+            </Link>
+        </header>
+    )
+}
+
+export default Menu;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c

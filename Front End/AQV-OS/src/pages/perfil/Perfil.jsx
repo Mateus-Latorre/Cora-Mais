@@ -8,7 +8,6 @@ import api from "../../services/Services";
 
 const Perfil = () => {
   const { usuario } = useContext(UsuarioContext);
-
   // Estados da troca de senha
   const [senhaAtual, setSenhaAtual] = useState("");
   const [novaSenha, setNovaSenha] = useState("");
@@ -158,8 +157,8 @@ const Perfil = () => {
               <img src="/iphone.svg.svg" alt="" className="imgDesc" />
 
               <div className="Info_txt">
-                <p className="T_desc">Usuário desde</p>
-                <p className="txt_desc">15/10/2025</p>
+                <p className="T_desc">Telefone</p>
+                <p className="txt_desc">{usuario.numero}</p>
               </div>
             </div>
 

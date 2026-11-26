@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using AQV_API.DTO;
 using AQV_API.Interfaces;
-using AQV.WebAPI.Models;
+using AQV_API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -65,14 +65,17 @@ namespace AQV_API.Controllers
                     signingCredentials: creds
                 );
 
+
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     idUsuario = usuario.IdUsuario,
                     nome = usuario.Nome,
                     email = usuario.Email,
+                    numero = usuario.Numero,
                     perfil
                 });
+
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }

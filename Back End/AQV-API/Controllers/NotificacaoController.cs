@@ -1,6 +1,6 @@
 using AQV_API.DTO;
 using AQV_API.Interfaces;
-using AQV.WebAPI.Models;
+using AQV_API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,7 +28,7 @@ namespace AQV_API.Controllers
         {
             try
             {
-                var notificacao = new AQV.WebAPI.Models.Notificacao
+                var notificacao = new AQV_API.Models.Notificacao
                 {
                     IdNotificacao = Guid.NewGuid(),
                     IdUsuario = dto.IdUsuario,
@@ -78,6 +78,24 @@ namespace AQV_API.Controllers
                 return Ok(notificacao);
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
+        }
+        [HttpGet("Ocorrencia/{idOcorrencias}")]
+        public IActionResult ListarPorOcorrencias(Guid idOcorrencias)
+        {
+            try
+            {
+                var notificacoes = _notificacaoRepository.ListarPorOcorrencias(idOcorrencias);
+
+                return Ok(new
+                {
+                    total = notificacoes.Count(),
+                    itens = notificacoes
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
