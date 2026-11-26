@@ -1,139 +1,401 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
+
+/* =========================
+   PÁGINA
+========================= */
+
 .notificacoes-body {
-  display: flex;
-  max-width: 100vw;
-  max-height: 919px;
-  background-color: var(--azul);
-  color: var(--branco);
-  /* background-image: url("/fundo.jpg"); */
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--azul);
+    color: var(--branco);
+    overflow-x: hidden;
+    font-family: "Roboto", sans-serif;
 }
 
-.noti_lidas {
-  background: none;
-  border: 1px solid #ADD5FF;
-  width: 270px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+/* =========================
+   CONTEÚDO
+========================= */
+
+.notificacoes-body .container {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 32px 40px;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-.noti-txt {
-  color: #ADD5FF;
-  font-weight: bolder;
-  font-size: 17px;
-}
+/* =========================
+   CABEÇALHO
+========================= */
 
 .cabecalho {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    width: 100%;
+}
+
+.notificacoes-body .titulo {
+    min-width: 0;
+}
+
+.titulo_l {
+    font-size: 32px;
+    margin: 0;
+    color: var(--branco);
+}
+
+.subtitulo {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 10px;
+    color: #ADD5FF;
 }
 
 .btn-lidas {
-  height: 100%;
-  /* padding-left: 120px; */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.noti_lidas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: auto;
+    min-height: 42px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+
+    background: transparent;
+    border: 1px solid #ADD5FF;
+    border-radius: 9px;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.noti_lidas:hover {
+    background-color: rgba(173, 213, 255, 0.1);
+}
+
+.noti-txt {
+    color: #ADD5FF;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0;
 }
 
 .lidas_img {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
+/* =========================
+   FILTROS
+========================= */
+
 .filtro {
-  display: flex;
-  padding: 4px;
-  border: 2px solid #ADD5FF;
-  border-radius: 12px;
-  background: #012357;
-  margin-top: 30px;
-  /* margin-left: 10px; */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 28px;
+    padding: 4px;
+
+    border: 1px solid #ADD5FF;
+    border-radius: 10px;
+    background: #012357;
+    box-sizing: border-box;
 }
 
 .filtro button {
-  padding: 8px 20px;
-  border: none;
-  border-radius: 8px;
-  background: transparent;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    padding: 10px 18px;
+
+    border: 1px solid transparent;
+    border-radius: 7px;
+
+    background: transparent;
+    color: #FFFFFF;
+
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .filtro button.ativo {
-  background: #002962;
-  border: 1px solid #295287;
+    background: #002962;
+    border-color: #295287;
 }
 
 .filtro button span {
-  margin-left: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+
+    background-color: rgba(173, 213, 255, 0.12);
+    border-radius: 20px;
+    font-size: 12px;
 }
 
-.container {
-  display: flex;
-  height: 100vh;
-  padding: 20px 36px;
-}
-
-.campo-noti {
-  background-color: #ADD5Ff45;
-  border: 1px solid #ADD5FF;
-  display: flex;
-  padding-left: 10px;
-  align-items: center;
-  margin-bottom: 15px;
-  margin-right: 50px;
-  width: 100%;
-  height: 70px;
-  border-radius: 10px;
-}
-
-.noti-prof {
-  font-weight: bold;
-}
-
-.hora-txt {
-  font-size: 14px;
-  color: #D9D9D9;
-  margin-top: 5px;
-}
+/* =========================
+   LISTA
+========================= */
 
 .notis {
-  display: flex;
-  flex-direction: column;
-  margin-top: 5%;
-  width: 100%;
-  height: 500px;
-  overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+
+    margin-top: 25px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .notis::-webkit-scrollbar {
-  display: none;
+    width: 6px;
+}
+
+.notis::-webkit-scrollbar-thumb {
+    background: rgba(173, 213, 255, 0.35);
+    border-radius: 10px;
+}
+
+.notis::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.notificacao-item {
+    width: 100%;
+    min-width: 0;
 }
 
 .campo-todas-notis {
-  margin-top: 10px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.campo-noti {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 100%;
+    min-height: 76px;
+    box-sizing: border-box;
+
+    padding: 14px;
+
+    background-color: #ADD5FF45;
+    border: 1px solid #ADD5FF;
+    border-radius: 10px;
+
+    margin-bottom: 12px;
 }
 
 .campo-noti-img {
-  border: 1px solid #ADD5FF;
-  background-color: #ADD5FF50;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #ADD5FF;
+    background-color: #ADD5FF50;
+    border-radius: 10px;
 }
 
 .img-noti {
-  width: 25px;
-  height: 25px;
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
 }
 
 .campo-noti-txt {
-  margin-left: 10px;
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+}
+
+.txt-noti {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #FFFFFF;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.noti-prof {
+    font-weight: 700;
+}
+
+.hora-txt {
+    font-size: 13px;
+    color: #D9D9D9;
+    margin: 5px 0 0;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+    .notificacoes-body .container {
+        padding: 28px;
+    }
+
+    .cabecalho {
+        align-items: flex-start;
+    }
+
+    .titulo_l {
+        font-size: 29px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+    }
+
+    .noti_lidas {
+        padding: 9px 12px;
+    }
+
+    .noti-txt {
+        font-size: 13px;
+    }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 768px) {
+    .notificacoes-body .container {
+        width: 100%;
+        padding: 75px 18px 22px;
+    }
+
+    .cabecalho {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .titulo_l {
+        font-size: 27px;
+    }
+
+    .subtitulo {
+        margin-top: 8px;
+        font-size: 14px;
+    }
+
+    .btn-lidas {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .noti_lidas {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .filtro {
+        margin-top: 22px;
+        width: 100%;
+    }
+
+    .filtro button {
+        flex: 1;
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .notis {
+        margin-top: 20px;
+        overflow: visible;
+        flex: initial;
+        height: auto;
+    }
+
+    .campo-noti {
+        align-items: flex-start;
+        gap: 11px;
+        padding: 12px;
+        min-height: 72px;
+    }
+
+    .campo-noti-img {
+        width: 37px;
+        height: 37px;
+    }
+
+    .img-noti {
+        width: 21px;
+        height: 21px;
+    }
+
+    .txt-noti {
+        font-size: 14px;
+    }
+
+    .hora-txt {
+        font-size: 12px;
+    }
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 400px) {
+    .notificacoes-body .container {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .titulo_l {
+        font-size: 24px;
+    }
+
+    .filtro button {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .campo-noti {
+        padding: 10px;
+    }
 }
