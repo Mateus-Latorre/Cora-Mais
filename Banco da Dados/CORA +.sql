@@ -159,6 +159,60 @@ INSERT INTO Ostatus (IdOstatus, Titulo) VALUES ('FEEDBACK', 'Finalizada');
 
 
 USE CORA;
+
+-- 1. Ver se já existe ocorrência com mais de um feedback
+SELECT IdOcorrencia, COUNT(*) AS Qtd
+FROM Feedback
+WHERE IdOcorrencia IS NOT NULL
+GROUP BY IdOcorrencia
+HAVING COUNT(*) > 1;
+
+-- 2. (Só se o passo 1 retornar linhas) manter o primeiro feedback de cada ocorrência
+--    e apagar os demais. Faça backup antes.
+WITH Ordenados AS (
+    SELECT IdFeedback,
+           ROW_NUMBER() OVER (PARTITION BY IdOcorrencia ORDER BY DataEnvio ASC) AS Rn
+    FROM Feedback
+    WHERE IdOcorrencia IS NOT NULL
+)
+DELETE FROM Feedback
+WHERE IdFeedback IN (SELECT IdFeedback FROM Ordenados WHERE Rn > 1);
+
+-- 3. Garantir um feedback por ocorrência
+CREATE UNIQUE INDEX UX_Feedback_IdOcorrencia
+ON Feedback (IdOcorrencia)
+WHERE IdOcorrencia IS NOT NULL;
+SELECT
+    COLUMN_NAME,
+    DATA_TYPE,
+    IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'Feedback'
+AND COLUMN_NAME = 'Anexo';
+
+USE CORA;
+
+ALTER TABLE Feedback
+DROP COLUMN Anexo;
+
+USE CORA;
+GO
+
+-- Verifica se ainda existe Anexo na tabela Ocorrencia
+IF COL_LENGTH('dbo.Ocorrencia', 'Anexo') IS NOT NULL
+BEGIN
+    ALTER TABLE dbo.Ocorrencia
+    DROP COLUMN Anexo;
+END;
+GO
+
+-- Verifica se ainda existe Anexo na tabela Feedback
+IF COL_LENGTH('dbo.Feedback', 'Anexo') IS NOT NULL
+BEGIN
+    ALTER TABLE dbo.Feedback
+    DROP COLUMN Anexo;
+END;
+GO
 -- senha nova = "123456" para o usuário abaixo (troque o e-mail)
 USE CORA;
 

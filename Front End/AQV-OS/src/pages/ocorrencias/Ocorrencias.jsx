@@ -32,17 +32,36 @@ const Ocorrencias = () => {
   const [carregandoDestinos, setCarregandoDestinos] = useState(false);
   const [carregandoEncaminhamento, setCarregandoEncaminhamento] =
     useState(false);
+
   const [encaminhamento, setEncaminhamento] = useState(null);
+  const [histEncaminhamentos, setHistEncaminhamentos] = useState([]);
   const [devolutiva, setDevolutiva] = useState("");
-  const idUsuarioLogado = usuario?.idUsuario ?? usuario?.id;
 
   const recebeuEncaminhamento = Boolean(encaminhamento);
+
   // Menu de seleção do tipo de destino
   const [mostrarOpcoesDestino, setMostrarOpcoesDestino] = useState(false);
 
+  // Feedback da ocorrência
+  // feedback guarda o OBJETO completo retornado pela API
+  const [feedback, setFeedback] = useState(null);
+
+  // cadFeedback guarda somente o texto digitado
+  const [cadFeedback, setCadFeedback] = useState("");
+
+  // ID do usuário logado
+  const idUsuarioLogado = usuario?.idUsuario ?? usuario?.id;
+
+  // Verifica se o usuário é o criador da ocorrência
+  const ehCriadorOcorrencia =
+    idUsuarioLogado != null &&
+    dadosOcorrencia?.idUsuario != null &&
+    String(idUsuarioLogado) === String(dadosOcorrencia.idUsuario);
+
   // ==========================================
-  // BUSCAR OCORRÊNCIA
+  // BUSCAR OCORRÊNCIA E ENCAMINHAMENTOS
   // ==========================================
+
   const buscarEncaminhamentoRecebido = async () => {
     try {
       const [responseOco, responseEnc] = await Promise.all([
@@ -52,6 +71,9 @@ const Ocorrencias = () => {
 
       const ocorrencia = responseOco.data;
       const lista = extrairLista(responseEnc.data);
+
+      // Guarda todos os encaminhamentos
+      setHistEncaminhamentos(lista);
 
       // Carrega os dados da ocorrência
       setDadosOcorrencia(ocorrencia);
@@ -85,6 +107,7 @@ const Ocorrencias = () => {
       setEncaminhamento(recebido || null);
 
       console.log("Ocorrência:", ocorrencia);
+      console.log("Histórico de encaminhamentos:", lista);
       console.log("Encaminhamento recebido:", recebido);
     } catch (error) {
       console.error(
@@ -93,18 +116,33 @@ const Ocorrencias = () => {
       );
     }
   };
-  const getOcorrenciaId = async () => {
-    try {
-      const response = await api.get(`/Ocorrencia/${idOcorrencia}`);
 
-      setDadosOcorrencia(response.data);
+  // ==========================================
+  // BUSCAR FEEDBACK DA OCORRÊNCIA
+  // ==========================================
+
+  const buscarFeedback = async () => {
+    try {
+      const response = await api.get(`/Feedback/Ocorrencia/${idOcorrencia}`);
+
+      const feedbacks = extrairLista(response.data);
+
+      // Guarda o objeto COMPLETO, incluindo idFeedback e lido
+      const feedbackEncontrado = feedbacks[0] || null;
+
+      setFeedback(feedbackEncontrado);
+
+      console.log("Objeto completo do feedback:", feedbackEncontrado);
     } catch (error) {
       console.error(
-        "Erro ao buscar ocorrência:",
+        "Erro ao buscar feedback:",
         error.response?.data || error.message,
       );
+
+      setFeedback(null);
     }
   };
+
   // ==========================================
   // REGISTRAR DEVOLUTIVA
   // ==========================================
@@ -147,8 +185,8 @@ const Ocorrencias = () => {
       setDevolutiva("");
       setEncaminhamento(null);
 
-      // Atualiza os dados da ocorrência
-      await getOcorrenciaId();
+      // Atualiza os dados da ocorrência e o histórico
+      await buscarEncaminhamentoRecebido();
 
       await Alerta({
         title: "Devolutiva enviada!",
@@ -170,6 +208,130 @@ const Ocorrencias = () => {
       });
     }
   };
+
+  // ==========================================
+  // REGISTRAR FEEDBACK
+  // ==========================================
+
+  const registrarFeedback = async () => {
+    const texto = cadFeedback.trim();
+
+    if (!texto) {
+      await Alerta({
+        title: "Atenção!",
+        text: "Digite um feedback antes de enviar.",
+        icon: "warning",
+      });
+
+      return;
+    }
+
+    // Só permite cadastrar depois da devolutiva
+    if (dadosOcorrencia?.idOstatus !== "FINALIZADA") {
+      await Alerta({
+        title: "Atenção!",
+        text: "Só é possível cadastrar um feedback após a finalização da ocorrência.",
+        icon: "warning",
+      });
+
+      return;
+    }
+
+    const dadosFeedback = {
+      mensagem: texto,
+      idOcorrencia: idOcorrencia,
+    };
+
+    try {
+      // Cadastra o feedback
+      await api.post("/Feedback", dadosFeedback);
+
+      // Limpa o campo de digitação
+      setCadFeedback("");
+
+      // Atualiza o status da ocorrência
+      await buscarEncaminhamentoRecebido();
+
+      // Busca o objeto completo do feedback
+      await buscarFeedback();
+
+      await Alerta({
+        title: "Feedback registrado!",
+        text: "O feedback foi registrado com sucesso.",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+    } catch (error) {
+      console.error(
+        "Erro ao registrar feedback:",
+        error.response?.data || error.message,
+      );
+
+      await Alerta({
+        title: "Erro ao registrar feedback!",
+        text:
+          error.response?.data?.message ||
+          error.response?.data ||
+          "Não foi possível registrar o feedback. Tente novamente.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    }
+  };
+
+  // ==========================================
+  // MARCAR FEEDBACK COMO LIDO
+  // ==========================================
+
+  const marcarFeedbackComoLido = async () => {
+    // Verifica se existe o objeto e seu identificador
+    if (!feedback || !feedback.idFeedback) {
+      console.error("Objeto de feedback recebido:", feedback);
+
+      await Alerta({
+        title: "Erro!",
+        text: "Não foi possível identificar o ID do feedback.",
+        icon: "error",
+      });
+
+      return;
+    }
+
+    // Não envia novamente se já estiver lido
+    if (feedback.lido) {
+      return;
+    }
+
+    try {
+      // Utiliza o ID real retornado pelo banco
+      await api.patch(`/Feedback/${feedback.idFeedback}/lido`);
+
+      // Atualiza o estado imediatamente, sem F5
+      setFeedback((anterior) => ({
+        ...anterior,
+        lido: true,
+      }));
+
+      await Alerta({
+        title: "Feedback visualizado!",
+        text: "O feedback foi marcado como lido.",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
+    } catch (error) {
+      console.error(
+        "Erro ao marcar feedback como lido:",
+        error.response?.data || error.message,
+      );
+
+      await Alerta({
+        title: "Erro!",
+        text: "Não foi possível marcar o feedback como lido.",
+        icon: "error",
+      });
+    }
+  };
+
   // ==========================================
   // BUSCAR RESPONSÁVEIS OU COORDENADORES
   // ==========================================
@@ -295,10 +457,10 @@ const Ocorrencias = () => {
         dadosEnc,
       );
 
-      console.log("Ocorrência encaminhada com sucesso:", response.data);
+      console.log("Ocorrência encaminhada:", response.data);
 
       // Atualiza os dados da ocorrência
-      await getOcorrenciaId();
+      await buscarEncaminhamentoRecebido();
 
       await Alerta({
         title: "Encaminhamento realizado!",
@@ -357,8 +519,8 @@ const Ocorrencias = () => {
       const encaminhamentos = extrairLista(responseEnc.data);
 
       // 2. Exclui os encaminhamentos
-      for (const encaminhamento of encaminhamentos) {
-        await api.delete(`/Encaminhamento/${encaminhamento.idEncaminhamento}`);
+      for (const item of encaminhamentos) {
+        await api.delete(`/Encaminhamento/${item.idEncaminhamento}`);
       }
 
       // 3. Busca as notificações
@@ -369,11 +531,23 @@ const Ocorrencias = () => {
       const notificacoes = extrairLista(responseNot.data);
 
       // 4. Exclui as notificações
-      for (const notificacao of notificacoes) {
-        await api.delete(`/Notificacao/${notificacao.idNotificacao}`);
+      for (const item of notificacoes) {
+        await api.delete(`/Notificacao/${item.idNotificacao}`);
       }
 
-      // 5. Exclui a ocorrência
+      // 5. Busca os feedbacks
+      const responseFeed = await api.get(
+        `/Feedback/Ocorrencia/${idOcorrencia}`,
+      );
+
+      const feedbacks = extrairLista(responseFeed.data);
+
+      // 6. Exclui os feedbacks
+      for (const item of feedbacks) {
+        await api.delete(`/Feedback/${item.idFeedback}`);
+      }
+
+      // 7. Exclui a ocorrência
       await api.delete(`/Ocorrencia/${idOcorrencia}`);
 
       await Alerta({
@@ -440,9 +614,11 @@ const Ocorrencias = () => {
   // ==========================================
   // CARREGAMENTO INICIAL
   // ==========================================
+
   useEffect(() => {
     if (idOcorrencia && usuario) {
       buscarEncaminhamentoRecebido();
+      buscarFeedback();
     }
   }, [idOcorrencia, usuario?.idUsuario, usuario?.id, usuario?.perfil]);
 
@@ -693,8 +869,11 @@ const Ocorrencias = () => {
               </div>
             </div>
           )}
+
+        {/* MENSAGEM DE OCORRÊNCIA EM ANDAMENTO */}
+
         {usuario?.perfil === "AQV" &&
-          dadosOcorrencia?.idOstatus !== "ABERTA" && (
+          dadosOcorrencia?.idOstatus === "ANDAMENTO" && (
             <div className="oco-card">
               <div className="oco-card-head">
                 <span className="oco-icone">
@@ -702,12 +881,16 @@ const Ocorrencias = () => {
                   Encaminhar Ocorrência
                 </span>
               </div>
+
               <p className="oco-encaminhar-msg">
-                Esta ocorrência já foi encaminhada, seu status é atual é{" "}
+                Esta ocorrência já foi encaminhada, seu status atual é{" "}
                 <strong>{dadosOcorrencia?.idOstatus}</strong>.
               </p>
             </div>
           )}
+
+        {/* ORIENTAÇÕES DA AQV */}
+
         {recebeuEncaminhamento && encaminhamento && (
           <div className="oco-card">
             <div className="oco-card-head">
@@ -721,6 +904,9 @@ const Ocorrencias = () => {
             </div>
           </div>
         )}
+
+        {/* CAMPO PARA REGISTRAR DEVOLUTIVA */}
+
         {recebeuEncaminhamento && (
           <div className="oco-card">
             <h3>Devolutiva da ocorrência</h3>
@@ -741,6 +927,117 @@ const Ocorrencias = () => {
             </button>
           </div>
         )}
+
+        {/* DEVOLUTIVAS VISÍVEIS PARA A AQV */}
+
+        {usuario?.perfil === "AQV" &&
+          dadosOcorrencia?.idOstatus === "FINALIZADA" &&
+          histEncaminhamentos.some((item) => item?.dataDevolutiva != null) && (
+            <>
+              <div className="oco-card">
+                <div className="oco-card-head">
+                  <span className="oco-icone">Devolutivas da Ocorrência</span>
+                </div>
+
+                {histEncaminhamentos
+                  .filter((item) => item?.dataDevolutiva != null)
+                  .map((item) => (
+                    <div key={item.idEncaminhamento}>
+                      <div className="oco-descricao">
+                        {item.observacao?.trim() ||
+                          "O destinatário não adicionou observações nesta devolutiva."}
+                      </div>
+
+                      <p>
+                        <strong>Data da devolutiva: </strong>
+
+                        {new Date(item.dataDevolutiva).toLocaleString("pt-BR")}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+
+              {/* FORMULÁRIO DE FEEDBACK */}
+
+              <div className="oco-card">
+                <h3>Feedback da ocorrência</h3>
+
+                <textarea
+                  className="oco-input"
+                  placeholder="Digite seu feedback..."
+                  value={cadFeedback}
+                  onChange={(e) => setCadFeedback(e.target.value)}
+                />
+
+                <button
+                  type="button"
+                  className="oco-btn-devolutiva"
+                  onClick={registrarFeedback}
+                >
+                  Enviar feedback
+                </button>
+              </div>
+            </>
+          )}
+
+        {/* FEEDBACK JÁ REGISTRADO */}
+
+        {dadosOcorrencia?.idOstatus === "FEEDBACK" &&
+          usuario?.perfil === "AQV" && (
+            <div className="oco-card">
+              <div className="oco-card-head">
+                <span className="oco-icone">
+                  <img
+                    src="/finalizado.png"
+                    alt=""
+                    className="oco-icone-img-finalizado"
+                  />
+                  Feedback registrado
+                </span>
+              </div>
+
+              <p className="oco-encaminhar-msg">
+                Esta ocorrência já recebeu um feedback.
+              </p>
+            </div>
+          )}
+
+        {/* FEEDBACK VISÍVEL PARA O PROFESSOR CRIADOR */}
+
+        {ehCriadorOcorrencia &&
+          dadosOcorrencia?.idOstatus === "FEEDBACK" &&
+          feedback && (
+            <div className="oco-card">
+              <div className="oco-card-head oco-feedback-head">
+                <span className="oco-icone">
+                  <img
+                    src="/finalizado.png"
+                    alt=""
+                    className="oco-icone-img-finalizado"
+                  />
+                  Feedback
+                </span>
+
+                {feedback.lido ? (
+                  <span className="oco-badge oco-verde">Lido</span>
+                ) : (
+                  <span className="oco-badge oco-vermelho">Não lido</span>
+                )}
+              </div>
+
+              <p className="oco-encaminhar-msg">{feedback.mensagem}</p>
+
+              {!feedback.lido && (
+                <button
+                  type="button"
+                  className="oco-btn-lida"
+                  onClick={marcarFeedbackComoLido}
+                >
+                  <p className="txt-btn-enviar">Marcar como lido</p>
+                </button>
+              )}
+            </div>
+          )}
       </div>
     </div>
   );

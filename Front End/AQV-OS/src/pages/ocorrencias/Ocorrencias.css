@@ -1,77 +1,127 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
 
-/* ===== TELA DE DETALHES DA OCORRÊNCIA ===== */
+/* =========================
+   PÁGINA
+========================= */
 
 .oco-body {
     display: flex;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("/fundo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     color: var(--branco);
-    background-image: url("/fundo.jpg");
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
 }
+
+/* =========================
+   CONTEÚDO
+========================= */
 
 .oco-div {
     flex: 1;
-    height: 100vh;
+    min-width: 0;
+    min-height: 100vh;
+
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 32px 48px 48px;
+
+    padding: 32px 40px 40px;
+    box-sizing: border-box;
+
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.oco-breadcrumb {
-    font-size: 14px;
-    color: var(--branco);
-    opacity: 0.8;
+.oco-div::-webkit-scrollbar {
+    width: 6px;
 }
 
+.oco-div::-webkit-scrollbar-thumb {
+    background: rgba(173, 213, 255, 0.3);
+    border-radius: 10px;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
 .oco-h1 {
-    font-size: 34px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--branco);
     margin: 0;
 }
 
-/* ===== CARDS ===== */
+/* =========================
+   CARDS
+========================= */
 
 .oco-card {
+<<<<<<< HEAD
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 4, 58, 0.55);
+=======
     background-color: var(--azul-transparente);
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 10px;
-    padding: 22px 28px;
+
+    padding: 22px;
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
 .oco-card-top {
+<<<<<<< HEAD
+    width: 100%;
+    min-width: 0;
+    min-height: 160px;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 4, 58, 0.55);
+=======
     background-color: var(--azul-transparente);
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 10px;
-    padding-left: 22px;
+
+    padding: 22px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
+    gap: 20px;
+=======
     min-height: 120px;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
 }
 
 .oco-card-head {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
 }
 
-/* ===== ÍCONES E TÍTULOS ===== */
+/* =========================
+   ÍCONES E TÍTULOS
+========================= */
 
 .oco-icone {
     display: flex;
     align-items: center;
     gap: 8px;
+
     font-size: 15px;
     color: var(--branco);
     font-weight: 500;
@@ -81,41 +131,52 @@
     width: 20px;
     height: 20px;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
 .oco-titulo-valor {
-    font-size: 28px;
+    font-size: 26px;
     color: var(--branco);
     font-weight: 700;
-    margin-top: 20px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
 }
 
-/* ===== BADGES ===== */
+/* =========================
+   BADGES
+========================= */
 
 .oco-badges {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    gap: 6px;
-    width: 170px;
+    gap: 8px;
+
+    width: 150px;
     flex-shrink: 0;
-    margin-right: 15px;
 }
 
 .oco-badge {
+    width: auto;
+    min-width: 110px;
+    max-width: 100%;
+    min-height: 30px;
     box-sizing: border-box;
-    width: 110px;
-    height: 28px;
 
     border: none;
     border-radius: 6px;
 
-    padding: 0 10px;
+    padding: 6px 12px;
     margin: 0;
 
+<<<<<<< HEAD
+    font-weight: 600;
+    font-size: 14px;
+=======
     font-weight: 500;
     font-size: 15px;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     text-align: center;
 
     display: flex;
@@ -126,17 +187,22 @@
 
 .oco-verde {
     background-color: #3ECF6E;
-    color: #fff;
+    color: #FFFFFF;
 }
 
 .oco-amarelo {
+<<<<<<< HEAD
+    background-color: #D8D802;
+    color: #FFFFFF;
+=======
     background-color: #E9A23B;
     color: #fff;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
 }
 
 .oco-vermelho {
     background-color: #F24C4C;
-    color: #fff;
+    color: #FFFFFF;
 }
 
 .oco-azul {
@@ -145,13 +211,13 @@
 }
 
 .oco-azul-escuro {
-    background-color: #868df8;
-    color: #fff;
+    background-color: #868DF8;
+    color: #FFFFFF;
 }
 
 .oco-laranja {
     background-color: #FFAC78;
-    color: #fff;
+    color: #FFFFFF;
 }
 
 .oco-branco {
@@ -159,40 +225,78 @@
     color: #002962;
 }
 
-/* ===== ESTUDANTE E TURMA ===== */
-
-.oco-row2 {
-    display: flex;
-    gap: 20px;
-}
+/* =========================
+   EXCLUIR
+========================= */
 
 .btn-excluir {
+<<<<<<< HEAD
+    width: 110px;
+    min-height: 32px;
+    padding: 7px 12px;
+    box-sizing: border-box;
+
+=======
+    margin-top: 20px;
     width: 110px;
     height: 27px;
     padding: 0;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     background-color: #C9001B;
     color: #FFFFFF;
     border: none;
     border-radius: 6px;
+<<<<<<< HEAD
+
+    font-size: 14px;
+    font-weight: 700;
+
+=======
     font-size: 16px;
     font-weight: 500;
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     cursor: pointer;
     transition: background-color 0.2s ease;
+}
+.oco-vermelho {
+    background-color: #C9001B;
+    color: #FFFFFF;
 }
 
 .btn-excluir:hover {
     background-color: #A90017;
 }
 
+<<<<<<< HEAD
+/* =========================
+   ESTUDANTE E TURMA
+========================= */
+
+.oco-row2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.oco-box-metade {
+    min-width: 0;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 4, 58, 0.55);
+=======
 .oco-box-metade {
     flex: 1;
     background-color: var(--azul-transparente);
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 10px;
-    padding: 12px 16px;
+
+    padding: 14px 16px;
+
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
 .oco-box-metade label {
@@ -202,43 +306,62 @@
 }
 
 .oco-valor {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
     background-color: rgba(0, 4, 58, 0);
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 6px;
-    padding: 6px 12px;
-    font-size: 15px;
+
+    padding: 9px 12px;
+    font-size: 14px;
     color: var(--branco);
+    overflow-wrap: anywhere;
 }
 
-/* ===== DESCRIÇÃO ===== */
+/* =========================
+   DESCRIÇÃO
+========================= */
 
 .oco-descricao {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
     background-color: rgba(0, 4, 58, 0);
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 6px;
-    padding: 14px 18px;
+
+    padding: 14px 16px;
     font-size: 15px;
     line-height: 1.6;
     color: var(--branco);
-    word-break: break-all;
+
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
     min-height: 70px;
 }
 
-/* ===== INPUTS ===== */
+/* =========================
+   INPUTS
+========================= */
 
 .oco-input {
     width: 100%;
+    min-width: 0;
     height: 46px;
     min-height: 46px;
     box-sizing: border-box;
 
     background-color: rgba(0, 4, 58, 0);
     font-family: "Roboto", sans-serif;
+
     border: 2px solid var(--azul-claro-transparente);
     border-radius: 6px;
 
     color: var(--branco);
-    padding: 0 16px;
+    padding: 0 14px;
     font-size: 14px;
 }
 
@@ -257,7 +380,9 @@
     color: var(--branco);
 }
 
-/* ===== MENU PERSONALIZADO ===== */
+/* =========================
+   SELECT PERSONALIZADO
+========================= */
 
 .oco-select-wrapper {
     position: relative;
@@ -266,17 +391,16 @@
     z-index: 10;
 }
 
-/* Campo fechado: azul escuro original */
-
 .oco-select-destino {
     width: 100%;
     height: 46px;
     box-sizing: border-box;
-    padding: 0 16px;
+    padding: 0 14px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
 
     background-color: rgba(0, 4, 58, 0);
     border: 2px solid var(--azul-claro-transparente);
@@ -285,7 +409,6 @@
     color: var(--branco);
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    font-weight: 400;
 
     cursor: pointer;
 }
@@ -297,19 +420,19 @@
 .oco-seta-select {
     font-size: 20px;
     line-height: 1;
+    flex-shrink: 0;
 }
 
-/* ===== LISTA DE OPÇÕES ===== */
-
-/* Menu abre para cima */
+/* OPÇÕES */
 
 .oco-opcoes-destino {
     position: absolute;
     bottom: calc(100% + 4px);
-    top: auto;
     left: 0;
 
     width: 100%;
+    max-height: 220px;
+    overflow-y: auto;
     z-index: 100;
 
     display: flex;
@@ -318,17 +441,13 @@
     background-color: #244F9C;
     border: 1px solid #6F98C9;
     border-radius: 6px;
-    overflow: hidden;
-
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-
-/* Todas as opções azuis */
 
 .oco-opcao-destino {
     width: 100%;
     min-height: 42px;
-    padding: 10px 16px;
+    padding: 10px 14px;
 
     background-color: #244F9C;
     color: #FFFFFF;
@@ -338,35 +457,30 @@
 
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    font-weight: 400;
 
     cursor: pointer;
 }
-
-/* Efeito ao passar o mouse */
 
 .oco-opcao-destino:hover {
     background-color: #173A78;
 }
 
-/* Opção selecionada continua azul */
-
 .oco-opcao-destino.selecionada {
     background-color: #244F9C;
     color: #FFFFFF;
-    font-weight: 400;
 }
 
 .oco-opcao-destino.selecionada:hover {
     background-color: #173A78;
-    color: #FFFFFF;
 }
 
-/* ===== LINHA DE ENCAMINHAMENTO ===== */
+/* =========================
+   ENCAMINHAMENTO
+========================= */
 
 .oco-encaminhar-row {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) 176px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 160px;
     align-items: center;
     gap: 12px;
     width: 100%;
@@ -374,22 +488,37 @@
 
 .oco-encaminhar-row>.oco-input {
     width: 100%;
-    height: 46px;
-    min-height: 46px;
     min-width: 0;
-    box-sizing: border-box;
 }
 
-/* ===== BOTÃO ENCAMINHAR ===== */
-
 .oco-btn-enviar {
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+
     background-color: var(--azul-claro);
     color: var(--azul-escuro);
     border: none;
     border-radius: 6px;
 
-    height: 46px;
-    min-height: 46px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.oco-btn-lida{
+        background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    border: none;
+    border-radius: 6px;
+
+    height: 29px;
+    min-height: 29px;
     width: 176px;
 
     font-family: "Roboto", sans-serif;
@@ -401,7 +530,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .oco-btn-enviar:hover {
     filter: brightness(1.08);
 }
@@ -415,12 +543,17 @@
     margin: 0;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* =========================
+   TABLET
+========================= */
 
-@media (max-width: 900px) {
-
+@media (max-width: 1000px) {
     .oco-div {
-        padding: 24px;
+        padding: 28px;
+    }
+
+    .oco-card-top {
+        padding: 18px;
     }
 
     .oco-encaminhar-row {
@@ -429,16 +562,89 @@
 
     .oco-encaminhar-row .oco-btn-enviar {
         grid-column: 1 / -1;
-        width: 100%;
     }
 }
 
-@media (max-width: 700px) {
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 768px) {
+    .oco-body {
+        background-attachment: scroll;
+    }
+
+    .oco-div {
+        padding: 75px 18px 25px;
+        gap: 15px;
+    }
+
+    .oco-h1 {
+        font-size: 26px;
+    }
+
+    .oco-card-top {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+
+        min-height: unset;
+        padding: 18px;
+    }
+
+    .oco-card-head {
+        gap: 10px;
+    }
+
+    .oco-titulo-valor {
+        font-size: 22px;
+    }
+
+    .oco-badges {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+        gap: 8px;
+    }
+
+    .oco-badge {
+        min-width: 0;
+        width: auto;
+    }
+
+    .btn-excluir {
+        width: auto;
+        flex: 1;
+        min-width: 90px;
+    }
+
+    .oco-row2 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .oco-box-metade {
+        padding: 12px;
+    }
+
+    .oco-card {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .oco-descricao {
+        padding: 12px;
+        font-size: 14px;
+    }
 
     .oco-encaminhar-row {
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        gap: 12px;
     }
 
     .oco-encaminhar-row .oco-select-wrapper,
@@ -447,16 +653,39 @@
         width: 100%;
     }
 
-    .oco-row2 {
-        flex-direction: column;
+    .oco-btn-enviar {
+        min-height: 46px;
     }
+}
 
-    .oco-card-top {
-        padding: 16px;
+/* CELULARES PEQUENOS */
+
+@media (max-width: 400px) {
+    .oco-div {
+        padding-left: 13px;
+        padding-right: 13px;
     }
 
     .oco-h1 {
-        font-size: 26px;
+        font-size: 23px;
+    }
+
+    .oco-card-top,
+    .oco-card {
+        padding: 13px;
+    }
+
+    .oco-titulo-valor {
+        font-size: 19px;
+    }
+
+    .oco-icone {
+        font-size: 13px;
+    }
+
+    .oco-badge {
+        font-size: 12px;
+        padding: 6px 9px;
     }
 }
 
@@ -572,4 +801,32 @@
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
+}
+.oco-icone-img-finalizado{
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+/* ==========================================
+   CABEÇALHO DO CARD DE FEEDBACK
+========================================== */
+
+.oco-feedback-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+}
+
+.oco-feedback-head .oco-icone {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.oco-feedback-head .oco-badge {
+    flex-shrink: 0;
+    margin-left: auto;
 }

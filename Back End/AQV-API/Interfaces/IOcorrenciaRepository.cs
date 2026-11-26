@@ -1,8 +1,8 @@
-﻿using AQV.WebAPI.Models;
+﻿using AQV_API.Models;
 
 namespace AQV_API.Interfaces
 {
-    public interface IOcorrenciaRepository
+    public interface IOcorrenciasRepository
     {
         void Cadastrar(Ocorrencia x);
         List<Ocorrencia> Listar();

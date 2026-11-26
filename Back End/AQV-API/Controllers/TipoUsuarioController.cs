@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using AQV_API.Interfaces;
 using AQV_API.DTO;
-using AQV.WebAPI.Models;
+using AQV_API.Models;
 
 namespace AQV_API.Controllers
 {

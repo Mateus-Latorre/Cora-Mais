@@ -39,7 +39,6 @@ const NovaOcorrencia = () => {
     };
 
     const cadastrarOcorrencia = async () => {
-        debugger
         try {
             const token = localStorage.getItem("token");
 

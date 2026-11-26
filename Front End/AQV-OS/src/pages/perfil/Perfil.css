@@ -1,3 +1,656 @@
+<<<<<<< HEAD
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700&display=swap');
+
+/* ==========================================================
+   DESKTOP (acima de 1000px) - layout igual ao seu CSS antigo
+========================================================== */
+
+@media (min-width: 1001px) {
+
+    /* =========================
+       PÁGINA
+    ========================= */
+
+    .perfil-body {
+        display: flex;
+        width: 100%;
+        min-height: 100dvh; /* antes: max-height 919px (causava o espaço no final) */
+        background-color: var(--azul);
+        color: var(--branco);
+        /* background-image: url("/fundo.jpg"); */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+        width: 100%;
+        min-height: 100dvh;
+        box-sizing: border-box;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 30px;
+        align-items: last baseline;
+    }
+
+    /* =========================
+       TÍTULOS
+    ========================= */
+
+    .titulo_l {
+        font-size: 32px !important;
+    }
+
+    .titulo2 {
+        margin-top: 27px;
+        margin-bottom: 2px;
+    }
+
+    .titulo_2 {
+        font-size: 55px !important;
+    }
+
+    /* =========================
+       INFORMAÇÕES DO PERFIL
+    ========================= */
+
+    .caixa {
+        width: 100%;
+        max-width: 1400px;
+        box-sizing: border-box;
+        align-items: center;
+        height: 300px;
+        border: 2px solid var(--azul-claro-transparente);
+        background-color: var(--azul-transparente);
+        border-radius: 15px;
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .imgProf {
+        height: 250px;
+        margin-left: clamp(15px, 3vw, 50px);
+    }
+
+    .imgAQV {
+        width: clamp(150px, 16vw, 240px);
+        height: clamp(150px, 16vw, 240px);
+        margin-left: clamp(15px, 4vw, 65px);
+    }
+
+    .imgCoordenador {
+        width: clamp(150px, 16vw, 240px);
+        height: clamp(150px, 16vw, 240px);
+        margin-left: clamp(15px, 4vw, 65px);
+    }
+
+    .Desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: clamp(20px, 6vw, 110px);
+        margin-right: clamp(15px, 2.5vw, 40px);
+    }
+
+    .Info {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 15px;
+    }
+
+    .Info_tipo {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .Info_txt {
+        margin-left: clamp(20px, 3vw, 49px);
+    }
+
+    .T_desc {
+        color: #ADD5FF;
+        font-weight: bolder;
+        font-size: 15px;
+    }
+
+    .txt_desc_nome {
+        font-weight: bolder;
+        font-size: 18px;
+        margin-top: 6px;
+    }
+
+    .txt_desc {
+        font-size: 18px;
+        margin-top: 6px;
+    }
+
+    .imgDesc {
+        height: 44px;
+        width: 44px;
+    }
+
+    .imgDescEmail {
+        height: 44px;
+        width: 44px;
+    }
+
+    /* =========================
+       TROCA DE SENHA
+    ========================= */
+
+    .caixa2 {
+        background-color: var(--azul-transparente);
+        font-family: "Roboto";
+        border: 2px solid var(--azul-claro-transparente);
+        border-radius: 15px;
+        width: 100%;
+        max-width: 1400px;
+        color: var(--branco);
+        height: 270px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 30px;
+        box-sizing: border-box;
+    }
+
+    .campo {
+        padding-bottom: 10px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .campo_senhas {
+        margin-top: 15px;
+        align-items: center;
+        background-color: transparent;
+        border-radius: 3px;
+    }
+
+    .campo_txt {
+        margin-bottom: 7px;
+        font-size: 13.28px;
+    }
+
+    .campo_input {
+        width: 590px;
+        max-width: 100%;
+        box-sizing: border-box;
+        height: 35px;
+        background-color: transparent;
+        border: 2px solid var(--azul-claro-transparente);
+        border-radius: 7px;
+        color: var(--branco);
+    }
+
+    .campo_input:focus {
+        outline: transparent;
+        border-color: var(--laranja-transparente) !important;
+        border: 2px solid;
+    }
+
+    /* =========================
+       BOTÃO
+    ========================= */
+
+    .btn {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .btn_salvar {
+        width: 130px;
+        border-radius: 7px;
+        background-color: #ADD5FF;
+        border: rgb(0, 4, 58, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        height: 25px;
+    }
+
+    .btn_salvar img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .salvar_txt {
+        color: #fff;
+        font-size: 15px;
+        font-weight: bolder;
+    }
+
+    .salvar_img {
+        width: 30px;
+        height: 30px;
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVO (1000px para baixo) - IGUAL AO ORIGINAL, sem mudanças
+========================================================== */
+
+@media (max-width: 1000px) {
+
+    .perfil-body {
+        display: flex;
+        width: 100%;
+        min-height: 100dvh;
+        background-color: var(--azul);
+        color: var(--branco);
+        overflow-x: hidden;
+        font-family: "Roboto", sans-serif;
+    }
+
+    .perfil-body .container {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        min-height: 100dvh;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 32px 40px;
+        box-sizing: border-box;
+    }
+
+    .perfil-body .titulo {
+        width: 100%;
+    }
+
+    .titulo_l {
+        font-size: 32px;
+        margin: 0;
+    }
+
+    .titulo2 {
+        margin-top: 30px;
+        margin-bottom: 12px;
+    }
+
+    .titulo_2_ {
+        font-size: 28px;
+        margin: 0;
+    }
+
+    .caixa {
+        width: 100%;
+        min-height: 270px;
+        box-sizing: border-box;
+
+        border: 2px solid var(--azul-claro-transparente);
+        background-color: rgba(0, 4, 58, 0.5);
+        border-radius: 15px;
+
+        display: flex;
+        align-items: center;
+        gap: 35px;
+
+        padding: 28px;
+        margin-top: 20px;
+    }
+
+    .imgProf {
+        height: 200px;
+        max-width: 180px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .imgAQV,
+    .imgCoordenador {
+        width: 180px;
+        height: 180px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .Desc {
+        flex: 1;
+        min-width: 0;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 30px;
+
+        margin: 0;
+    }
+
+    .Info,
+    .Info_tipo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        min-width: 0;
+    }
+
+    .Info_txt {
+        min-width: 0;
+        margin: 0;
+    }
+
+    .imgDesc,
+    .imgDescEmail {
+        width: 38px;
+        height: 38px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .T_desc {
+        color: #ADD5FF;
+        font-weight: 700;
+        font-size: 14px;
+        margin: 0 0 5px;
+    }
+
+    .txt_desc_nome {
+        font-weight: 700;
+        font-size: 16px;
+        margin: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .txt_desc {
+        font-size: 15px;
+        margin: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .caixa2 {
+        width: 100%;
+        min-height: 260px;
+        box-sizing: border-box;
+
+        background-color: rgba(0, 4, 58, 0.5);
+        border: 2px solid var(--azul-claro-transparente);
+        border-radius: 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+
+        padding: 25px;
+    }
+
+    .campo {
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .campo_senhas_atual,
+    .campo_senhas {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .campo_txt {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .campo_input {
+        width: 100%;
+        height: 42px;
+        box-sizing: border-box;
+
+        background-color: rgba(0, 4, 58, 0.5);
+        border: 2px solid var(--azul-claro-transparente);
+        border-radius: 7px;
+
+        padding: 0 12px;
+        color: var(--branco);
+        font-family: "Roboto", sans-serif;
+        outline: none;
+    }
+
+    .campo_input:focus {
+        border-color: #ADD5FF;
+    }
+
+    .btn {
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .btn_salvar {
+        width: 190px;
+        min-height: 44px;
+        box-sizing: border-box;
+
+        border-radius: 9px;
+        background-color: #ADD5FF;
+        border: 1px solid #002962;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        cursor: pointer;
+    }
+
+    .btn_salvar:hover {
+        filter: brightness(1.05);
+    }
+
+    .btn_salvar:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .salvar_txt {
+        color: #002962;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .salvar_img {
+        width: 23px;
+        height: 23px;
+        object-fit: contain;
+    }
+
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+    .perfil-body .container {
+        padding: 28px;
+    }
+
+    .caixa {
+        gap: 25px;
+        padding: 22px;
+    }
+
+    .imgProf {
+        max-width: 140px;
+        height: 170px;
+    }
+
+    .imgAQV,
+    .imgCoordenador {
+        width: 140px;
+        height: 140px;
+    }
+
+    .Desc {
+        gap: 17px;
+    }
+
+    .Info,
+    .Info_tipo {
+        gap: 10px;
+    }
+
+    .imgDesc,
+    .imgDescEmail {
+        width: 30px;
+        height: 30px;
+    }
+
+    .caixa2 {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+    .perfil-body .container {
+        padding: 75px 18px 25px;
+    }
+
+    .titulo_l {
+        font-size: 27px;
+    }
+
+    .titulo2 {
+        margin-top: 25px;
+    }
+
+    .titulo_2_ {
+        font-size: 24px;
+    }
+
+    .caixa {
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+
+        padding: 22px 16px;
+        min-height: unset;
+    }
+
+    .imgProf {
+        width: 130px;
+        height: 160px;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .imgAQV,
+    .imgCoordenador {
+        width: 130px;
+        height: 130px;
+        margin: 0;
+    }
+
+    .Desc {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 18px;
+    }
+
+    .Info,
+    .Info_tipo {
+        width: 100%;
+        gap: 12px;
+    }
+
+    .Info_txt {
+        margin: 0;
+    }
+
+    .imgDesc,
+    .imgDescEmail {
+        width: 32px;
+        height: 32px;
+    }
+
+    .T_desc {
+        font-size: 13px;
+    }
+
+    .txt_desc_nome,
+    .txt_desc {
+        font-size: 15px;
+    }
+
+    .caixa2 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 18px;
+        min-height: unset;
+    }
+
+    .campo {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+        width: 100%;
+    }
+
+    .campo_txt {
+        font-size: 14px;
+    }
+
+    .campo_input {
+        width: 100%;
+        height: 44px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .btn_salvar {
+        width: 100%;
+        min-height: 45px;
+    }
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 400px) {
+    .perfil-body .container {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .caixa {
+        padding: 17px 12px;
+    }
+
+    .caixa2 {
+        padding: 14px;
+    }
+
+    .titulo_l {
+        font-size: 24px;
+    }
+
+    .titulo_2_ {
+        font-size: 22px;
+    }
+=======
 .perfil-body {
     display: flex;
     max-width: 100vw;
@@ -216,4 +869,5 @@
     /* display: flex; */
     justify-content: flex-end;
     /* margin-top: 3px; */
+>>>>>>> 8ae198dfda9a96a73eb2d62638bb8719b30cc19c
 }

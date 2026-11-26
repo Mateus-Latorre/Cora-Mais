@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AQV.WebAPI.Models;
+namespace AQV_API.Models;
 
 public partial class Ostatus
 {

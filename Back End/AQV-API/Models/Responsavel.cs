@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AQV.WebAPI.Models;
+namespace AQV_API.Models;
 
 public partial class Responsavel
 {
@@ -15,7 +15,9 @@ public partial class Responsavel
 
     public Guid? IdAluno { get; set; }
 
+    public virtual ICollection<Encaminhamento> Encaminhamentos { get; set; } = new List<Encaminhamento>();
+
     public virtual Aluno? IdAlunoNavigation { get; set; }
 
-    public virtual ICollection<Encaminhamento> Encaminhamentos { get; set; } = new List<Encaminhamento>();
+    public virtual ICollection<Ocorrencia> Ocorrencia { get; set; } = new List<Ocorrencia>();
 }
